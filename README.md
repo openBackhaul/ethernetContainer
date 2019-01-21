@@ -1,2 +1,2 @@
 # ethernetContainer
-Technology specific interface definition for an Ethernet Container 
+Technology specific interface definition for an Ethernet container 
