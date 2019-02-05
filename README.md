@@ -7,7 +7,7 @@ Technology specific interface definition for an Ethernet container
 
 ### UML
 - Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
-- 2.0.0-tsp.190205.1530 : [](./)
+- 2.0.0-tsp.190205.1530 : [190205 EthernetContainerPac.zip](./190205%20EthernetContainerPac.zip)
 
 ### Overview 
 - Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
