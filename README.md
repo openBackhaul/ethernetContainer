@@ -1,5 +1,5 @@
 # ethernetContainer
-Technology specific interface definition for an Ethernet container 
+Technology specific amendment to the LayerProtocol class for an Ethernet transport resource
 
 ### Branch
 - Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
@@ -7,41 +7,39 @@ Technology specific interface definition for an Ethernet container
 
 ### UML
 - Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
-- 1.1.0-tr532v1_1.180822.1354 : [MwIM_1.1.0-tr532v1_1.190204.1013.zip](./MwIM_1.1.0-tr532v1_1.190204.1013.zip)
-- 1.1.0-tr532v1_1.190204.1013 = 1.1.0-tr532v1_1.180822.1354 + several GendocTemplates
+- 1.1.0-tr532v1_1.190410.1620 : [MwIM_1.1.0-tr532v1_1.190410.1620](./MwIM_1.1.0-tr532v1_1.190410.1620.zip)
 
 ### Overview 
 - Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
-- 1.1.0-tr532v1_1.190204.1013+overview.1 : [EthernetContainerPac_1.1.0-tr532v1_1.190204.1013+overview.190204.1346.png](./EthernetContainerPac_1.1.0-tr532v1_1.190204.1013+overview.190204.1346.png)
+- 1.1.0-tr532v1_1.190410.1620+overview.1 : [EthernetContainerCD](./EthernetContainerCD.PNG)
 
 ### List of Classes
-- Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
-- 1.1.0-tr532v1_1.190204.1013+list.1 : [EthernetContainerPac_1.1.0-tr532v1_1.190204.1013+txt.190204.1429.txt](./EthernetContainerPac_1.1.0-tr532v1_1.190204.1013+txt.190204.1429.txt)
+- not provided
 
 ### GenDoc Export
-- Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
-- 1.1.0-tr532v1_1.190204.1013+gendoc.1 : [EthernetContainerPac_1.1.0-tr532v1_1.190204.1013+gendoc.190204.1429.docx](./EthernetContainerPac_1.1.0-tr532v1_1.190204.1013+gendoc.190204.1429.docx)
+- 1.1.0-tr532v1_1.190410.1620+gendoc.1 : see Publication
 
 ### YANG File
 - Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
-- 1.1.0-tr532v1_1.180822.1354+yang.1 : [MW-YANG-files-POC-5-04-10-2018-1901.zip](./MW-YANG-files-POC-5-04-10-2018-1901.zip)
+- 1.1.0-tr532v1_1.190410.1620+yang.1 : [YANG-Data-Model-for-TR-532-v1_1](./YANG-Data-Model-for-TR-532-v1_1.zip)
 
 ### Interface Simulator
 - Alex Stancu (Alex.Stancu@openBackhaul.com)
 - 1.1.0-tr532v1_1.180822.1354+simulator.1 : [WTE_PoC5-master.zip](./WTE_PoC5-master.zip)
 
 ### Interface Validator
-- to be provided
+- not provided
 
 ### Publication
 - Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
-- 1.1.0-tr532v1_1.190204.1013+tr.1 : [Tr532v1.1_1.1.0-tr532v1_1.190204.1013+tr.190204.1513.docx](./Tr532v1.1_1.1.0-tr532v1_1.190204.1013+tr.190204.1513.docx)
+- 1.1.0-tr532v1_1.190410.1620.tr.1 : [Tr532v1.1_1.1.0-tr532v1_1.190410.1620+tr.1](./Tr532v1.1_1.1.0-tr532v1_1.190410.1620+tr.1.pdf)
 
 ### Aspired Model Classification
-- Published
+- to be published
 
 ### Open Issue List
 - Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
 - [bugtracker.openBackhaul.com](https://bugtracker.openBackhaul.com)
 
 ### Comments
+The first implementations of the airInterface have been made within framework of ONF PoCs 2 to 5. Consolidated UML and YANG models contain ONF Core IM 1.2, airInterface, wireInterface, hybridMwStructure, pureEthernetStructure, tdmContainer and ethernetContainer as they have been applied during these ONF PoCs.
