@@ -37,6 +37,7 @@ Technology specific interface definition for an Ethernet container
 
 ### Open Issue List
 - Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
-- [bugtracker.openBackhaul.com](https://bugtracker.openBackhaul.com)
+- [ethernetContainer/issues](../../issues)
 
 ### Comments
+./.
