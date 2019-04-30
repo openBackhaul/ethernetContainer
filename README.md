@@ -7,19 +7,19 @@ Technology specific interface definition for an Ethernet container
 
 ### UML
 - Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
-- 2.0.0-tsp.190205.1530 : [190205 EthernetContainerPac.zip](./190205%20EthernetContainerPac.zip)
+- [EthernetContainer_2.0.0-tsp.190430.1635](./EthernetContainer_2.0.0-tsp.190430.1635.zip)
 
 ### Overview 
 - Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
-- 2.0.0-tsp.190205.1530+overview.1 : [](./)
+- [EthernetContainer_2.0.0-tsp.190430.1635+overview.1](./EthernetContainer_2.0.0-tsp.190430.1635+overview.1.png)
 
 ### List of Classes
 - Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
-- 2.0.0-tsp.190205.1530+list.1 : [](./)
+- to be provided
 
 ### GenDoc Export
 - Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
-- 2.0.0-tsp.190205.1530+gendoc.1 : [](./)
+- [EthernetContainer_2.0.0-tsp.190430.1635+gendoc.1](./EthernetContainer_2.0.0-tsp.190430.1635+gendoc.1.docx)
 
 ### YANG File
 - Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
