@@ -15,7 +15,7 @@ Technology specific interface definition for an Ethernet container
 
 ### List of Classes
 - Waseem Sattar (Waseem.Sattar@openBackhaul.com)
-- to be provided 
+- [EthernetContainer_2.0.0-tsp.190430.1635+classlist.1](./EthernetContainer_2.0.0-tsp.190430.1635+classlist.1.txt) 
 
 ### GenDoc Export
 - Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
