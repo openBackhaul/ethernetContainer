@@ -22,6 +22,7 @@ Technology specific interface definition for an Ethernet container
 ### GenDoc Export
 - Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
 - [EthernetContainer_2.0.0-tsp.190430.1635+gendoc.1](./EthernetContainer_2.0.0-tsp.190430.1635+gendoc.1.docx)
+- [EthernetContainer_2.0.0-tsp.190531.1725+changes.to.tsp.190430.1635](./EthernetContainer_2.0.0-tsp.190531.1725+changes.to.tsp.190430.1635.docx)
 - [EthernetContainer_2.0.0-tsp.190531.1725+gendoc.1](./EthernetContainer_2.0.0-tsp.190531.1725+gendoc.1.docx)
 
 ### YANG File
