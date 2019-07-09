@@ -25,6 +25,9 @@ Technology specific interface definition for an Ethernet container
 - [EthernetContainer_2.0.0-tsp.190531.1725+changes.to.tsp.190430.1635](./EthernetContainer_2.0.0-tsp.190531.1725+changes.to.tsp.190430.1635.docx)
 - [EthernetContainer_2.0.0-tsp.190531.1725+gendoc.1](./EthernetContainer_2.0.0-tsp.190531.1725+gendoc.1.docx)
 
+### Augmentation Condition 
+- When statement in Augmentation statement demands for LayerProtocol::layerProtocolName==LAYER_PROTOCOL_NAME_TYPE_ETHERNET_CONTAINER_LAYER
+
 ### YANG File
 - to be provided
 
