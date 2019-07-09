@@ -7,23 +7,19 @@ Technology specific interface definition for an Ethernet container
 
 ### UML
 - Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
-- [EthernetContainer_2.0.0-tsp.190430.1635](./EthernetContainer_2.0.0-tsp.190430.1635.zip)
-- [EthernetContainer_2.0.0-tsp.190531.1725](./EthernetContainer_2.0.0-tsp.190531.1725.zip)
+- [EthernetContainer_2.0.0-tsp.190709.1825](./EthernetContainer_2.0.0-tsp.190709.1825.zip)
 
 ### Overview 
 - Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
-- [EthernetContainer_2.0.0-tsp.190430.1635+overview.1](./EthernetContainer_2.0.0-tsp.190430.1635+overview.1.png)
-- [EthernetContainer_2.0.0-tsp.190531.1725+overview.1](./EthernetContainer_2.0.0-tsp.190531.1725+overview.1.png)
+- [EthernetContainer_2.0.0-tsp.190709.1825+overview.1](./EthernetContainer_2.0.0-tsp.190709.1825+overview.1.png)
 
 ### List of Classes
 - Waseem Sattar (Waseem.Sattar@openBackhaul.com)
-- [EthernetContainer_2.0.0-tsp.190430.1635+classlist.1](./EthernetContainer_2.0.0-tsp.190430.1635+classlist.1.txt) 
+- to be provided
 
 ### GenDoc Export
 - Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
-- [EthernetContainer_2.0.0-tsp.190430.1635+gendoc.1](./EthernetContainer_2.0.0-tsp.190430.1635+gendoc.1.docx)
-- [EthernetContainer_2.0.0-tsp.190531.1725+changes.to.tsp.190430.1635](./EthernetContainer_2.0.0-tsp.190531.1725+changes.to.tsp.190430.1635.docx)
-- [EthernetContainer_2.0.0-tsp.190531.1725+gendoc.1](./EthernetContainer_2.0.0-tsp.190531.1725+gendoc.1.docx)
+- [EthernetContainer_2.0.0-tsp.190709.1825+gendoc.1](./EthernetContainer_2.0.0-tsp.190709.1825+gendoc.1.docx)
 
 ### Augmentation Condition 
 - When statement in Augmentation statement demands for LayerProtocol::layerProtocolName==LAYER_PROTOCOL_NAME_TYPE_ETHERNET_CONTAINER_LAYER
