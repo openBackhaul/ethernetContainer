@@ -25,7 +25,8 @@ Technology specific interface definition for an Ethernet container
 - When statement in Augmentation statement demands for LayerProtocol::layerProtocolName==LAYER_PROTOCOL_NAME_TYPE_ETHERNET_CONTAINER_LAYER
 
 ### YANG File
-- to be provided
+- Martin Skorupski (Martin.Skorupski@openBackhaul.com)
+- [EthernetContainer_2.0.0-tsp.190709.1825+yang.1](./EthernetContainer_2.0.0-tsp.190709.1825r+yang.1.zip)
 
 ### Interface Simulator
 - to be provided
