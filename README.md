@@ -26,7 +26,7 @@ Technology specific interface definition for an Ethernet container
 
 ### YANG File
 - Martin Skorupski (Martin.Skorupski@openBackhaul.com)
-- [EthernetContainer_2.0.0-tsp.190709.1825+yang.1](./EthernetContainer_2.0.0-tsp.190709.1825r+yang.1.zip)
+- [EthernetContainer_2.0.0-tsp.190709.1825+yang.2](./EthernetContainer_2.0.0-tsp.190709.1825r+yang.2.zip)
 
 ### Interface Simulator
 - to be provided
