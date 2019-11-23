@@ -7,11 +7,11 @@ Technology specific interface definition for an Ethernet container
 
 ### UML
 - Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
-- [EthernetContainer_2.0.0-tsp.190709.1825](./EthernetContainer_2.0.0-tsp.190709.1825.zip)
+- [EthernetContainer_2.0.0-tsp.191123.1240](./EthernetContainer_2.0.0-tsp.191123.1240.zip)
 
 ### Overview 
 - Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
-- [EthernetContainer_2.0.0-tsp.190709.1825+overview.1](./EthernetContainer_2.0.0-tsp.190709.1825+overview.1.png)
+- [EthernetContainer_2.0.0-tsp.191123.1240+overview.1](./EthernetContainer_2.0.0-tsp.191123.1240+overview.1.png)
 
 ### List of Classes
 - Waseem Sattar (Waseem.Sattar@openBackhaul.com)
@@ -19,15 +19,14 @@ Technology specific interface definition for an Ethernet container
 
 ### GenDoc Export
 - Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
-- [EthernetContainer_2.0.0-tsp.190709.1825+gendoc.1](./EthernetContainer_2.0.0-tsp.190709.1825+gendoc.1.docx)
+- [EthernetContainer_2.0.0-tsp.191123.1240+gendoc.1](./EthernetContainer_2.0.0-tsp.191123.1240+gendoc.1.docx)
 
 ### Augmentation Condition 
 - When statement in Augmentation statement demands for LayerProtocol::layerProtocolName==LAYER_PROTOCOL_NAME_TYPE_ETHERNET_CONTAINER_LAYER
 
 ### YANG File
 - Martin Skorupski (Martin.Skorupski@openBackhaul.com)
-- [EthernetContainer_2.0.0-tsp.190709.1825+yang.3](./EthernetContainer_2.0.0-tsp.190709.1825r+yang.3.zip)
-- [Issue#5](../../issues/5) in divergence to +yang.2 fixed.
+- [EthernetContainer_2.0.0-tsp.191123.1240+yang.1](./EthernetContainer_2.0.0-tsp.191123.1240+yang.1.zip)
 
 ### Interface Simulator
 - to be provided
