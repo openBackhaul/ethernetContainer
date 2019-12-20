@@ -1,6 +1,6 @@
 # ethernetContainer
-Technology specific interface definition for an Ethernet container 
-Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
+- Technology specific interface definition for an Ethernet container 
+- Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
 
 ### Branch
 - 2.0.0-tsp.d.t : Model for the Transport SDN Pilot at Telefonica Germany
