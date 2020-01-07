@@ -28,7 +28,7 @@
 - to be provided
 
 ### Interface Validator
-- to be provided
+- [EthernetContainer_2.0.0-tsp.191123.1240+validator.1](./EthernetContainer_2.0.0-tsp.191123.1240+validator.1.zip)
 
 ### Publication
 - Candidate for ONF TR-532 v2.0 
