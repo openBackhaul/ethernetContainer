@@ -31,13 +31,12 @@
 - to be provided
 
 ### Publication
-- not planned
+- Candidate for ONF TR-532 v2.0 
 
 ### Aspired Model Classification
 - Live Network
 
 ### Open Issue List
-- Thorsten Heinze (Thorsten.Heinze@openBackhaul.com)
 - [ethernetContainer/issues](../../issues)
 
 ### Comments
