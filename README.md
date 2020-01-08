@@ -22,7 +22,7 @@
   (...+yang.2 fixed the read-only at _pac-level)
 
 ### JSON Schema
-- [EthernetContainer_2.0.0-tsp.191123.1240+status.1.schema.json](./EthernetContainer_2.0.0-tsp.191123.1240+status.1.schema.json)
+- to be provided
 
 ### Interface Simulator
 - to be provided
