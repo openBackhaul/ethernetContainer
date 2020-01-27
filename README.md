@@ -7,19 +7,22 @@
 
 ### UML
 - [EthernetContainer_2.0.0-tsp.191123.1240](./EthernetContainer_2.0.0-tsp.191123.1240.zip)
+- Intermediate Update: [EthernetContainer_2.0.0-tsp.200121.1830](./EthernetContainer_2.0.0-tsp.200121.1830.zip)
 
 ### Overview 
 - [EthernetContainer_2.0.0-tsp.191123.1240+overview.1](./EthernetContainer_2.0.0-tsp.191123.1240+overview.1.png)
+- Intermediate Update: [EthernetContainer_2.0.0-tsp.200121.1830+overview.1](./EthernetContainer_2.0.0-tsp.200121.1830+overview.1.png)
 
 ### GenDoc Export
 - [EthernetContainer_2.0.0-tsp.191123.1240+gendoc.1](./EthernetContainer_2.0.0-tsp.191123.1240+gendoc.1.docx)
+- Intermediate Update: [EthernetContainer_2.0.0-tsp.200121.1830+gendoc.1](./EthernetContainer_2.0.0-tsp.200121.1830+gendoc.1.docx)
 
 ### Augmentation Condition 
 - When statement in Augmentation statement demands for LayerProtocol::layerProtocolName==LAYER_PROTOCOL_NAME_TYPE_ETHERNET_CONTAINER_LAYER
 
 ### YANG File
 - [EthernetContainer_2.0.0-tsp.191123.1240+yang.2](./EthernetContainer_2.0.0-tsp.191123.1240+yang.2.zip)
-  (...+yang.2 fixed the read-only at _pac-level)
+- Intermediate Update: [EthernetContainer_2.0.0-tsp.200121.1830+yang.2](./EthernetContainer_2.0.0-tsp.200121.1830+yang.1.zip)
 
 ### JSON Schema
 - to be provided
