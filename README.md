@@ -22,7 +22,7 @@
 
 ### YANG File
 - [EthernetContainer_2.0.0-tsp.191123.1240+yang.2](./EthernetContainer_2.0.0-tsp.191123.1240+yang.2.zip)
-- Intermediate Update: [EthernetContainer_2.0.0-tsp.200121.1830+yang.2](./EthernetContainer_2.0.0-tsp.200121.1830+yang.1.zip)
+- Intermediate Update: [EthernetContainer_2.0.0-tsp.200121.1830+yang.2](./EthernetContainer_2.0.0-tsp.200121.1830+yang.2.zip)
 
 ### JSON Schema
 - to be provided
