@@ -10,7 +10,7 @@ Technology specific amendment to the LayerProtocol class for a transport resourc
 - published
 
 ### [2.0.0-tsp.d.t](../../tree/tsp)
-- Component of TR-532 that has been updated by Deutsche Telekom, Ericsson, Ceragon, Nokia, SIAE and Telefonica
+- Component of TR-532 that has been updated by Deutsche Telekom, Ericsson, Ceragon, Huawei, highstreet technologies, NEC, Nokia, SIAE, Telefonica and ZTE
 - under definition
 
 ### Comments
