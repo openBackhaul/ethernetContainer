@@ -1,0 +1,56 @@
+[
+	{
+		"serverList": [
+			{
+				"serverName": "dummy",
+				"dummyUri": "ping.openBackhaul.com"
+			},
+			{
+				"serverName": "mwdi",
+				"server": "http://IP:Port",
+				"pathToControlConstruct": "/core-model-1-4:network-control-domain=cache/control-construct={mountName}",
+				"authorizationCode": "",
+				"operationKey": "Operation key not yet provided.",
+				"userName": "Thorsten Heinze",
+				"originator": "InterfaceValidator_TR532v2.0",
+				"xCorrelator": "00000000-0000-0000-0000-000000000532",
+				"traceIndicator": "1",
+				"customerJourney": ""
+			},
+			{
+				"serverName": "controller",
+				"server": "https://IP:Port",
+				"pathToControlConstruct": "/rests/data/network-topology:network-topology/topology=topology-netconf/node={mountName}/yang-ext:mount/core-model-1-4:control-construct",
+				"authorizationCode": "your_basic_auth"
+			},
+			{
+				"serverName": "resultServer",
+				"server": "ping.openBackhaul.com",
+				"recordServiceName": "",
+				"authorizationCode": "",
+				"operationKey": "",
+				"userName": "Thorsten Heinze",
+				"originator": "InterfaceValidator_TR532v2.0",
+				"xCorrelator": "00000000-0000-0000-0000-000000000532",
+				"traceIndicator": "1",
+				"customerJourney": ""
+			}
+		],
+		"collectionInputList": [
+			{
+				"collectionName": "EthernetContainer",
+				"serverToBeApplied": "mwdi",
+				"mountName": "513250004",
+				"uuid" : "LTP-ETHERNETCONTAINER-TTP-6-4",
+				"localId" : "LP-ETHERNETCONTAINER-TTP-6-4"
+			},
+			{
+				"collectionName": "EthernetContainerCurrentPerformance",
+				"serverToBeApplied": "controller",
+				"mountName": "513250004",
+				"uuid" : "LTP-ETHERNETCONTAINER-TTP-6-4",
+				"localId" : "LP-ETHERNETCONTAINER-TTP-6-4"
+			}
+		]
+	}
+]
