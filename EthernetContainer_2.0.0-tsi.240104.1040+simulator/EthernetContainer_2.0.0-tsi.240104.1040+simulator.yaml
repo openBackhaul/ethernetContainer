@@ -1760,26 +1760,26 @@ components:
                   - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
                     max-queue-length: -1
                     avg-queue-length: -1
-              time-period: 900
-              total-frames-input: '-1'
-              total-frames-output: '-1'
-              forwarded-frames-input: '-1'
-              forwarded-frames-output: '-1'
-              unicast-frames-input: '1807'
-              unicast-frames-output: '0'
-              multicast-frames-input: 0
-              multicast-frames-output: 0
-              broadcast-frames-input: 0
-              broadcast-frames-output: 0
-              fragmented-frames-input: -1
-              errored-frames-input: 0
-              errored-frames-output: 0
-              dropped-frames-input: 0
-              dropped-frames-output: 0
-              oversized-frames-ingress: -1
-              undersized-frames-ingress: -1
-              jabber-frames-ingress: -1
-              unknown-protocol-frames-input: -1
+                time-period: 900
+                total-frames-input: '-1'
+                total-frames-output: '-1'
+                forwarded-frames-input: '-1'
+                forwarded-frames-output: '-1'
+                unicast-frames-input: '1807'
+                unicast-frames-output: '0'
+                multicast-frames-input: 0
+                multicast-frames-output: 0
+                broadcast-frames-input: 0
+                broadcast-frames-output: 0
+                fragmented-frames-input: -1
+                errored-frames-input: 0
+                errored-frames-output: 0
+                dropped-frames-input: 0
+                dropped-frames-output: 0
+                oversized-frames-ingress: -1
+                undersized-frames-ingress: -1
+                jabber-frames-ingress: -1
+                unknown-protocol-frames-input: -1
             - granularity-period: 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-15-MIN'
               period-end-time: '2013-08-12T12:30:00+00:00'
               suspect-interval-flag: false
@@ -1813,26 +1813,26 @@ components:
                   - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
                     max-queue-length: -1
                     avg-queue-length: -1
-              time-period: 900
-              total-frames-input: '-1'
-              total-frames-output: '-1'
-              forwarded-frames-input: '-1'
-              forwarded-frames-output: '-1'
-              unicast-frames-input: '1812'
-              unicast-frames-output: '0'
-              multicast-frames-input: 0
-              multicast-frames-output: 0
-              broadcast-frames-input: 0
-              broadcast-frames-output: 0
-              fragmented-frames-input: -1
-              errored-frames-input: 0
-              errored-frames-output: 0
-              dropped-frames-input: 0
-              dropped-frames-output: 0
-              oversized-frames-ingress: -1
-              undersized-frames-ingress: -1
-              jabber-frames-ingress: -1
-              unknown-protocol-frames-input: -1
+                time-period: 900
+                total-frames-input: '-1'
+                total-frames-output: '-1'
+                forwarded-frames-input: '-1'
+                forwarded-frames-output: '-1'
+                unicast-frames-input: '1812'
+                unicast-frames-output: '0'
+                multicast-frames-input: 0
+                multicast-frames-output: 0
+                broadcast-frames-input: 0
+                broadcast-frames-output: 0
+                fragmented-frames-input: -1
+                errored-frames-input: 0
+                errored-frames-output: 0
+                dropped-frames-input: 0
+                dropped-frames-output: 0
+                oversized-frames-ingress: -1
+                undersized-frames-ingress: -1
+                jabber-frames-ingress: -1
+                unknown-protocol-frames-input: -1
             - granularity-period: 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-15-MIN'
               period-end-time: '2013-08-12T12:45:00+00:00'
               suspect-interval-flag: false
@@ -1866,26 +1866,26 @@ components:
                   - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
                     max-queue-length: -1
                     avg-queue-length: -1
-              time-period: 900
-              total-frames-input: '-1'
-              total-frames-output: '-1'
-              forwarded-frames-input: '-1'
-              forwarded-frames-output: '-1'
-              unicast-frames-input: '1811'
-              unicast-frames-output: '0'
-              multicast-frames-input: 0
-              multicast-frames-output: 0
-              broadcast-frames-input: 0
-              broadcast-frames-output: 0
-              fragmented-frames-input: -1
-              errored-frames-input: 0
-              errored-frames-output: 0
-              dropped-frames-input: 0
-              dropped-frames-output: 0
-              oversized-frames-ingress: -1
-              undersized-frames-ingress: -1
-              jabber-frames-ingress: -1
-              unknown-protocol-frames-input: -1
+                time-period: 900
+                total-frames-input: '-1'
+                total-frames-output: '-1'
+                forwarded-frames-input: '-1'
+                forwarded-frames-output: '-1'
+                unicast-frames-input: '1811'
+                unicast-frames-output: '0'
+                multicast-frames-input: 0
+                multicast-frames-output: 0
+                broadcast-frames-input: 0
+                broadcast-frames-output: 0
+                fragmented-frames-input: -1
+                errored-frames-input: 0
+                errored-frames-output: 0
+                dropped-frames-input: 0
+                dropped-frames-output: 0
+                oversized-frames-ingress: -1
+                undersized-frames-ingress: -1
+                jabber-frames-ingress: -1
+                unknown-protocol-frames-input: -1
             - granularity-period: 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-15-MIN'
               period-end-time: '2013-08-12T13:00:00+00:00'
               suspect-interval-flag: false
@@ -1919,23 +1919,23 @@ components:
                   - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
                     max-queue-length: -1
                     avg-queue-length: -1
-              time-period: 900
-              total-frames-input: '-1'
-              total-frames-output: '-1'
-              forwarded-frames-input: '-1'
-              forwarded-frames-output: '-1'
-              unicast-frames-input: '1809'
-              unicast-frames-output: '0'
-              multicast-frames-input: 0
-              multicast-frames-output: 0
-              broadcast-frames-input: 0
-              broadcast-frames-output: 0
-              fragmented-frames-input: -1
-              errored-frames-input: 0
-              errored-frames-output: 0
-              dropped-frames-input: 0
-              dropped-frames-output: 0
-              oversized-frames-ingress: -1
-              undersized-frames-ingress: -1
-              jabber-frames-ingress: -1
-              unknown-protocol-frames-input: -1
+                time-period: 900
+                total-frames-input: '-1'
+                total-frames-output: '-1'
+                forwarded-frames-input: '-1'
+                forwarded-frames-output: '-1'
+                unicast-frames-input: '1809'
+                unicast-frames-output: '0'
+                multicast-frames-input: 0
+                multicast-frames-output: 0
+                broadcast-frames-input: 0
+                broadcast-frames-output: 0
+                fragmented-frames-input: -1
+                errored-frames-input: 0
+                errored-frames-output: 0
+                dropped-frames-input: 0
+                dropped-frames-output: 0
+                oversized-frames-ingress: -1
+                undersized-frames-ingress: -1
+                jabber-frames-ingress: -1
+                unknown-protocol-frames-input: -1
