@@ -17,7 +17,7 @@
 - When statement in Augmentation statement demands for LayerProtocol::layerProtocolName==LAYER_PROTOCOL_NAME_TYPE_ETHERNET_CONTAINER_LAYER  
 
 ### YANG File  
-- [EthernetContainer_2.0.0-tsi.240104.1040+yang.1](./EthernetContainer_2.0.0-tsi.240104.1040+yang.1.zip)  
+- [EthernetContainer_2.0.0-tsi.240104.1040+yang](./EthernetContainer_2.0.0-tsi.240104.1040+yang/)  
 
 ### Schema  
 - [EthernetContainer_2.0.0-tsi.240104.1040+schema](./EthernetContainer_2.0.0-tsi.240104.1040+schema/)  
