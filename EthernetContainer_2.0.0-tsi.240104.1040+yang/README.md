@@ -2,5 +2,5 @@
 
 ### YANG File  
 - created from UML  
-- [equipment-augment-1-0.yang](./equipment-augment-1-0.yang)  
+- [ethernet-container-2-0.yang](./ethernet-container-2-0.yang)  
 
