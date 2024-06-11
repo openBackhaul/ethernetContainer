@@ -19,8 +19,8 @@
 ### YANG File  
 - [EthernetContainer_2.0.0-tsi.240104.1040+yang.1](./EthernetContainer_2.0.0-tsi.240104.1040+yang.1.zip)  
 
-### JSON Schema  
-- [EthernetContainer_2.0.0-tsi.240104.1040+json](./EthernetContainer_2.0.0-tsi.240104.1040+json/EthernetContainer_2.0.0-tsi.240104.1040+json.json)  
+### Schema  
+- [EthernetContainer_2.0.0-tsi.240104.1040+schema](./EthernetContainer_2.0.0-tsi.240104.1040+schema/)  
 
 ### Interface Simulator  
 - [EthernetContainer_2.0.0-tsi.240104.1040+simulator](./EthernetContainer_2.0.0-tsi.240104.1040+simulator/)  
