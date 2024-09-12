@@ -1,0 +1,3346 @@
+openapi: 3.0.1
+info:
+  title: EC_2.0.0-tsi.240104.1040+simulator.completeness
+  version: 2.0.0
+
+paths:
+########################################################################################################################
+#   EC_2.0.0-tsi.240104.1040+simulator.completeness in static reference mode
+########################################################################################################################
+#
+# At Application
+# ==============
+#
+# Preparation => MountName=305250001, UUID=ethCont1, LocalID=1
+  /core-model-1-4:network-control-domain=cache/control-construct=305250001:
+    parameters:
+      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/originator'
+      - $ref: '#/components/parameters/x-correlator'
+      - $ref: '#/components/parameters/trace-indicator'
+      - $ref: '#/components/parameters/customer-journey'
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getLtpList
+      summary: 'Provides list of LTPs from cache'
+      tags:
+        - IndividualServices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: 'List of LTPs provided from cache'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - core-model-1-4:control-construct
+                properties:
+                  core-model-1-4:control-construct:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - logical-termination-point
+                      properties:
+                        logical-termination-point:
+                          type: array
+                          items:
+                            type: object
+                            required:
+                              - uuid
+                              - layer-protocol
+                            properties:
+                              uuid:
+                                type: string
+                                enum:
+                                  - 'ethCont1'
+                              layer-protocol:
+                                type: array
+                                items:
+                                  type: object
+                                  required:
+                                    - local-id
+                                    - layer-protocol-name
+                                  properties:
+                                    local-id:
+                                      type: string
+                                      enum:
+                                        - '1'
+                                    layer-protocol-name:
+                                      type: string
+                                      enum:
+                                        - 'ethernet-container-2-0:LAYER_PROTOCOL_NAME_TYPE_ETHERNET_CONTAINER_LAYER'
+                example:
+                  core-model-1-4:control-construct:
+                    - logical-termination-point:
+                        - uuid: 'ethCont1'
+                          layer-protocol:
+                            - local-id: '1'
+                              layer-protocol-name: 'ethernet-container-2-0:LAYER_PROTOCOL_NAME_TYPE_ETHERNET_CONTAINER_LAYER'
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+            exec-time:
+              $ref: '#/components/headers/exec-time'
+            backend-time:
+              $ref: '#/components/headers/backend-time'
+            life-cycle-state:
+              $ref: '#/components/headers/life-cycle-state'
+  
+# Completeness of GET 200
+  /core-model-1-4:network-control-domain=cache/control-construct=305250001/logical-termination-point=ethCont1/layer-protocol=1/ethernet-container-2-0:ethernet-container-pac/ethernet-container-capability:
+    parameters:
+      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/originator'
+      - $ref: '#/components/parameters/x-correlator'
+      - $ref: '#/components/parameters/trace-indicator'
+      - $ref: '#/components/parameters/customer-journey'
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/localId'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedEthernetContainerCapability
+      summary: 'Provides EthernetContainerCapability from cache'
+      tags:
+        - IndividualServices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: 'EthernetContainerCapability provided from cache'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ethernet-container-2-0:ethernet-container-capability
+                properties:
+                  ethernet-container-2-0:ethernet-container-capability:
+                    $ref: '#/components/schemas/ethernet-container-capability'
+                example:
+                  ethernet-container-2-0:ethernet-container-capability:
+                    available-queue-list:
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                        supported-queue-depth-list:
+                          - 64
+                          - 128
+                          - 192
+                          - 256
+                          - 16000
+                        available-dropping-behavior-kind-list:
+                          - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL'
+                        available-drop-precedence-kind-list:
+                          - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL'
+                        wred-profile-per-drop-precedence-is-available: false
+                        available-scheduling-kind-list:
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT'
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1'
+                        supported-queue-depth-list:
+                          - 64
+                          - 128
+                          - 192
+                          - 256
+                          - 16000
+                        available-dropping-behavior-kind-list:
+                          - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL'
+                        available-drop-precedence-kind-list:
+                          - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL'
+                        wred-profile-per-drop-precedence-is-available: false
+                        available-scheduling-kind-list:
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT'
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2'
+                        supported-queue-depth-list:
+                          - 64
+                          - 128
+                          - 192
+                          - 256
+                          - 16000
+                        available-dropping-behavior-kind-list:
+                          - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL'
+                        available-drop-precedence-kind-list:
+                          - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL'
+                        wred-profile-per-drop-precedence-is-available: false
+                        available-scheduling-kind-list:
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT'
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3'
+                        supported-queue-depth-list:
+                          - 64
+                          - 128
+                          - 192
+                          - 256
+                          - 16000
+                        available-dropping-behavior-kind-list:
+                          - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL'
+                        available-drop-precedence-kind-list:
+                          - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL'
+                        wred-profile-per-drop-precedence-is-available: false
+                        available-scheduling-kind-list:
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT'
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4'
+                        supported-queue-depth-list:
+                          - 64
+                          - 128
+                          - 192
+                          - 256
+                          - 16000
+                        available-dropping-behavior-kind-list:
+                          - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL'
+                          - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED'
+                        available-drop-precedence-kind-list:
+                          - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW'
+                          - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_MEDIUM'
+                          - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH'
+                        wred-profile-per-drop-precedence-is-available: true
+                        available-scheduling-kind-list:
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT'
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE'
+                        supported-queue-depth-list:
+                          - 64
+                          - 128
+                          - 192
+                          - 256
+                          - 16000
+                        available-dropping-behavior-kind-list:
+                          - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL'
+                        available-drop-precedence-kind-list:
+                          - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL'
+                        wred-profile-per-drop-precedence-is-available: false
+                        available-scheduling-kind-list:
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT'
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6'
+                        supported-queue-depth-list:
+                          - 64
+                          - 128
+                          - 192
+                          - 256
+                          - 16000
+                        available-dropping-behavior-kind-list:
+                          - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL'
+                        available-drop-precedence-kind-list:
+                          - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL'
+                        wred-profile-per-drop-precedence-is-available: false
+                        available-scheduling-kind-list:
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT'
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
+                        supported-queue-depth-list:
+                          - 64
+                          - 128
+                          - 192
+                          - 256
+                          - 16000
+                        available-dropping-behavior-kind-list:
+                          - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL'
+                        available-drop-precedence-kind-list:
+                          - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL'
+                        wred-profile-per-drop-precedence-is-available: false
+                        available-scheduling-kind-list:
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT'
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                    dropping-behavior-configuration-is-avail: true
+                    wred-profile-configuration-is-avail: true
+                    scheduler-kind-configuration-is-avail: true
+                    scheduler-profile-configuration-is-avail: true
+                    supported-wred-protocol-list:
+                      - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                    explicit-congestion-notification-is-avail: false
+                    ingress-policing-is-avail: true  
+                    egress-shaping-is-avail: true
+                    supported-maximum-information-rate-list:
+                      - 64
+                      - 128
+                      - 192
+                      - 256
+                      - 1000000
+                    supported-maximum-burst-size-list:
+                      - 0
+                      - 16
+                      - 32
+                      - 64
+                      - 128
+                      - 256
+                      - 512
+                      - 1024
+                      - 2048
+                      - 4192
+                      - 8192
+                      - 16384
+                      - 32767
+                    bundling-is-avail: true
+                    bundling-group-size-max: 16
+                    support-of-management-frames-without-preamble-is-avail: false
+                    supported-header-compression-kind-list:
+                      - header-compression-name: 'no-compression'
+                        header-compression-mode: 'ethernet-container-2-0:HEADER_COMPRESSION_MODE_TYPE_NO_COMPRESSION'
+                        compressed-protocol-layer-list:
+                          - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NOT_YET_DEFINED'
+                        mpls-payload-kind-list:
+                          - 'ethernet-container-2-0:MPLS_PAYLOAD_KIND_TYPE_NOT_YET_DEFINED'
+                        compressed-header-length: -1
+                    fec-is-avail: false
+                    fec-word-size-max: -1
+                    supported-fec-redundancy-size-list:
+                      - 'ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_NOT_YET_DEFINED'
+                    supported-fec-interleaver-kind-list:
+                      - 'ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_NOT_YET_DEFINED'
+                    supported-fec-interleaver-depth-list:
+                      - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_NOT_YET_DEFINED'
+                    encryption-is-avail: false
+                    admin-shut-down-is-avail: true
+                    supported-loop-back-kind-list:
+                      - 'ethernet-container-2-0:LOOP_BACK_TYPE_NONE'
+                      - 'ethernet-container-2-0:LOOP_BACK_TYPE_BACK_TO_LOCAL'
+                    maintenance-timer-range: '0-172800'
+                    statistics-is-avail: true
+                    performance-monitoring-is-avail: true
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+            exec-time:
+              $ref: '#/components/headers/exec-time'
+            backend-time:
+              $ref: '#/components/headers/backend-time'
+            life-cycle-state:
+              $ref: '#/components/headers/life-cycle-state'
+  /core-model-1-4:network-control-domain=cache/control-construct=305250001/logical-termination-point=ethCont1/layer-protocol=1/ethernet-container-2-0:ethernet-container-pac/ethernet-container-configuration:
+    parameters:
+      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/originator'
+      - $ref: '#/components/parameters/x-correlator'
+      - $ref: '#/components/parameters/trace-indicator'
+      - $ref: '#/components/parameters/customer-journey'
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/localId'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedEthernetContainerConfiguration
+      summary: 'Provides EthernetContainerConfiguration from cache'
+      tags:
+        - IndividualServices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: 'EthernetContainerConfiguration provided from cache'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ethernet-container-2-0:ethernet-container-configuration
+                properties:
+                  ethernet-container-2-0:ethernet-container-configuration:
+                    $ref: '#/components/schemas/ethernet-container-configuration'
+                example:
+                  ethernet-container-2-0:ethernet-container-configuration:
+                    interface-name: '4/EG4/1 connected to CO12969'
+                    interface-is-on: true
+                    queue-behavior-list:
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                        queue-depth: 16000
+                        dropping-behavior-kind: 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED'
+                        wred-behavior-list:
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_MEDIUM'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                        scheduler-kind: 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                        weighting: 3
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1'
+                        queue-depth: 256
+                        dropping-behavior-kind: 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED'
+                        wred-behavior-list:
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_MEDIUM'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                        scheduler-kind: 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                        weighting: 6
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2'
+                        queue-depth: 256
+                        dropping-behavior-kind: 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED'
+                        wred-behavior-list:
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_MEDIUM'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                        scheduler-kind: 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                        weighting: 8
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3'
+                        queue-depth: 256
+                        dropping-behavior-kind: 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED'
+                        wred-behavior-list:
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_MEDIUM'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                        scheduler-kind: 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                        weighting: 11
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4'
+                        queue-depth: 192
+                        dropping-behavior-kind: 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED'
+                        wred-behavior-list:
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_MEDIUM'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                        scheduler-kind: 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                        weighting: 14
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE'
+                        queue-depth: 128
+                        dropping-behavior-kind: 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED'
+                        wred-behavior-list:
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_MEDIUM'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                        scheduler-kind: 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                        weighting: 17
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6'
+                        queue-depth: 64
+                        dropping-behavior-kind: 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED'
+                        wred-behavior-list:
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_MEDIUM'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                        scheduler-kind: 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                        weighting: 19
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
+                        queue-depth: 64
+                        dropping-behavior-kind: 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED'
+                        wred-behavior-list:
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_MEDIUM'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                        scheduler-kind: 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                        weighting: 22
+                    scheduler-profile: 'uuid_of_scheduler_profile_instance'
+                    explicit-congestion-notification-is-on: false
+                    ingress-policing-profile: '4294967295'
+                    egress-shaping-is-on: true
+                    maximum-information-rate: 256
+                    maximum-burst-size: 32767
+                    qos-profile: 'uuid_of_qos_profile_instance'
+                    bundling-is-on: true
+                    header-compression-kind: 'no-compression'
+                    fec-is-on: false
+                    fec-word-size: -1
+                    fec-redundancy-size: 'ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_NOT_YET_DEFINED'
+                    fec-interleaver-kind: 'ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_NOT_YET_DEFINED'
+                    fec-interleaver-depth: 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_NOT_YET_DEFINED'
+                    encryption-is-on: false
+                    cryptographic-key: Cryptographic key not yet defined.
+                    loop-back-kind-on: 'ethernet-container-2-0:LOOP_BACK_TYPE_NONE'
+                    maintenance-timer: 0
+                    statistics-is-on: true
+                    performance-monitoring-is-on: true
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+            exec-time:
+              $ref: '#/components/headers/exec-time'
+            backend-time:
+              $ref: '#/components/headers/backend-time'
+            life-cycle-state:
+              $ref: '#/components/headers/life-cycle-state'
+  /core-model-1-4:network-control-domain=cache/control-construct=305250001/logical-termination-point=ethCont1/layer-protocol=1/ethernet-container-2-0:ethernet-container-pac/ethernet-container-status:
+    parameters:
+      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/originator'
+      - $ref: '#/components/parameters/x-correlator'
+      - $ref: '#/components/parameters/trace-indicator'
+      - $ref: '#/components/parameters/customer-journey'
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/localId'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedEthernetContainerStatus
+      summary: 'Provides EthernetContainerStatus from cache'
+      tags:
+        - IndividualServices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: 'EthernetContainerStatus provided from cache'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ethernet-container-2-0:ethernet-container-status
+                properties:
+                  ethernet-container-2-0:ethernet-container-status:
+                    $ref: '#/components/schemas/ethernet-container-status'
+                example:
+                  ethernet-container-2-0:ethernet-container-status:
+                    interface-status: 'ethernet-container-2-0:INTERFACE_STATUS_TYPE_UP'
+                    bundling-is-up: true
+                    remote-site-is-faulty: false
+                    loop-back-kind-up: 'ethernet-container-2-0:LOOP_BACK_TYPE_NONE'
+                    statistics-is-up: true
+                    performance-monitoring-is-up: true
+                    timestamp: '2024-05-06T09:52:43+00:00'
+                    last-10-sec-data-input-rate: -1
+                    last-10-sec-data-output-rate: -1
+                    total-bytes-input: '1433122765'
+                    total-bytes-output: '30130'
+                    frames-of-64-byte: '0'
+                    frames-of-65-to-127-byte: '0'
+                    frames-of-128-to-255-byte: '0'
+                    frames-of-256-to-511-byte: '0'
+                    frames-of-512-to-1023-byte: '12170541'
+                    frames-of-1024-to-1518-byte: '0'
+                    total-frames-input: '12170541'
+                    total-frames-output: '61'
+                    forwarded-frames-input: '-1'
+                    forwarded-frames-output: '-1'
+                    unicast-frames-input: '12170541'
+                    unicast-frames-output: '61'
+                    multicast-frames-input: 0
+                    multicast-frames-output: 0
+                    broadcast-frames-input: 0
+                    broadcast-frames-output: 0
+                    fragmented-frames-input: 0
+                    errored-frames-input: 0
+                    errored-frames-output: -1
+                    dropped-frames-input: 0
+                    dropped-frames-output: 0
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+            exec-time:
+              $ref: '#/components/headers/exec-time'
+            backend-time:
+              $ref: '#/components/headers/backend-time'
+            life-cycle-state:
+              $ref: '#/components/headers/life-cycle-state'
+  /core-model-1-4:network-control-domain=cache/control-construct=305250001/logical-termination-point=ethCont1/layer-protocol=1/ethernet-container-2-0:ethernet-container-pac/ethernet-container-current-performance:
+    parameters:
+      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/originator'
+      - $ref: '#/components/parameters/x-correlator'
+      - $ref: '#/components/parameters/trace-indicator'
+      - $ref: '#/components/parameters/customer-journey'
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/localId'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedEthernetContainerCurrentPerformance
+      summary: 'Provides EthernetContainerCurrentPerformance from cache'
+      tags:
+        - IndividualServices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: 'EthernetContainerCurrentPerformance provided from cache'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ethernet-container-2-0:ethernet-container-current-performance
+                properties:
+                  ethernet-container-2-0:ethernet-container-current-performance:
+                    $ref: '#/components/schemas/ethernet-container-current-performance'
+                example:
+                  ethernet-container-2-0:ethernet-container-current-performance:
+                    number-of-current-performance-sets: 2
+                    current-performance-data-list:
+                      - granularity-period: 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-15-MIN'
+                        timestamp: '2024-05-06T09:53:54+00:00'
+                        suspect-interval-flag: false
+                        elapsed-time: '0'
+                        scanner-id: 'Scanner ID not defined.'
+                        performance-data:
+                          max-bytes-per-second-output: 30130
+                          total-bytes-input: '0'
+                          total-bytes-output: '0'
+                          queue-utilization-list:
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                          time-period: -1
+                          total-frames-input: '12170541'
+                          total-frames-output: '61'
+                          forwarded-frames-input: '-1'
+                          forwarded-frames-output: '-1'
+                          unicast-frames-input: '12170541'
+                          unicast-frames-output: '61'
+                          multicast-frames-input: 0
+                          multicast-frames-output: 0
+                          broadcast-frames-input: 0
+                          broadcast-frames-output: 0
+                          fragmented-frames-input: 0
+                          errored-frames-input: 0
+                          errored-frames-output: -1
+                          dropped-frames-input: 0
+                          dropped-frames-output: 0
+                          oversized-frames-ingress: 0
+                          undersized-frames-ingress: 0
+                          jabber-frames-ingress: 0
+                          unknown-protocol-frames-input: -1
+                      - granularity-period: 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-24-HOURS'
+                        timestamp: '2024-05-06T09:53:54+00:00'
+                        suspect-interval-flag: false
+                        elapsed-time: '0'
+                        scanner-id: 'Scanner ID not defined.'
+                        performance-data:
+                          max-bytes-per-second-output: 30130
+                          total-bytes-input: '0'
+                          total-bytes-output: '0'
+                          queue-utilization-list:
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                          time-period: -1
+                          total-frames-input: '12170541'
+                          total-frames-output: '61'
+                          forwarded-frames-input: '-1'
+                          forwarded-frames-output: '-1'
+                          unicast-frames-input: '12170541'
+                          unicast-frames-output: '61'
+                          multicast-frames-input: 0
+                          multicast-frames-output: 0
+                          broadcast-frames-input: 0
+                          broadcast-frames-output: 0
+                          fragmented-frames-input: 0
+                          errored-frames-input: 0
+                          errored-frames-output: -1
+                          dropped-frames-input: 0
+                          dropped-frames-output: 0
+                          oversized-frames-ingress: 0
+                          undersized-frames-ingress: 0
+                          jabber-frames-ingress: 0
+                          unknown-protocol-frames-input: -1
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+            exec-time:
+              $ref: '#/components/headers/exec-time'
+            backend-time:
+              $ref: '#/components/headers/backend-time'
+            life-cycle-state:
+              $ref: '#/components/headers/life-cycle-state'
+  /core-model-1-4:network-control-domain=cache/control-construct=305250001/logical-termination-point=ethCont1/layer-protocol=1/ethernet-container-2-0:ethernet-container-pac/ethernet-container-historical-performances:
+    parameters:
+      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/originator'
+      - $ref: '#/components/parameters/x-correlator'
+      - $ref: '#/components/parameters/trace-indicator'
+      - $ref: '#/components/parameters/customer-journey'
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/localId'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedEthernetContainerHistoricalPerformances
+      summary: 'Provides EthernetContainerHistoricalPerformances from cache'
+      tags:
+        - IndividualServices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: 'EthernetContainerHistoricalPerformances provided from cache'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ethernet-container-2-0:ethernet-container-historical-performances
+                properties:
+                  ethernet-container-2-0:ethernet-container-historical-performances:
+                    $ref: '#/components/schemas/ethernet-container-historical-performances'
+                example:
+                  ethernet-container-2-0:ethernet-container-historical-performances:
+                    number-of-historical-performance-sets: 4
+                    time-of-latest-change: '2013-08-13T02:00:00+00:00'
+                    historical-performance-data-list:
+                      - granularity-period: 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-15-MIN'
+                        period-end-time: '2013-08-12T12:15:00+00:00'
+                        suspect-interval-flag: false
+                        history-data-id: 'History Data ID not defined.'
+                        performance-data:
+                          max-bytes-per-second-output: 0
+                          total-bytes-input: '1807000'
+                          total-bytes-output: '0'
+                          queue-utilization-list:
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                          time-period: 900
+                          total-frames-input: '-1'
+                          total-frames-output: '-1'
+                          forwarded-frames-input: '-1'
+                          forwarded-frames-output: '-1'
+                          unicast-frames-input: '1807'
+                          unicast-frames-output: '0'
+                          multicast-frames-input: 0
+                          multicast-frames-output: 0
+                          broadcast-frames-input: 0
+                          broadcast-frames-output: 0
+                          fragmented-frames-input: -1
+                          errored-frames-input: 0
+                          errored-frames-output: 0
+                          dropped-frames-input: 0
+                          dropped-frames-output: 0
+                          oversized-frames-ingress: -1
+                          undersized-frames-ingress: -1
+                          jabber-frames-ingress: -1
+                          unknown-protocol-frames-input: -1
+                      - granularity-period: 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-15-MIN'
+                        period-end-time: '2013-08-12T12:30:00+00:00'
+                        suspect-interval-flag: false
+                        history-data-id: 'History Data ID not defined.'
+                        performance-data:
+                          max-bytes-per-second-output: 0
+                          total-bytes-input: '1812000'
+                          total-bytes-output: '0'
+                          queue-utilization-list:
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                          time-period: 900
+                          total-frames-input: '-1'
+                          total-frames-output: '-1'
+                          forwarded-frames-input: '-1'
+                          forwarded-frames-output: '-1'
+                          unicast-frames-input: '1812'
+                          unicast-frames-output: '0'
+                          multicast-frames-input: 0
+                          multicast-frames-output: 0
+                          broadcast-frames-input: 0
+                          broadcast-frames-output: 0
+                          fragmented-frames-input: -1
+                          errored-frames-input: 0
+                          errored-frames-output: 0
+                          dropped-frames-input: 0
+                          dropped-frames-output: 0
+                          oversized-frames-ingress: -1
+                          undersized-frames-ingress: -1
+                          jabber-frames-ingress: -1
+                          unknown-protocol-frames-input: -1
+                      - granularity-period: 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-15-MIN'
+                        period-end-time: '2013-08-12T12:45:00+00:00'
+                        suspect-interval-flag: false
+                        history-data-id: 'History Data ID not defined.'
+                        performance-data:
+                          max-bytes-per-second-output: 0
+                          total-bytes-input: '1811000'
+                          total-bytes-output: '0'
+                          queue-utilization-list:
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                          time-period: 900
+                          total-frames-input: '-1'
+                          total-frames-output: '-1'
+                          forwarded-frames-input: '-1'
+                          forwarded-frames-output: '-1'
+                          unicast-frames-input: '1811'
+                          unicast-frames-output: '0'
+                          multicast-frames-input: 0
+                          multicast-frames-output: 0
+                          broadcast-frames-input: 0
+                          broadcast-frames-output: 0
+                          fragmented-frames-input: -1
+                          errored-frames-input: 0
+                          errored-frames-output: 0
+                          dropped-frames-input: 0
+                          dropped-frames-output: 0
+                          oversized-frames-ingress: -1
+                          undersized-frames-ingress: -1
+                          jabber-frames-ingress: -1
+                          unknown-protocol-frames-input: -1
+                      - granularity-period: 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-15-MIN'
+                        period-end-time: '2013-08-12T13:00:00+00:00'
+                        suspect-interval-flag: false
+                        history-data-id: 'History Data ID not defined.'
+                        performance-data:
+                          max-bytes-per-second-output: 0
+                          total-bytes-input: '1809000'
+                          total-bytes-output: '0'
+                          queue-utilization-list:
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                          time-period: 900
+                          total-frames-input: '-1'
+                          total-frames-output: '-1'
+                          forwarded-frames-input: '-1'
+                          forwarded-frames-output: '-1'
+                          unicast-frames-input: '1809'
+                          unicast-frames-output: '0'
+                          multicast-frames-input: 0
+                          multicast-frames-output: 0
+                          broadcast-frames-input: 0
+                          broadcast-frames-output: 0
+                          fragmented-frames-input: -1
+                          errored-frames-input: 0
+                          errored-frames-output: 0
+                          dropped-frames-input: 0
+                          dropped-frames-output: 0
+                          oversized-frames-ingress: -1
+                          undersized-frames-ingress: -1
+                          jabber-frames-ingress: -1
+                          unknown-protocol-frames-input: -1
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+            exec-time:
+              $ref: '#/components/headers/exec-time'
+            backend-time:
+              $ref: '#/components/headers/backend-time'
+            life-cycle-state:
+              $ref: '#/components/headers/life-cycle-state'
+
+
+#
+# At Controller (copy from above, different paths, less parameters, basicAuth, no headers)
+# =============
+#
+# Preparation => MountName=305250001, UUID=ethCont1, LocalID=1
+  /rests/data/network-topology:network-topology/topology=topology-netconf/node=305250001/yang-ext:mount/core-model-1-4:control-construct:
+    parameters:
+      - $ref: '#/components/parameters/mountName'
+    get:
+      operationId: getLtpList
+      summary: 'Provides list of LTPs from device'
+      tags:
+        - IndividualServices
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: 'List of LTPs provided from device'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - core-model-1-4:control-construct
+                properties:
+                  core-model-1-4:control-construct:
+                    type: object
+                    required:
+                      - logical-termination-point
+                    properties:
+                      logical-termination-point:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                            - uuid
+                            - layer-protocol
+                          properties:
+                            uuid:
+                              type: string
+                              enum:
+                                - 'ethCont1'
+                            layer-protocol:
+                              type: array
+                              items:
+                                type: object
+                                required:
+                                  - local-id
+                                  - layer-protocol-name
+                                properties:
+                                  local-id:
+                                    type: string
+                                    enum:
+                                      - '1'
+                                  layer-protocol-name:
+                                    type: string
+                                    enum:
+                                      - 'ethernet-container-2-0:LAYER_PROTOCOL_NAME_TYPE_ETHERNET_CONTAINER_LAYER'
+                example:
+                  core-model-1-4:control-construct:
+                    logical-termination-point:
+                      - uuid: 'ethCont1'
+                        layer-protocol:
+                          - local-id: '1'
+                            layer-protocol-name: 'ethernet-container-2-0:LAYER_PROTOCOL_NAME_TYPE_ETHERNET_CONTAINER_LAYER'
+
+# Completeness of GET 200
+  /rests/data/network-topology:network-topology/topology=topology-netconf/node=305250001/yang-ext:mount/core-model-1-4:control-construct/logical-termination-point=ethCont1/layer-protocol=1/ethernet-container-2-0:ethernet-container-pac/ethernet-container-capability:
+    parameters:
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/localId'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedEthernetContainerCapability
+      summary: 'Provides EthernetContainerCapability from device'
+      tags:
+        - IndividualServices
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: 'EthernetContainerCapability provided from device'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ethernet-container-2-0:ethernet-container-capability
+                properties:
+                  ethernet-container-2-0:ethernet-container-capability:
+                    $ref: '#/components/schemas/ethernet-container-capability'
+                example:
+                  ethernet-container-2-0:ethernet-container-capability:
+                    available-queue-list:
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                        supported-queue-depth-list:
+                          - 64
+                          - 128
+                          - 192
+                          - 256
+                          - 16000
+                        available-dropping-behavior-kind-list:
+                          - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL'
+                        available-drop-precedence-kind-list:
+                          - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL'
+                        wred-profile-per-drop-precedence-is-available: false
+                        available-scheduling-kind-list:
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT'
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1'
+                        supported-queue-depth-list:
+                          - 64
+                          - 128
+                          - 192
+                          - 256
+                          - 16000
+                        available-dropping-behavior-kind-list:
+                          - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL'
+                        available-drop-precedence-kind-list:
+                          - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL'
+                        wred-profile-per-drop-precedence-is-available: false
+                        available-scheduling-kind-list:
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT'
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2'
+                        supported-queue-depth-list:
+                          - 64
+                          - 128
+                          - 192
+                          - 256
+                          - 16000
+                        available-dropping-behavior-kind-list:
+                          - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL'
+                        available-drop-precedence-kind-list:
+                          - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL'
+                        wred-profile-per-drop-precedence-is-available: false
+                        available-scheduling-kind-list:
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT'
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3'
+                        supported-queue-depth-list:
+                          - 64
+                          - 128
+                          - 192
+                          - 256
+                          - 16000
+                        available-dropping-behavior-kind-list:
+                          - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL'
+                        available-drop-precedence-kind-list:
+                          - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL'
+                        wred-profile-per-drop-precedence-is-available: false
+                        available-scheduling-kind-list:
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT'
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4'
+                        supported-queue-depth-list:
+                          - 64
+                          - 128
+                          - 192
+                          - 256
+                          - 16000
+                        available-dropping-behavior-kind-list:
+                          - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL'
+                          - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED'
+                        available-drop-precedence-kind-list:
+                          - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW'
+                          - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_MEDIUM'
+                          - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH'
+                        wred-profile-per-drop-precedence-is-available: true
+                        available-scheduling-kind-list:
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT'
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE'
+                        supported-queue-depth-list:
+                          - 64
+                          - 128
+                          - 192
+                          - 256
+                          - 16000
+                        available-dropping-behavior-kind-list:
+                          - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL'
+                        available-drop-precedence-kind-list:
+                          - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL'
+                        wred-profile-per-drop-precedence-is-available: false
+                        available-scheduling-kind-list:
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT'
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6'
+                        supported-queue-depth-list:
+                          - 64
+                          - 128
+                          - 192
+                          - 256
+                          - 16000
+                        available-dropping-behavior-kind-list:
+                          - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL'
+                        available-drop-precedence-kind-list:
+                          - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL'
+                        wred-profile-per-drop-precedence-is-available: false
+                        available-scheduling-kind-list:
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT'
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
+                        supported-queue-depth-list:
+                          - 64
+                          - 128
+                          - 192
+                          - 256
+                          - 16000
+                        available-dropping-behavior-kind-list:
+                          - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL'
+                        available-drop-precedence-kind-list:
+                          - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL'
+                        wred-profile-per-drop-precedence-is-available: false
+                        available-scheduling-kind-list:
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT'
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                    dropping-behavior-configuration-is-avail: true
+                    wred-profile-configuration-is-avail: true
+                    scheduler-kind-configuration-is-avail: true
+                    scheduler-profile-configuration-is-avail: true
+                    supported-wred-protocol-list:
+                      - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                    explicit-congestion-notification-is-avail: false
+                    ingress-policing-is-avail: true  
+                    egress-shaping-is-avail: true
+                    supported-maximum-information-rate-list:
+                      - 64
+                      - 128
+                      - 192
+                      - 256
+                      - 1000000
+                    supported-maximum-burst-size-list:
+                      - 0
+                      - 16
+                      - 32
+                      - 64
+                      - 128
+                      - 256
+                      - 512
+                      - 1024
+                      - 2048
+                      - 4192
+                      - 8192
+                      - 16384
+                      - 32767
+                    bundling-is-avail: true
+                    bundling-group-size-max: 16
+                    support-of-management-frames-without-preamble-is-avail: false
+                    supported-header-compression-kind-list:
+                      - header-compression-name: 'no-compression'
+                        header-compression-mode: 'ethernet-container-2-0:HEADER_COMPRESSION_MODE_TYPE_NO_COMPRESSION'
+                        compressed-protocol-layer-list:
+                          - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NOT_YET_DEFINED'
+                        mpls-payload-kind-list:
+                          - 'ethernet-container-2-0:MPLS_PAYLOAD_KIND_TYPE_NOT_YET_DEFINED'
+                        compressed-header-length: -1
+                    fec-is-avail: false
+                    fec-word-size-max: -1
+                    supported-fec-redundancy-size-list:
+                      - 'ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_NOT_YET_DEFINED'
+                    supported-fec-interleaver-kind-list:
+                      - 'ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_NOT_YET_DEFINED'
+                    supported-fec-interleaver-depth-list:
+                      - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_NOT_YET_DEFINED'
+                    encryption-is-avail: false
+                    admin-shut-down-is-avail: true
+                    supported-loop-back-kind-list:
+                      - 'ethernet-container-2-0:LOOP_BACK_TYPE_NONE'
+                      - 'ethernet-container-2-0:LOOP_BACK_TYPE_BACK_TO_LOCAL'
+                    maintenance-timer-range: '0-172800'
+                    statistics-is-avail: true
+                    performance-monitoring-is-avail: true
+  /rests/data/network-topology:network-topology/topology=topology-netconf/node=305250001/yang-ext:mount/core-model-1-4:control-construct/logical-termination-point=ethCont1/layer-protocol=1/ethernet-container-2-0:ethernet-container-pac/ethernet-container-configuration:
+    parameters:
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/localId'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedEthernetContainerConfiguration
+      summary: 'Provides EthernetContainerConfiguration from device'
+      tags:
+        - IndividualServices
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: 'EthernetContainerConfiguration provided from device'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ethernet-container-2-0:ethernet-container-configuration
+                properties:
+                  ethernet-container-2-0:ethernet-container-configuration:
+                    $ref: '#/components/schemas/ethernet-container-configuration'
+                example:
+                  ethernet-container-2-0:ethernet-container-configuration:
+                    interface-name: '4/EG4/1 connected to CO12969'
+                    interface-is-on: true
+                    queue-behavior-list:
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                        queue-depth: 16000
+                        dropping-behavior-kind: 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED'
+                        wred-behavior-list:
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_MEDIUM'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                        scheduler-kind: 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                        weighting: 3
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1'
+                        queue-depth: 256
+                        dropping-behavior-kind: 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED'
+                        wred-behavior-list:
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_MEDIUM'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                        scheduler-kind: 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                        weighting: 6
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2'
+                        queue-depth: 256
+                        dropping-behavior-kind: 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED'
+                        wred-behavior-list:
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_MEDIUM'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                        scheduler-kind: 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                        weighting: 8
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3'
+                        queue-depth: 256
+                        dropping-behavior-kind: 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED'
+                        wred-behavior-list:
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_MEDIUM'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                        scheduler-kind: 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                        weighting: 11
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4'
+                        queue-depth: 192
+                        dropping-behavior-kind: 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED'
+                        wred-behavior-list:
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_MEDIUM'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                        scheduler-kind: 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                        weighting: 14
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE'
+                        queue-depth: 128
+                        dropping-behavior-kind: 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED'
+                        wred-behavior-list:
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_MEDIUM'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                        scheduler-kind: 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                        weighting: 17
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6'
+                        queue-depth: 64
+                        dropping-behavior-kind: 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED'
+                        wred-behavior-list:
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_MEDIUM'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                        scheduler-kind: 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                        weighting: 19
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
+                        queue-depth: 64
+                        dropping-behavior-kind: 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED'
+                        wred-behavior-list:
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_MEDIUM'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                            wred-profile: 'uuid_of_wred-profile_instance'
+                        scheduler-kind: 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                        weighting: 22
+                    scheduler-profile: 'uuid_of_scheduler_profile_instance'
+                    explicit-congestion-notification-is-on: false
+                    ingress-policing-profile: '4294967295'
+                    egress-shaping-is-on: true
+                    maximum-information-rate: 256
+                    maximum-burst-size: 32767
+                    qos-profile: 'uuid_of_qos_profile_instance'
+                    bundling-is-on: true
+                    header-compression-kind: 'no-compression'
+                    fec-is-on: false
+                    fec-word-size: -1
+                    fec-redundancy-size: 'ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_NOT_YET_DEFINED'
+                    fec-interleaver-kind: 'ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_NOT_YET_DEFINED'
+                    fec-interleaver-depth: 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_NOT_YET_DEFINED'
+                    encryption-is-on: false
+                    cryptographic-key: Cryptographic key not yet defined.
+                    loop-back-kind-on: 'ethernet-container-2-0:LOOP_BACK_TYPE_NONE'
+                    maintenance-timer: 0
+                    statistics-is-on: true
+                    performance-monitoring-is-on: true
+  /rests/data/network-topology:network-topology/topology=topology-netconf/node=305250001/yang-ext:mount/core-model-1-4:control-construct/logical-termination-point=ethCont1/layer-protocol=1/ethernet-container-2-0:ethernet-container-pac/ethernet-container-status:
+    parameters:
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/localId'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedEthernetContainerStatus
+      summary: 'Provides EthernetContainerStatus from device'
+      tags:
+        - IndividualServices
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: 'EthernetContainerStatus provided from device'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ethernet-container-2-0:ethernet-container-status
+                properties:
+                  ethernet-container-2-0:ethernet-container-status:
+                    $ref: '#/components/schemas/ethernet-container-status'
+                example:
+                  ethernet-container-2-0:ethernet-container-status:
+                    interface-status: 'ethernet-container-2-0:INTERFACE_STATUS_TYPE_UP'
+                    bundling-is-up: true
+                    remote-site-is-faulty: false
+                    loop-back-kind-up: 'ethernet-container-2-0:LOOP_BACK_TYPE_NONE'
+                    statistics-is-up: true
+                    performance-monitoring-is-up: true
+                    timestamp: '2024-05-06T09:52:43+00:00'
+                    last-10-sec-data-input-rate: -1
+                    last-10-sec-data-output-rate: -1
+                    total-bytes-input: '1433122765'
+                    total-bytes-output: '30130'
+                    frames-of-64-byte: '0'
+                    frames-of-65-to-127-byte: '0'
+                    frames-of-128-to-255-byte: '0'
+                    frames-of-256-to-511-byte: '0'
+                    frames-of-512-to-1023-byte: '12170541'
+                    frames-of-1024-to-1518-byte: '0'
+                    total-frames-input: '12170541'
+                    total-frames-output: '61'
+                    forwarded-frames-input: '-1'
+                    forwarded-frames-output: '-1'
+                    unicast-frames-input: '12170541'
+                    unicast-frames-output: '61'
+                    multicast-frames-input: 0
+                    multicast-frames-output: 0
+                    broadcast-frames-input: 0
+                    broadcast-frames-output: 0
+                    fragmented-frames-input: 0
+                    errored-frames-input: 0
+                    errored-frames-output: -1
+                    dropped-frames-input: 0
+                    dropped-frames-output: 0
+  /rests/data/network-topology:network-topology/topology=topology-netconf/node=305250001/yang-ext:mount/core-model-1-4:control-construct/logical-termination-point=ethCont1/layer-protocol=1/ethernet-container-2-0:ethernet-container-pac/ethernet-container-current-performance:
+    parameters:
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/localId'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedEthernetContainerCurrentPerformance
+      summary: 'Provides EthernetContainerCurrentPerformance from device'
+      tags:
+        - IndividualServices
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: 'EthernetContainerCurrentPerformance provided from device'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ethernet-container-2-0:ethernet-container-current-performance
+                properties:
+                  ethernet-container-2-0:ethernet-container-current-performance:
+                    $ref: '#/components/schemas/ethernet-container-current-performance'
+                example:
+                  ethernet-container-2-0:ethernet-container-current-performance:
+                    number-of-current-performance-sets: 2
+                    current-performance-data-list:
+                      - granularity-period: 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-15-MIN'
+                        timestamp: '2024-05-06T09:53:54+00:00'
+                        suspect-interval-flag: false
+                        elapsed-time: '0'
+                        scanner-id: 'Scanner ID not defined.'
+                        performance-data:
+                          max-bytes-per-second-output: 30130
+                          total-bytes-input: '0'
+                          total-bytes-output: '0'
+                          queue-utilization-list:
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                          time-period: -1
+                          total-frames-input: '12170541'
+                          total-frames-output: '61'
+                          forwarded-frames-input: '-1'
+                          forwarded-frames-output: '-1'
+                          unicast-frames-input: '12170541'
+                          unicast-frames-output: '61'
+                          multicast-frames-input: 0
+                          multicast-frames-output: 0
+                          broadcast-frames-input: 0
+                          broadcast-frames-output: 0
+                          fragmented-frames-input: 0
+                          errored-frames-input: 0
+                          errored-frames-output: -1
+                          dropped-frames-input: 0
+                          dropped-frames-output: 0
+                          oversized-frames-ingress: 0
+                          undersized-frames-ingress: 0
+                          jabber-frames-ingress: 0
+                          unknown-protocol-frames-input: -1
+                      - granularity-period: 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-24-HOURS'
+                        timestamp: '2024-05-06T09:53:54+00:00'
+                        suspect-interval-flag: false
+                        elapsed-time: '0'
+                        scanner-id: 'Scanner ID not defined.'
+                        performance-data:
+                          max-bytes-per-second-output: 30130
+                          total-bytes-input: '0'
+                          total-bytes-output: '0'
+                          queue-utilization-list:
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                          time-period: -1
+                          total-frames-input: '12170541'
+                          total-frames-output: '61'
+                          forwarded-frames-input: '-1'
+                          forwarded-frames-output: '-1'
+                          unicast-frames-input: '12170541'
+                          unicast-frames-output: '61'
+                          multicast-frames-input: 0
+                          multicast-frames-output: 0
+                          broadcast-frames-input: 0
+                          broadcast-frames-output: 0
+                          fragmented-frames-input: 0
+                          errored-frames-input: 0
+                          errored-frames-output: -1
+                          dropped-frames-input: 0
+                          dropped-frames-output: 0
+                          oversized-frames-ingress: 0
+                          undersized-frames-ingress: 0
+                          jabber-frames-ingress: 0
+                          unknown-protocol-frames-input: -1
+  /rests/data/network-topology:network-topology/topology=topology-netconf/node=305250001/yang-ext:mount/core-model-1-4:control-construct/logical-termination-point=ethCont1/layer-protocol=1/ethernet-container-2-0:ethernet-container-pac/ethernet-container-historical-performances:
+    parameters:
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/localId'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedEthernetContainerHistoricalPerformances
+      summary: 'Provides EthernetContainerHistoricalPerformances from device'
+      tags:
+        - IndividualServices
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: 'EthernetContainerHistoricalPerformances provided from device'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ethernet-container-2-0:ethernet-container-historical-performances
+                properties:
+                  ethernet-container-2-0:ethernet-container-historical-performances:
+                    $ref: '#/components/schemas/ethernet-container-historical-performances'
+                example:
+                  ethernet-container-2-0:ethernet-container-historical-performances:
+                    number-of-historical-performance-sets: 4
+                    time-of-latest-change: '2013-08-13T02:00:00+00:00'
+                    historical-performance-data-list:
+                      - granularity-period: 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-15-MIN'
+                        period-end-time: '2013-08-12T12:15:00+00:00'
+                        suspect-interval-flag: false
+                        history-data-id: 'History Data ID not defined.'
+                        performance-data:
+                          max-bytes-per-second-output: 0
+                          total-bytes-input: '1807000'
+                          total-bytes-output: '0'
+                          queue-utilization-list:
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                          time-period: 900
+                          total-frames-input: '-1'
+                          total-frames-output: '-1'
+                          forwarded-frames-input: '-1'
+                          forwarded-frames-output: '-1'
+                          unicast-frames-input: '1807'
+                          unicast-frames-output: '0'
+                          multicast-frames-input: 0
+                          multicast-frames-output: 0
+                          broadcast-frames-input: 0
+                          broadcast-frames-output: 0
+                          fragmented-frames-input: -1
+                          errored-frames-input: 0
+                          errored-frames-output: 0
+                          dropped-frames-input: 0
+                          dropped-frames-output: 0
+                          oversized-frames-ingress: -1
+                          undersized-frames-ingress: -1
+                          jabber-frames-ingress: -1
+                          unknown-protocol-frames-input: -1
+                      - granularity-period: 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-15-MIN'
+                        period-end-time: '2013-08-12T12:30:00+00:00'
+                        suspect-interval-flag: false
+                        history-data-id: 'History Data ID not defined.'
+                        performance-data:
+                          max-bytes-per-second-output: 0
+                          total-bytes-input: '1812000'
+                          total-bytes-output: '0'
+                          queue-utilization-list:
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                          time-period: 900
+                          total-frames-input: '-1'
+                          total-frames-output: '-1'
+                          forwarded-frames-input: '-1'
+                          forwarded-frames-output: '-1'
+                          unicast-frames-input: '1812'
+                          unicast-frames-output: '0'
+                          multicast-frames-input: 0
+                          multicast-frames-output: 0
+                          broadcast-frames-input: 0
+                          broadcast-frames-output: 0
+                          fragmented-frames-input: -1
+                          errored-frames-input: 0
+                          errored-frames-output: 0
+                          dropped-frames-input: 0
+                          dropped-frames-output: 0
+                          oversized-frames-ingress: -1
+                          undersized-frames-ingress: -1
+                          jabber-frames-ingress: -1
+                          unknown-protocol-frames-input: -1
+                      - granularity-period: 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-15-MIN'
+                        period-end-time: '2013-08-12T12:45:00+00:00'
+                        suspect-interval-flag: false
+                        history-data-id: 'History Data ID not defined.'
+                        performance-data:
+                          max-bytes-per-second-output: 0
+                          total-bytes-input: '1811000'
+                          total-bytes-output: '0'
+                          queue-utilization-list:
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                          time-period: 900
+                          total-frames-input: '-1'
+                          total-frames-output: '-1'
+                          forwarded-frames-input: '-1'
+                          forwarded-frames-output: '-1'
+                          unicast-frames-input: '1811'
+                          unicast-frames-output: '0'
+                          multicast-frames-input: 0
+                          multicast-frames-output: 0
+                          broadcast-frames-input: 0
+                          broadcast-frames-output: 0
+                          fragmented-frames-input: -1
+                          errored-frames-input: 0
+                          errored-frames-output: 0
+                          dropped-frames-input: 0
+                          dropped-frames-output: 0
+                          oversized-frames-ingress: -1
+                          undersized-frames-ingress: -1
+                          jabber-frames-ingress: -1
+                          unknown-protocol-frames-input: -1
+                      - granularity-period: 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-15-MIN'
+                        period-end-time: '2013-08-12T13:00:00+00:00'
+                        suspect-interval-flag: false
+                        history-data-id: 'History Data ID not defined.'
+                        performance-data:
+                          max-bytes-per-second-output: 0
+                          total-bytes-input: '1809000'
+                          total-bytes-output: '0'
+                          queue-utilization-list:
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
+                              max-queue-length: -1
+                              avg-queue-length: -1
+                          time-period: 900
+                          total-frames-input: '-1'
+                          total-frames-output: '-1'
+                          forwarded-frames-input: '-1'
+                          forwarded-frames-output: '-1'
+                          unicast-frames-input: '1809'
+                          unicast-frames-output: '0'
+                          multicast-frames-input: 0
+                          multicast-frames-output: 0
+                          broadcast-frames-input: 0
+                          broadcast-frames-output: 0
+                          fragmented-frames-input: -1
+                          errored-frames-input: 0
+                          errored-frames-output: 0
+                          dropped-frames-input: 0
+                          dropped-frames-output: 0
+                          oversized-frames-ingress: -1
+                          undersized-frames-ingress: -1
+                          jabber-frames-ingress: -1
+                          unknown-protocol-frames-input: -1
+
+
+########################################################################################################################
+#   Generic Paths
+########################################################################################################################
+  /generic/core-model-1-4:network-control-domain=cache/control-construct={mountName}/logical-termination-point={uuid}/layer-protocol={localId}/ethernet-container-2-0:ethernet-container-pac/ethernet-container-capability:
+    parameters:
+      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/originator'
+      - $ref: '#/components/parameters/x-correlator'
+      - $ref: '#/components/parameters/trace-indicator'
+      - $ref: '#/components/parameters/customer-journey'
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/localId'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedEthernetContainerCapability
+      summary: 'Provides EthernetContainerCapability from cache'
+      tags:
+        - IndividualServices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: 'EthernetContainerCapability provided from cache'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ethernet-container-2-0:ethernet-container-capability
+                properties:
+                  ethernet-container-2-0:ethernet-container-capability:
+                    $ref: '#/components/schemas/ethernet-container-capability'
+                example:
+                  ethernet-container-2-0:ethernet-container-capability:
+                    available-queue-list:
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                        supported-queue-depth-list:
+                          - 0
+                        available-dropping-behavior-kind-list:
+                          - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL'
+                        available-drop-precedence-kind-list:
+                          - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL'
+                        wred-profile-per-drop-precedence-is-available: true
+                        available-scheduling-kind-list:
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT'
+                    dropping-behavior-configuration-is-avail: true
+                    wred-profile-configuration-is-avail: true
+                    scheduler-kind-configuration-is-avail: true
+                    scheduler-profile-configuration-is-avail: true
+                    supported-wred-protocol-list:
+                      - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NONE'
+                    explicit-congestion-notification-is-avail: true
+                    ingress-policing-is-avail: true
+                    egress-shaping-is-avail: true
+                    supported-maximum-information-rate-list:
+                      - 0
+                    supported-maximum-burst-size-list:
+                      - 0
+                    bundling-is-avail: true
+                    bundling-group-size-max: 0
+                    support-of-management-frames-without-preamble-is-avail: true
+                    supported-header-compression-kind-list:
+                      - header-compression-name: 'string'
+                        header-compression-mode: 'ethernet-container-2-0:HEADER_COMPRESSION_MODE_TYPE_AUTO'
+                        compressed-protocol-layer-list:
+                          - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NONE'
+                        mpls-payload-kind-list:
+                          - 'ethernet-container-2-0:MPLS_PAYLOAD_KIND_TYPE_NONE'
+                        compressed-header-length: 0
+                    fec-is-avail: true
+                    fec-word-size-max: 0
+                    supported-fec-redundancy-size-list:
+                      - 'ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_2'
+                    supported-fec-interleaver-kind-list:
+                      - 'ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_NONE'
+                    supported-fec-interleaver-depth-list:
+                      - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_1'
+                    encryption-is-avail: true
+                    admin-shut-down-is-avail: true
+                    supported-loop-back-kind-list:
+                      - 'ethernet-container-2-0:LOOP_BACK_TYPE_NONE'
+                    maintenance-timer-range: Range of the maintenance timer not yet defined.
+                    statistics-is-avail: true
+                    performance-monitoring-is-avail: true
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+            exec-time:
+              $ref: '#/components/headers/exec-time'
+            backend-time:
+              $ref: '#/components/headers/backend-time'
+            life-cycle-state:
+              $ref: '#/components/headers/life-cycle-state'
+        '4XX':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        '500':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        default:
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+  /generic/core-model-1-4:network-control-domain=cache/control-construct={mountName}/logical-termination-point={uuid}/layer-protocol={localId}/ethernet-container-2-0:ethernet-container-pac/ethernet-container-configuration:
+    parameters:
+      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/originator'
+      - $ref: '#/components/parameters/x-correlator'
+      - $ref: '#/components/parameters/trace-indicator'
+      - $ref: '#/components/parameters/customer-journey'
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/localId'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedEthernetContainerConfiguration
+      summary: 'Provides EthernetContainerConfiguration from cache'
+      tags:
+        - IndividualServices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: 'EthernetContainerConfiguration provided from cache'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ethernet-container-2-0:ethernet-container-configuration
+                properties:
+                  ethernet-container-2-0:ethernet-container-configuration:
+                    $ref: '#/components/schemas/ethernet-container-configuration'
+                example:
+                  ethernet-container-2-0:ethernet-container-configuration:
+                    interface-name: 'string'
+                    interface-is-on: true
+                    queue-behavior-list:
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                        queue-depth: 0
+                        dropping-behavior-kind: 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL'
+                        wred-behavior-list:
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NONE'
+                            wred-profile: 'string'
+                        scheduler-kind: 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT'
+                        weighting: 0
+                        wred-template-profile: 'string'
+                    scheduler-profile: 'string'
+                    explicit-congestion-notification-is-on: true
+                    ingress-policing-profile: 'string'
+                    egress-shaping-is-on: true
+                    maximum-information-rate: 0
+                    maximum-burst-size: 0
+                    qos-profile: 'string'
+                    bundling-is-on: true
+                    header-compression-kind: 'string'
+                    fec-is-on: true
+                    fec-word-size: 0
+                    fec-redundancy-size: 'ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_2'
+                    fec-interleaver-kind: 'ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_NONE'
+                    fec-interleaver-depth: 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_1'
+                    encryption-is-on: true
+                    cryptographic-key: 'string'
+                    loop-back-kind-on: 'ethernet-container-2-0:LOOP_BACK_TYPE_NONE'
+                    maintenance-timer: 0
+                    statistics-is-on: true
+                    performance-monitoring-is-on: true
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+            exec-time:
+              $ref: '#/components/headers/exec-time'
+            backend-time:
+              $ref: '#/components/headers/backend-time'
+            life-cycle-state:
+              $ref: '#/components/headers/life-cycle-state'
+        '4XX':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        '500':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        default:
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+  /generic/core-model-1-4:network-control-domain=cache/control-construct={mountName}/logical-termination-point={uuid}/layer-protocol={localId}/ethernet-container-2-0:ethernet-container-pac/ethernet-container-status:
+    parameters:
+      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/originator'
+      - $ref: '#/components/parameters/x-correlator'
+      - $ref: '#/components/parameters/trace-indicator'
+      - $ref: '#/components/parameters/customer-journey'
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/localId'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedEthernetContainerStatus
+      summary: 'Provides EthernetContainerStatus from cache'
+      tags:
+        - IndividualServices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: 'EthernetContainerStatus provided from cache'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ethernet-container-2-0:ethernet-container-status
+                properties:
+                  ethernet-container-2-0:ethernet-container-status:
+                    $ref: '#/components/schemas/ethernet-container-status'
+                example:
+                  ethernet-container-2-0:ethernet-container-status:
+                    interface-status: 'ethernet-container-2-0:INTERFACE_STATUS_TYPE_UP'
+                    bundling-is-up: true
+                    remote-site-is-faulty: true
+                    loop-back-kind-up: 'ethernet-container-2-0:LOOP_BACK_TYPE_NONE'
+                    statistics-is-up: true
+                    performance-monitoring-is-up: true
+                    timestamp: '2010-11-20T14:00:00+01:00'
+                    last-10-sec-data-input-rate: 0
+                    last-10-sec-data-output-rate: 0
+                    total-bytes-input: 'string'
+                    total-bytes-output: 'string'
+                    frames-of-64-byte: 'string'
+                    frames-of-65-to-127-byte: 'string'
+                    frames-of-128-to-255-byte: 'string'
+                    frames-of-256-to-511-byte: 'string'
+                    frames-of-512-to-1023-byte: 'string'
+                    frames-of-1024-to-1518-byte: 'string'
+                    total-frames-input: 'string'
+                    total-frames-output: 'string'
+                    forwarded-frames-input: 'string'
+                    forwarded-frames-output: 'string'
+                    unicast-frames-input: 'string'
+                    unicast-frames-output: 'string'
+                    multicast-frames-input: 0
+                    multicast-frames-output: 0
+                    broadcast-frames-input: 0
+                    broadcast-frames-output: 0
+                    fragmented-frames-input: 0
+                    errored-frames-input: 0
+                    errored-frames-output: 0
+                    dropped-frames-input: 0
+                    dropped-frames-output: 0
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+            exec-time:
+              $ref: '#/components/headers/exec-time'
+            backend-time:
+              $ref: '#/components/headers/backend-time'
+            life-cycle-state:
+              $ref: '#/components/headers/life-cycle-state'
+        '4XX':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        '500':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        default:
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+  /generic/core-model-1-4:network-control-domain=cache/control-construct={mountName}/logical-termination-point={uuid}/layer-protocol={localId}/ethernet-container-2-0:ethernet-container-pac/ethernet-container-current-performance:
+    parameters:
+      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/originator'
+      - $ref: '#/components/parameters/x-correlator'
+      - $ref: '#/components/parameters/trace-indicator'
+      - $ref: '#/components/parameters/customer-journey'
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/localId'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedEthernetContainerCurrentPerformance
+      summary: 'Provides EthernetContainerCurrentPerformance from cache'
+      tags:
+        - IndividualServices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: 'EthernetContainerCurrentPerformance provided from cache'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ethernet-container-2-0:ethernet-container-current-performance
+                properties:
+                  ethernet-container-2-0:ethernet-container-current-performance:
+                    $ref: '#/components/schemas/ethernet-container-current-performance'
+                example:
+                  ethernet-container-2-0:ethernet-container-current-performance:
+                    number-of-current-performance-sets: 0
+                    current-performance-data-list:
+                      - timestamp: '2010-11-20T14:00:00+01:00'
+                        suspect-interval-flag: true
+                        elapsed-time: 'string'
+                        scanner-id: 'string'
+                        granularity-period: 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_UNKNOWN'
+                        performance-data:
+                          max-bytes-per-second-output: 0
+                          total-bytes-input: 'string'
+                          total-bytes-output: 'string'
+                          queue-utilization-list:
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                              max-queue-length: 0
+                              avg-queue-length: 0
+                          time-period: 0
+                          total-frames-input: 'string'
+                          total-frames-output: 'string'
+                          forwarded-frames-input: 'string'
+                          forwarded-frames-output: 'string'
+                          unicast-frames-input: 'string'
+                          unicast-frames-output: 'string'
+                          multicast-frames-input: 0
+                          multicast-frames-output: 0
+                          broadcast-frames-input: 0
+                          broadcast-frames-output: 0
+                          fragmented-frames-input: 0
+                          errored-frames-input: 0
+                          errored-frames-output: 0
+                          dropped-frames-input: 0
+                          dropped-frames-output: 0
+                          oversized-frames-ingress: 0
+                          undersized-frames-ingress: 0
+                          jabber-frames-ingress: 0
+                          unknown-protocol-frames-input: 0
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+            exec-time:
+              $ref: '#/components/headers/exec-time'
+            backend-time:
+              $ref: '#/components/headers/backend-time'
+            life-cycle-state:
+              $ref: '#/components/headers/life-cycle-state'
+        '4XX':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        '500':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        default:
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+  /generic/core-model-1-4:network-control-domain=cache/control-construct={mountName}/logical-termination-point={uuid}/layer-protocol={localId}/ethernet-container-2-0:ethernet-container-pac/ethernet-container-historical-performances:
+    parameters:
+      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/originator'
+      - $ref: '#/components/parameters/x-correlator'
+      - $ref: '#/components/parameters/trace-indicator'
+      - $ref: '#/components/parameters/customer-journey'
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/localId'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedEthernetContainerHistoricalPerformances
+      summary: 'Provides EthernetContainerHistoricalPerformances from cache'
+      tags:
+        - IndividualServices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: 'EthernetContainerHistoricalPerformances provided from cache'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ethernet-container-2-0:ethernet-container-historical-performances
+                properties:
+                  ethernet-container-2-0:ethernet-container-historical-performances:
+                    $ref: '#/components/schemas/ethernet-container-historical-performances'
+                example:
+                  ethernet-container-2-0:ethernet-container-historical-performances:
+                    number-of-historical-performance-sets: 0
+                    time-of-latest-change: '2010-11-20T14:00:00+01:00'
+                    historical-performance-data-list:
+                      - suspect-interval-flag: true
+                        history-data-id: 'string'
+                        granularity-period: 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_UNKNOWN'
+                        period-end-time: '2010-11-20T14:00:00+01:00'
+                        performance-data:
+                          max-bytes-per-second-output: 0
+                          total-bytes-input: 'string'
+                          total-bytes-output: 'string'
+                          queue-utilization-list:
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                              max-queue-length: 0
+                              avg-queue-length: 0
+                          time-period: 0
+                          total-frames-input: 'string'
+                          total-frames-output: 'string'
+                          forwarded-frames-input: 'string'
+                          forwarded-frames-output: 'string'
+                          unicast-frames-input: 'string'
+                          unicast-frames-output: 'string'
+                          multicast-frames-input: 0
+                          multicast-frames-output: 0
+                          broadcast-frames-input: 0
+                          broadcast-frames-output: 0
+                          fragmented-frames-input: 0
+                          errored-frames-input: 0
+                          errored-frames-output: 0
+                          dropped-frames-input: 0
+                          dropped-frames-output: 0
+                          oversized-frames-ingress: 0
+                          undersized-frames-ingress: 0
+                          jabber-frames-ingress: 0
+                          unknown-protocol-frames-input: 0
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+            exec-time:
+              $ref: '#/components/headers/exec-time'
+            backend-time:
+              $ref: '#/components/headers/backend-time'
+            life-cycle-state:
+              $ref: '#/components/headers/life-cycle-state'
+        '4XX':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        '500':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        default:
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+
+
+########################################################################################################################
+#   Common Components
+########################################################################################################################
+components:
+  parameters:
+    user:
+      name: user
+      in: header
+      required: true
+      schema:
+        type: string
+        example: 'User Name'
+      description: 'User identifier from the system starting the service call'
+    originator:
+      name: originator
+      in: header
+      required: true
+      schema:
+        type: string
+        minLength: 3
+        example: 'Resolver'
+      description: >
+        'Identification for the system consuming the API, as defined in
+         [/core-model-1-4:control-construct/logical-termination-point={uuid}/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/application-name]'
+    x-correlator:
+      name: x-correlator
+      in: header
+      required: true
+      schema:
+        type: string
+        pattern: '^[0-9A-Fa-f]{8}(?:-[0-9A-Fa-f]{4}){3}-[0-9A-Fa-f]{12}$'
+        description: 'Empty string accepted from external applications.'
+        example: '550e8400-e29b-11d4-a716-446655440000'
+      description: 'UUID for the service execution flow that allows to correlate requests and responses'
+    trace-indicator:
+      name: trace-indicator
+      in: header
+      required: true
+      schema:
+        type: string
+        pattern: '^([0-9]+)(\.([0-9]+))*$'
+        description: 'Empty string accepted from external applications.'
+        example: '1.3.1'
+      description: 'Sequence of request numbers along the flow'
+    customer-journey:
+      name: customer-journey
+      in: header
+      required: true
+      schema:
+        type: string
+        example: 'Unknown value'
+      description: 'Holds information supporting customer’s journey to which the execution applies'
+    mountName:
+      name: mountName
+      in: path
+      required: true
+      schema:
+        type: string
+        example: '222250001'
+      description: 'The mountName of the device that is addressed by the request'
+    uuid:
+      name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 'LTP-MWPS-TTP-1-1'
+      description: 'Instance identifier that is unique within the device'
+    uuid1:
+      name: uuid1
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 'LTP-MWPS-TTP-1-1'
+      description: 'Another instance identifier that is unique within the device'
+    localId:
+      name: localId
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 'LP-MWPS-TTP-1-1'
+      description: 'Instance identifier that is unique within its list'
+    fields:
+      name: fields
+      in: query
+      required: false
+      schema:
+        type: string
+        example: 'node(node-id;netconf-node-topology:connection-status)'
+      description: 'Query parameter to filter ressources according to RFC8040 fields filter spec'
+  responses:
+    responseForErroredServiceRequests:
+      description: 'Response in case of errored service requests'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorDescription'
+      headers:
+        x-correlator:
+          schema:
+            type: string
+            pattern: '^[0-9A-Fa-f]{8}(?:-[0-9A-Fa-f]{4}){3}-[0-9A-Fa-f]{12}$'
+            example: '550e8400-e29b-11d4-a716-446655440000'
+          description: 'UUID for the service execution flow that allows to correlate requests and responses. Its value must be identical at the response compared with its corresponding request'
+        exec-time:
+          schema:
+            type: integer
+            example: 1100
+          description: 'Value written by the service provider, reporting the total elapsed time for the execution, including all the additional processing needed to retrieve the data from the backend service. Expressed in milliseconds'
+        backend-time:
+          schema:
+            type: integer
+            example: 850
+          description: 'Value written by the service provider, reporting the elapsed time for data retrieval from the backend (service invocation, database access…). Expressed in milliseconds'
+    responseForErroredOamRequests:
+      description: 'Response in case of errored OaM requests'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorDescription'
+  headers:
+    x-correlator:
+      schema:
+        type: string
+        example: '550e8400-e29b-11d4-a716-446655440000'
+      description: 'UUID for the service execution flow that allows to correlate requests and responses. Its value must be identical at the response compared with its corresponding request'
+    exec-time:
+      schema:
+        type: integer
+        example: 1100
+      description: 'Value written by the service provider, reporting the total elapsed time for the execution, including all the additional processing needed to retrieve the data from the backend service. Expressed in milliseconds'
+    backend-time:
+      schema:
+        type: integer
+        example: 850
+      description: 'Value written by the service provider, reporting the elapsed time for data retrieval from the backend (service invocation, database access…). Expressed in milliseconds'
+    life-cycle-state:
+      schema:
+        type: string
+        enum:
+          - 'EXPERIMENTAL'
+          - 'OPERATIONAL'
+          - 'DEPRECATED'
+          - 'OBSOLETE'
+          - 'UNKNOWN'
+          - 'NOT_YET_DEFINED'
+        example: 'EXPERIMENTAL'
+  schemas:
+    errorDescription:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+
+    ethernet-container-capability:
+      type: object
+      required:
+        - available-queue-list
+        - dropping-behavior-configuration-is-avail
+        - wred-profile-configuration-is-avail
+        - scheduler-kind-configuration-is-avail
+        - scheduler-profile-configuration-is-avail
+        - explicit-congestion-notification-is-avail
+        - ingress-policing-is-avail
+        - egress-shaping-is-avail
+        - bundling-is-avail
+        - bundling-group-size-max
+        - support-of-management-frames-without-preamble-is-avail
+        - supported-header-compression-kind-list
+        - fec-is-avail
+        - fec-word-size-max
+        - encryption-is-avail
+        - admin-shut-down-is-avail
+        - maintenance-timer-range
+        - statistics-is-avail
+        - performance-monitoring-is-avail
+      properties:
+        available-queue-list:
+          type: array
+          minItems: 1
+          maxItems: 8
+          x-key: queue-name
+          items:
+            type: object
+            required:
+              - queue-name
+              - wred-profile-per-drop-precedence-is-available
+            properties:
+              queue-name:
+                type: string
+                enum:
+                  - 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                  - 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1'
+                  - 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2'
+                  - 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3'
+                  - 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4'
+                  - 'ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE'
+                  - 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6'
+                  - 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
+                  - 'ethernet-container-2-0:QUEUE_NAME_TYPE_QUEUENAME_NOT_YET_DEFINED'
+              supported-queue-depth-list:
+                type: array
+                minItems: 0
+                items:
+                  type: integer
+                  format: int32
+              available-dropping-behavior-kind-list:
+                type: array
+                minItems: 0
+                items:
+                  type: string
+                  enum:
+                    - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL'
+                    - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_RED'
+                    - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED'
+                    - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_NOT_YET_DEFINED'
+              available-drop-precedence-kind-list:
+                type: array
+                minItems: 0
+                items:
+                  type: string
+                  enum:
+                    - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL'
+                    - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW'
+                    - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_MEDIUM'
+                    - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH'
+                    - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_NOT_YET_DEFINED'
+              wred-profile-per-drop-precedence-is-available:
+                type: boolean
+              available-scheduling-kind-list:
+                type: array
+                minItems: 0
+                items:
+                  type: string
+                  enum:
+                    - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT'
+                    - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                    - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WRR'
+                    - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_DWRR'
+                    - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_NOT_YET_DEFINED'
+        dropping-behavior-configuration-is-avail:
+          type: boolean
+        wred-profile-configuration-is-avail:
+          type: boolean
+        scheduler-kind-configuration-is-avail:
+          type: boolean
+        scheduler-profile-configuration-is-avail:
+          type: boolean
+        supported-wred-protocol-list:
+          type: array
+          minItems: 0
+          items:
+            type: string
+            enum:
+              - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NONE'
+              - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+              - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_VLAN'
+              - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_Q_IN_Q'
+              - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_MPLS'
+              - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_IPV4'
+              - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_IPV6'
+              - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_TCP'
+              - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_UDP'
+              - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_RTP'
+              - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_GTP_U'
+              - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_OTHERS'
+              - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NOT_YET_DEFINED'
+        explicit-congestion-notification-is-avail:
+          type: boolean
+        ingress-policing-is-avail:
+          type: boolean
+        egress-shaping-is-avail:
+          type: boolean
+        supported-maximum-information-rate-list:
+          type: array
+          minItems: 0
+          items:
+            type: integer
+            format: int32
+        supported-maximum-burst-size-list:
+          type: array
+          minItems: 0
+          items:
+            type: integer
+            format: int16
+        bundling-is-avail:
+          type: boolean
+        bundling-group-size-max:
+          type: integer
+          format: int8
+        support-of-management-frames-without-preamble-is-avail:
+          type: boolean
+        supported-header-compression-kind-list:
+          type: array
+          minItems: 1
+          x-key: header-compression-name
+          items:
+            type: object
+            required:
+              - header-compression-name
+              - header-compression-mode
+              - compressed-header-length
+            properties:
+              header-compression-name:
+                type: string
+              header-compression-mode:
+                type: string
+                enum:
+                  - 'ethernet-container-2-0:HEADER_COMPRESSION_MODE_TYPE_AUTO'
+                  - 'ethernet-container-2-0:HEADER_COMPRESSION_MODE_TYPE_PROTOCOL_BASED'
+                  - 'ethernet-container-2-0:HEADER_COMPRESSION_MODE_TYPE_LENGTH_BASED'
+                  - 'ethernet-container-2-0:HEADER_COMPRESSION_MODE_TYPE_NO_COMPRESSION'
+                  - 'ethernet-container-2-0:HEADER_COMPRESSION_MODE_TYPE_NOT_YET_DEFINED'
+              compressed-protocol-layer-list:
+                type: array
+                minItems: 0
+                items:
+                  type: string
+                  enum:
+                    - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NONE'
+                    - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                    - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_VLAN'
+                    - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_Q_IN_Q'
+                    - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_MPLS'
+                    - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_IPV4'
+                    - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_IPV6'
+                    - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_TCP'
+                    - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_UDP'
+                    - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_RTP'
+                    - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_GTP_U'
+                    - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_OTHERS'
+                    - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NOT_YET_DEFINED'
+              mpls-payload-kind-list:
+                type: array
+                minItems: 0
+                items:
+                  type: string
+                  enum:
+                    - 'ethernet-container-2-0:MPLS_PAYLOAD_KIND_TYPE_NONE'
+                    - 'ethernet-container-2-0:MPLS_PAYLOAD_KIND_TYPE_AUTO'
+                    - 'ethernet-container-2-0:MPLS_PAYLOAD_KIND_TYPE_ETH_O_MPLS'
+                    - 'ethernet-container-2-0:MPLS_PAYLOAD_KIND_TYPE_IP_O_MPLS'
+                    - 'ethernet-container-2-0:MPLS_PAYLOAD_KIND_TYPE_NOT_YET_DEFINED'
+              compressed-header-length:
+                type: integer
+                format: int16
+        fec-is-avail:
+          type: boolean
+        fec-word-size-max:
+          type: integer
+          format: int16
+        supported-fec-redundancy-size-list:
+          type: array
+          minItems: 0
+          items:
+            type: string
+            enum:
+              - 'ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_2'
+              - 'ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_4'
+              - 'ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_8'
+              - 'ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_16'
+              - 'ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_20'
+              - 'ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_NOT_YET_DEFINED'
+        supported-fec-interleaver-kind-list:
+          type: array
+          minItems: 0
+          items:
+            type: string
+            enum:
+              - 'ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_NONE'
+              - 'ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_BLOCK'
+              - 'ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_CONVOLUTION'
+              - 'ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_NOT_YET_DEFINED'
+        supported-fec-interleaver-depth-list:
+          type: array
+          minItems: 0
+          items:
+            type: string
+            enum:
+              - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_1'
+              - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_2'
+              - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_3'
+              - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_4'
+              - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_6'
+              - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_8'
+              - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_12'
+              - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_16'
+              - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_24'
+              - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_32'
+              - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_48'
+              - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_96'
+              - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_NOT_YET_DEFINED'
+        encryption-is-avail:
+          type: boolean
+        admin-shut-down-is-avail:
+          type: boolean
+        supported-loop-back-kind-list:
+          type: array
+          minItems: 0
+          items:
+            type: string
+            enum:
+              - 'ethernet-container-2-0:LOOP_BACK_TYPE_NONE'
+              - 'ethernet-container-2-0:LOOP_BACK_TYPE_BACK_TO_LOCAL'
+              - 'ethernet-container-2-0:LOOP_BACK_TYPE_BACK_TO_REMOTE'
+              - 'ethernet-container-2-0:LOOP_BACK_TYPE_NOT_YET_DEFINED'
+        maintenance-timer-range:
+          type: string
+          pattern: '^(Range of the maintenance timer not yet defined\.)$|^([0-9]{1,}){1,1}([,]{1,1}[ ]{1,1}[1-9]{1,1}[0-9]{0,}){0,}$|^([0-9]{1,}){1,1}(-){1,1}([1-9]{1,1}[0-9]{0,}){1,1}$'
+        statistics-is-avail:
+          type: boolean
+        performance-monitoring-is-avail:
+          type: boolean
+    ethernet-container-configuration:
+      type: object
+      required:
+        - interface-name
+        - interface-is-on
+        - queue-behavior-list
+        - explicit-congestion-notification-is-on
+        - egress-shaping-is-on
+        - maximum-information-rate
+        - maximum-burst-size
+        - bundling-is-on
+        - header-compression-kind
+        - fec-is-on
+        - fec-word-size
+        - fec-redundancy-size
+        - fec-interleaver-kind
+        - fec-interleaver-depth
+        - encryption-is-on
+        - cryptographic-key
+        - loop-back-kind-on
+        - maintenance-timer
+        - statistics-is-on
+        - performance-monitoring-is-on
+      properties:
+        interface-name:
+          type: string
+        interface-is-on:
+          type: boolean
+        queue-behavior-list:
+          type: array
+          minItems: 1
+          maxItems: 8
+          x-key: queue-name
+          items:
+            type: object
+            required:
+              - queue-name
+              - queue-depth
+              - dropping-behavior-kind
+              - scheduler-kind
+              - weighting
+            properties:
+              queue-name:
+                type: string
+                enum:
+                  - 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                  - 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1'
+                  - 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2'
+                  - 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3'
+                  - 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4'
+                  - 'ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE'
+                  - 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6'
+                  - 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
+                  - 'ethernet-container-2-0:QUEUE_NAME_TYPE_QUEUENAME_NOT_YET_DEFINED'
+              queue-depth:
+                type: integer
+                format: int32
+              dropping-behavior-kind:
+                type: string
+                enum:
+                  - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL'
+                  - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_RED'
+                  - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED'
+                  - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_NOT_YET_DEFINED'
+              wred-behavior-list:
+                type: array
+                minItems: 0
+                x-key: affected-drop-precedence affected-protocol
+                items:
+                  type: object
+                  required:
+                    - affected-drop-precedence
+                    - affected-protocol
+                    - wred-profile
+                  properties:
+                    affected-drop-precedence:
+                      type: string
+                      enum:
+                        - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL'
+                        - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW'
+                        - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_MEDIUM'
+                        - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH'
+                        - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_NOT_YET_DEFINED'
+                    affected-protocol:
+                      type: string
+                      enum:
+                        - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NONE'
+                        - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC'
+                        - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_VLAN'
+                        - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_Q_IN_Q'
+                        - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_MPLS'
+                        - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_IPV4'
+                        - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_IPV6'
+                        - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_TCP'
+                        - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_UDP'
+                        - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_RTP'
+                        - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_GTP_U'
+                        - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_OTHERS'
+                        - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NOT_YET_DEFINED'
+                    wred-profile:
+                      type: string
+              scheduler-kind:
+                type: string
+                enum:
+                  - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT'
+                  - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ'
+                  - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_WRR'
+                  - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_DWRR'
+                  - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_NOT_YET_DEFINED'
+              weighting:
+                type: integer
+                format: int8
+              wred-template-profile:
+                type: string
+        scheduler-profile:
+          type: string
+        explicit-congestion-notification-is-on:
+          type: boolean
+        ingress-policing-profile:
+          type: string
+        egress-shaping-is-on:
+          type: boolean
+        maximum-information-rate:
+          type: integer
+          format: int32
+        maximum-burst-size:
+          type: integer
+          format: int16
+        qos-profile:
+          type: string
+        bundling-is-on:
+          type: boolean
+        header-compression-kind:
+          type: string
+        fec-is-on:
+          type: boolean
+        fec-word-size:
+          type: integer
+          format: int16
+        fec-redundancy-size:
+          type: string
+          enum:
+            - 'ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_2'
+            - 'ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_4'
+            - 'ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_8'
+            - 'ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_16'
+            - 'ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_20'
+            - 'ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_NOT_YET_DEFINED'
+        fec-interleaver-kind:
+          type: string
+          enum:
+            - 'ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_NONE'
+            - 'ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_BLOCK'
+            - 'ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_CONVOLUTION'
+            - 'ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_NOT_YET_DEFINED'
+        fec-interleaver-depth:
+          type: string
+          enum:
+            - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_1'
+            - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_2'
+            - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_3'
+            - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_4'
+            - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_6'
+            - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_8'
+            - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_12'
+            - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_16'
+            - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_24'
+            - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_32'
+            - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_48'
+            - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_96'
+            - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_NOT_YET_DEFINED'
+        encryption-is-on:
+          type: boolean
+        cryptographic-key:
+          type: string
+        loop-back-kind-on:
+          type: string
+          enum:
+            - 'ethernet-container-2-0:LOOP_BACK_TYPE_NONE'
+            - 'ethernet-container-2-0:LOOP_BACK_TYPE_BACK_TO_LOCAL'
+            - 'ethernet-container-2-0:LOOP_BACK_TYPE_BACK_TO_REMOTE'
+            - 'ethernet-container-2-0:LOOP_BACK_TYPE_NOT_YET_DEFINED'
+        maintenance-timer:
+          type: integer
+          format: int32
+        statistics-is-on:
+          type: boolean
+        performance-monitoring-is-on:
+          type: boolean
+    ethernet-container-status:
+      type: object
+      required:
+        - interface-status
+        - bundling-is-up
+        - remote-site-is-faulty
+        - loop-back-kind-up
+        - statistics-is-up
+        - performance-monitoring-is-up
+        - timestamp
+        - last-10-sec-data-input-rate
+        - last-10-sec-data-output-rate
+        - total-bytes-input
+        - total-bytes-output
+        - frames-of-64-byte
+        - frames-of-65-to-127-byte
+        - frames-of-128-to-255-byte
+        - frames-of-256-to-511-byte
+        - frames-of-512-to-1023-byte
+        - frames-of-1024-to-1518-byte
+        - total-frames-input
+        - total-frames-output
+        - forwarded-frames-input
+        - forwarded-frames-output
+        - unicast-frames-input
+        - unicast-frames-output
+        - multicast-frames-input
+        - multicast-frames-output
+        - broadcast-frames-input
+        - broadcast-frames-output
+        - fragmented-frames-input
+        - errored-frames-input
+        - errored-frames-output
+        - dropped-frames-input
+        - dropped-frames-output
+      properties:
+        interface-status:
+          type: string
+          enum:
+            - 'ethernet-container-2-0:INTERFACE_STATUS_TYPE_UP'
+            - 'ethernet-container-2-0:INTERFACE_STATUS_TYPE_DOWN'
+            - 'ethernet-container-2-0:INTERFACE_STATUS_TYPE_TESTING'
+            - 'ethernet-container-2-0:INTERFACE_STATUS_TYPE_UNKNOWN'
+            - 'ethernet-container-2-0:INTERFACE_STATUS_TYPE_DORMANT'
+            - 'ethernet-container-2-0:INTERFACE_STATUS_TYPE_NOT_PRESENT'
+            - 'ethernet-container-2-0:INTERFACE_STATUS_TYPE_NOT_YET_DEFINED'
+        bundling-is-up:
+          type: boolean
+        remote-site-is-faulty:
+          type: boolean
+        loop-back-kind-up:
+          type: string
+          enum:
+            - 'ethernet-container-2-0:LOOP_BACK_TYPE_NONE'
+            - 'ethernet-container-2-0:LOOP_BACK_TYPE_BACK_TO_LOCAL'
+            - 'ethernet-container-2-0:LOOP_BACK_TYPE_BACK_TO_REMOTE'
+            - 'ethernet-container-2-0:LOOP_BACK_TYPE_NOT_YET_DEFINED'
+        statistics-is-up:
+          type: boolean
+        performance-monitoring-is-up:
+          type: boolean
+        timestamp:
+          type: string
+          pattern: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2})$'
+        last-10-sec-data-input-rate:
+          type: integer
+          format: int32
+        last-10-sec-data-output-rate:
+          type: integer
+          format: int32
+        total-bytes-input:
+          type: string
+        total-bytes-output:
+          type: string
+        frames-of-64-byte:
+          type: string
+        frames-of-65-to-127-byte:
+          type: string
+        frames-of-128-to-255-byte:
+          type: string
+        frames-of-256-to-511-byte:
+          type: string
+        frames-of-512-to-1023-byte:
+          type: string
+        frames-of-1024-to-1518-byte:
+          type: string
+        total-frames-input:
+          type: string
+        total-frames-output:
+          type: string
+        forwarded-frames-input:
+          type: string
+        forwarded-frames-output:
+          type: string
+        unicast-frames-input:
+          type: string
+        unicast-frames-output:
+          type: string
+        multicast-frames-input:
+          type: integer
+          format: int32
+        multicast-frames-output:
+          type: integer
+          format: int32
+        broadcast-frames-input:
+          type: integer
+          format: int32
+        broadcast-frames-output:
+          type: integer
+          format: int32
+        fragmented-frames-input:
+          type: integer
+          format: int32
+        errored-frames-input:
+          type: integer
+          format: int32
+        errored-frames-output:
+          type: integer
+          format: int32
+        dropped-frames-input:
+          type: integer
+          format: int32
+        dropped-frames-output:
+          type: integer
+          format: int32
+    ethernet-container-current-performance:
+      type: object
+      required:
+        - current-performance-data-list
+        - number-of-current-performance-sets
+      properties:
+        number-of-current-performance-sets:
+          type: integer
+          format: int8
+        current-performance-data-list:
+          type: array
+          minItems: 1
+          maxItems: 2
+          x-key: granularity-period
+          items:
+            type: object
+            required:
+              - timestamp
+              - suspect-interval-flag
+              - elapsed-time
+              - scanner-id
+              - granularity-period
+              - performance-data
+            properties:
+              timestamp:
+                type: string
+                pattern: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2})$'
+              suspect-interval-flag:
+                type: boolean
+              elapsed-time:
+                type: string
+              scanner-id:
+                type: string
+              granularity-period:
+                type: string
+                enum:
+                  - 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_UNKNOWN'
+                  - 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-15-MIN'
+                  - 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-24-HOURS'
+                  - 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_NOT_YET_DEFINED'
+              performance-data:
+                type: object
+                required:
+                  - max-bytes-per-second-output
+                  - total-bytes-input
+                  - total-bytes-output
+                  - time-period
+                  - total-frames-input
+                  - total-frames-output
+                  - forwarded-frames-input
+                  - forwarded-frames-output
+                  - unicast-frames-input
+                  - unicast-frames-output
+                  - multicast-frames-input
+                  - multicast-frames-output
+                  - broadcast-frames-input
+                  - broadcast-frames-output
+                  - fragmented-frames-input
+                  - errored-frames-input
+                  - errored-frames-output
+                  - dropped-frames-input
+                  - dropped-frames-output
+                  - oversized-frames-ingress
+                  - undersized-frames-ingress
+                  - jabber-frames-ingress
+                properties:
+                  max-bytes-per-second-output:
+                    type: integer
+                    format: int32
+                  total-bytes-input:
+                    type: string
+                  total-bytes-output:
+                    type: string
+                  queue-utilization-list:
+                    type: array
+                    minItems: 0
+                    maxItems: 8
+                    x-key: queue-name
+                    items:
+                      type: object
+                      required:
+                        - queue-name
+                        - max-queue-length
+                        - avg-queue-length
+                      properties:
+                        queue-name:
+                          type: string
+                          enum:
+                            - 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                            - 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1'
+                            - 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2'
+                            - 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3'
+                            - 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4'
+                            - 'ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE'
+                            - 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6'
+                            - 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
+                            - 'ethernet-container-2-0:QUEUE_NAME_TYPE_QUEUENAME_NOT_YET_DEFINED'
+                        max-queue-length:
+                          type: integer
+                          format: int32
+                        avg-queue-length:
+                          type: integer
+                          format: int32
+                  time-period:
+                    type: integer
+                    format: int32
+                  total-frames-input:
+                    type: string
+                  total-frames-output:
+                    type: string
+                  forwarded-frames-input:
+                    type: string
+                  forwarded-frames-output:
+                    type: string
+                  unicast-frames-input:
+                    type: string
+                  unicast-frames-output:
+                    type: string
+                  multicast-frames-input:
+                    type: integer
+                    format: int32
+                  multicast-frames-output:
+                    type: integer
+                    format: int32
+                  broadcast-frames-input:
+                    type: integer
+                    format: int32
+                  broadcast-frames-output:
+                    type: integer
+                    format: int32
+                  fragmented-frames-input:
+                    type: integer
+                    format: int32
+                  errored-frames-input:
+                    type: integer
+                    format: int32
+                  errored-frames-output:
+                    type: integer
+                    format: int32
+                  dropped-frames-input:
+                    type: integer
+                    format: int32
+                  dropped-frames-output:
+                    type: integer
+                    format: int32
+                  oversized-frames-ingress:
+                    type: integer
+                    format: int32
+                  undersized-frames-ingress:
+                    type: integer
+                    format: int32
+                  jabber-frames-ingress:
+                    type: integer
+                    format: int32
+                  unknown-protocol-frames-input:
+                    type: integer
+                    format: int32
+    ethernet-container-historical-performances:
+      type: object
+      required:
+        - number-of-historical-performance-sets
+        - time-of-latest-change
+      properties:
+        number-of-historical-performance-sets:
+          type: integer
+          format: int16
+        time-of-latest-change:
+          type: string
+          pattern: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2})$'
+        historical-performance-data-list:
+          type: array
+          minItems: 0
+          x-key: granularity-period period-end-time
+          items:
+            type: object
+            required:
+              - performance-data
+              - suspect-interval-flag
+              - history-data-id
+              - granularity-period
+              - period-end-time
+            properties:
+              suspect-interval-flag:
+                type: boolean
+              history-data-id:
+                type: string
+              granularity-period:
+                type: string
+                enum:
+                  - 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_UNKNOWN'
+                  - 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-15-MIN'
+                  - 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-24-HOURS'
+                  - 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_NOT_YET_DEFINED'
+              period-end-time:
+                type: string
+                pattern: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2})$'
+              performance-data:
+                type: object
+                required:
+                  - max-bytes-per-second-output
+                  - total-bytes-input
+                  - total-bytes-output
+                  - time-period
+                  - total-frames-input
+                  - total-frames-output
+                  - forwarded-frames-input
+                  - forwarded-frames-output
+                  - unicast-frames-input
+                  - unicast-frames-output
+                  - multicast-frames-input
+                  - multicast-frames-output
+                  - broadcast-frames-input
+                  - broadcast-frames-output
+                  - fragmented-frames-input
+                  - errored-frames-input
+                  - errored-frames-output
+                  - dropped-frames-input
+                  - dropped-frames-output
+                  - oversized-frames-ingress
+                  - undersized-frames-ingress
+                  - jabber-frames-ingress
+                  - unknown-protocol-frames-input
+                properties:
+                  max-bytes-per-second-output:
+                    type: integer
+                    format: int32
+                  total-bytes-input:
+                    type: string
+                  total-bytes-output:
+                    type: string
+                  queue-utilization-list:
+                    type: array
+                    maxItems: 8
+                    x-key: queue-name
+                    items:
+                      type: object
+                      required:
+                        - queue-name
+                        - max-queue-length
+                        - avg-queue-length
+                      properties:
+                        queue-name:
+                          type: string
+                          enum:
+                            - 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                            - 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1'
+                            - 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2'
+                            - 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3'
+                            - 'ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4'
+                            - 'ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE'
+                            - 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6'
+                            - 'ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7'
+                            - 'ethernet-container-2-0:QUEUE_NAME_TYPE_QUEUENAME_NOT_YET_DEFINED'
+                        max-queue-length:
+                          type: integer
+                          format: int32
+                        avg-queue-length:
+                          type: integer
+                          format: int32
+                  time-period:
+                    type: integer
+                    format: int32
+                  total-frames-input:
+                    type: string
+                  total-frames-output:
+                    type: string
+                  forwarded-frames-input:
+                    type: string
+                  forwarded-frames-output:
+                    type: string
+                  unicast-frames-input:
+                    type: string
+                  unicast-frames-output:
+                    type: string
+                  multicast-frames-input:
+                    type: integer
+                    format: int32
+                  multicast-frames-output:
+                    type: integer
+                    format: int32
+                  broadcast-frames-input:
+                    type: integer
+                    format: int32
+                  broadcast-frames-output:
+                    type: integer
+                    format: int32
+                  fragmented-frames-input:
+                    type: integer
+                    format: int32
+                  errored-frames-input:
+                    type: integer
+                    format: int32
+                  errored-frames-output:
+                    type: integer
+                    format: int32
+                  dropped-frames-input:
+                    type: integer
+                    format: int32
+                  dropped-frames-output:
+                    type: integer
+                    format: int32
+                  oversized-frames-ingress:
+                    type: integer
+                    format: int32
+                  undersized-frames-ingress:
+                    type: integer
+                    format: int32
+                  jabber-frames-ingress:
+                    type: integer
+                    format: int32
+                  unknown-protocol-frames-input:
+                    type: integer
+                    format: int32
+
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: operation-key
+    basicAuth:
+      type: http
+      scheme: basic

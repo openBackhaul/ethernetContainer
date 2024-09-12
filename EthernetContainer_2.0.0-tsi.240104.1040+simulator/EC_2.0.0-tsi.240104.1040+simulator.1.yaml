@@ -1,9 +1,593 @@
-ethernet-container-2-0:ethernet-container-capability:
-  type: object
-  required:
-    - ethernet-container-2-0:ethernet-container-capability
-  properties:
-    ethernet-container-2-0:ethernet-container-capability:
+openapi: 3.0.1
+info:
+  title: EC_2.0.0-tsi.240104.1040+simulator.1
+  version: 2.0.0
+
+paths:
+
+########################################################################################################################
+#   Generic Paths
+########################################################################################################################
+  /core-model-1-4:network-control-domain=cache/control-construct={mountName}/logical-termination-point={uuid}/layer-protocol={localId}/ethernet-container-2-0:ethernet-container-pac/ethernet-container-capability:
+    parameters:
+      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/originator'
+      - $ref: '#/components/parameters/x-correlator'
+      - $ref: '#/components/parameters/trace-indicator'
+      - $ref: '#/components/parameters/customer-journey'
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedEthernetContainerCapability
+      summary: 'Provides EthernetContainerCapability from cache'
+      tags:
+        - IndividualServices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: 'EthernetContainerCapability provided from cache'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ethernet-container-2-0:ethernet-container-capability
+                properties:
+                  ethernet-container-2-0:ethernet-container-capability:
+                    $ref: '#/components/schemas/ethernet-container-capability'
+                example:
+                  ethernet-container-2-0:ethernet-container-capability:
+                    available-queue-list:
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                        supported-queue-depth-list:
+                          - 0
+                        available-dropping-behavior-kind-list:
+                          - 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL'
+                        available-drop-precedence-kind-list:
+                          - 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL'
+                        wred-profile-per-drop-precedence-is-available: true
+                        available-scheduling-kind-list:
+                          - 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT'
+                    dropping-behavior-configuration-is-avail: true
+                    wred-profile-configuration-is-avail: true
+                    scheduler-kind-configuration-is-avail: true
+                    scheduler-profile-configuration-is-avail: true
+                    supported-wred-protocol-list:
+                      - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NONE'
+                    explicit-congestion-notification-is-avail: true
+                    ingress-policing-is-avail: true
+                    egress-shaping-is-avail: true
+                    supported-maximum-information-rate-list:
+                      - 0
+                    supported-maximum-burst-size-list:
+                      - 0
+                    bundling-is-avail: true
+                    bundling-group-size-max: 0
+                    support-of-management-frames-without-preamble-is-avail: true
+                    supported-header-compression-kind-list:
+                      - header-compression-name: 'string'
+                        header-compression-mode: 'ethernet-container-2-0:HEADER_COMPRESSION_MODE_TYPE_AUTO'
+                        compressed-protocol-layer-list:
+                          - 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NONE'
+                        mpls-payload-kind-list:
+                          - 'ethernet-container-2-0:MPLS_PAYLOAD_KIND_TYPE_NONE'
+                        compressed-header-length: 0
+                    fec-is-avail: true
+                    fec-word-size-max: 0
+                    supported-fec-redundancy-size-list:
+                      - 'ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_2'
+                    supported-fec-interleaver-kind-list:
+                      - 'ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_NONE'
+                    supported-fec-interleaver-depth-list:
+                      - 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_1'
+                    encryption-is-avail: true
+                    admin-shut-down-is-avail: true
+                    supported-loop-back-kind-list:
+                      - 'ethernet-container-2-0:LOOP_BACK_TYPE_NONE'
+                    maintenance-timer-range: Range of the maintenance timer not yet defined.
+                    statistics-is-avail: true
+                    performance-monitoring-is-avail: true
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+            exec-time:
+              $ref: '#/components/headers/exec-time'
+            backend-time:
+              $ref: '#/components/headers/backend-time'
+            life-cycle-state:
+              $ref: '#/components/headers/life-cycle-state'
+        '4XX':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        '500':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        default:
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+  /core-model-1-4:network-control-domain=cache/control-construct={mountName}/logical-termination-point={uuid}/layer-protocol={localId}/ethernet-container-2-0:ethernet-container-pac/ethernet-container-configuration:
+    parameters:
+      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/originator'
+      - $ref: '#/components/parameters/x-correlator'
+      - $ref: '#/components/parameters/trace-indicator'
+      - $ref: '#/components/parameters/customer-journey'
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedEthernetContainerConfiguration
+      summary: 'Provides EthernetContainerConfiguration from cache'
+      tags:
+        - IndividualServices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: 'EthernetContainerConfiguration provided from cache'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ethernet-container-2-0:ethernet-container-configuration
+                properties:
+                  ethernet-container-2-0:ethernet-container-configuration:
+                    $ref: '#/components/schemas/ethernet-container-configuration'
+                example:
+                  ethernet-container-2-0:ethernet-container-configuration:
+                    interface-name: 'string'
+                    interface-is-on: true
+                    queue-behavior-list:
+                      - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                        queue-depth: 0
+                        dropping-behavior-kind: 'ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL'
+                        wred-behavior-list:
+                          - affected-drop-precedence: 'ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL'
+                            affected-protocol: 'ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NONE'
+                            wred-profile: 'string'
+                        scheduler-kind: 'ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT'
+                        weighting: 0
+                        wred-template-profile: 'string'
+                    scheduler-profile: 'string'
+                    explicit-congestion-notification-is-on: true
+                    ingress-policing-profile: 'string'
+                    egress-shaping-is-on: true
+                    maximum-information-rate: 0
+                    maximum-burst-size: 0
+                    qos-profile: 'string'
+                    bundling-is-on: true
+                    header-compression-kind: 'string'
+                    fec-is-on: true
+                    fec-word-size: 0
+                    fec-redundancy-size: 'ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_2'
+                    fec-interleaver-kind: 'ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_NONE'
+                    fec-interleaver-depth: 'ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_1'
+                    encryption-is-on: true
+                    cryptographic-key: 'string'
+                    loop-back-kind-on: 'ethernet-container-2-0:LOOP_BACK_TYPE_NONE'
+                    maintenance-timer: 0
+                    statistics-is-on: true
+                    performance-monitoring-is-on: true
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+            exec-time:
+              $ref: '#/components/headers/exec-time'
+            backend-time:
+              $ref: '#/components/headers/backend-time'
+            life-cycle-state:
+              $ref: '#/components/headers/life-cycle-state'
+        '4XX':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        '500':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        default:
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+  /core-model-1-4:network-control-domain=cache/control-construct={mountName}/logical-termination-point={uuid}/layer-protocol={localId}/ethernet-container-2-0:ethernet-container-pac/ethernet-container-status:
+    parameters:
+      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/originator'
+      - $ref: '#/components/parameters/x-correlator'
+      - $ref: '#/components/parameters/trace-indicator'
+      - $ref: '#/components/parameters/customer-journey'
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedEthernetContainerStatus
+      summary: 'Provides EthernetContainerStatus from cache'
+      tags:
+        - IndividualServices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: 'EthernetContainerStatus provided from cache'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ethernet-container-2-0:ethernet-container-status
+                properties:
+                  ethernet-container-2-0:ethernet-container-status:
+                    $ref: '#/components/schemas/ethernet-container-status'
+                example:
+                  ethernet-container-2-0:ethernet-container-status:
+                    interface-status: 'ethernet-container-2-0:INTERFACE_STATUS_TYPE_UP'
+                    bundling-is-up: true
+                    remote-site-is-faulty: true
+                    loop-back-kind-up: 'ethernet-container-2-0:LOOP_BACK_TYPE_NONE'
+                    statistics-is-up: true
+                    performance-monitoring-is-up: true
+                    timestamp: '2010-11-20T14:00:00+01:00'
+                    last-10-sec-data-input-rate: 0
+                    last-10-sec-data-output-rate: 0
+                    total-bytes-input: 'string'
+                    total-bytes-output: 'string'
+                    frames-of-64-byte: 'string'
+                    frames-of-65-to-127-byte: 'string'
+                    frames-of-128-to-255-byte: 'string'
+                    frames-of-256-to-511-byte: 'string'
+                    frames-of-512-to-1023-byte: 'string'
+                    frames-of-1024-to-1518-byte: 'string'
+                    total-frames-input: 'string'
+                    total-frames-output: 'string'
+                    forwarded-frames-input: 'string'
+                    forwarded-frames-output: 'string'
+                    unicast-frames-input: 'string'
+                    unicast-frames-output: 'string'
+                    multicast-frames-input: 0
+                    multicast-frames-output: 0
+                    broadcast-frames-input: 0
+                    broadcast-frames-output: 0
+                    fragmented-frames-input: 0
+                    errored-frames-input: 0
+                    errored-frames-output: 0
+                    dropped-frames-input: 0
+                    dropped-frames-output: 0
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+            exec-time:
+              $ref: '#/components/headers/exec-time'
+            backend-time:
+              $ref: '#/components/headers/backend-time'
+            life-cycle-state:
+              $ref: '#/components/headers/life-cycle-state'
+        '4XX':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        '500':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        default:
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+  /core-model-1-4:network-control-domain=cache/control-construct={mountName}/logical-termination-point={uuid}/layer-protocol={localId}/ethernet-container-2-0:ethernet-container-pac/ethernet-container-current-performance:
+    parameters:
+      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/originator'
+      - $ref: '#/components/parameters/x-correlator'
+      - $ref: '#/components/parameters/trace-indicator'
+      - $ref: '#/components/parameters/customer-journey'
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedEthernetContainerCurrentPerformance
+      summary: 'Provides EthernetContainerCurrentPerformance from cache'
+      tags:
+        - IndividualServices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: 'EthernetContainerCurrentPerformance provided from cache'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ethernet-container-2-0:ethernet-container-current-performance
+                properties:
+                  ethernet-container-2-0:ethernet-container-current-performance:
+                    $ref: '#/components/schemas/ethernet-container-current-performance'
+                example:
+                  ethernet-container-2-0:ethernet-container-current-performance:
+                    number-of-current-performance-sets: 0
+                    current-performance-data-list:
+                      - timestamp: '2010-11-20T14:00:00+01:00'
+                        suspect-interval-flag: true
+                        elapsed-time: 'string'
+                        scanner-id: 'string'
+                        granularity-period: 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_UNKNOWN'
+                        performance-data:
+                          max-bytes-per-second-output: 0
+                          total-bytes-input: 'string'
+                          total-bytes-output: 'string'
+                          queue-utilization-list:
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                              max-queue-length: 0
+                              avg-queue-length: 0
+                          time-period: 0
+                          total-frames-input: 'string'
+                          total-frames-output: 'string'
+                          forwarded-frames-input: 'string'
+                          forwarded-frames-output: 'string'
+                          unicast-frames-input: 'string'
+                          unicast-frames-output: 'string'
+                          multicast-frames-input: 0
+                          multicast-frames-output: 0
+                          broadcast-frames-input: 0
+                          broadcast-frames-output: 0
+                          fragmented-frames-input: 0
+                          errored-frames-input: 0
+                          errored-frames-output: 0
+                          dropped-frames-input: 0
+                          dropped-frames-output: 0
+                          oversized-frames-ingress: 0
+                          undersized-frames-ingress: 0
+                          jabber-frames-ingress: 0
+                          unknown-protocol-frames-input: 0
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+            exec-time:
+              $ref: '#/components/headers/exec-time'
+            backend-time:
+              $ref: '#/components/headers/backend-time'
+            life-cycle-state:
+              $ref: '#/components/headers/life-cycle-state'
+        '4XX':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        '500':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        default:
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+  /core-model-1-4:network-control-domain=cache/control-construct={mountName}/logical-termination-point={uuid}/layer-protocol={localId}/ethernet-container-2-0:ethernet-container-pac/ethernet-container-historical-performances:
+    parameters:
+      - $ref: '#/components/parameters/user'
+      - $ref: '#/components/parameters/originator'
+      - $ref: '#/components/parameters/x-correlator'
+      - $ref: '#/components/parameters/trace-indicator'
+      - $ref: '#/components/parameters/customer-journey'
+      - $ref: '#/components/parameters/mountName'
+      - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/fields'
+    get:
+      operationId: getCachedEthernetContainerHistoricalPerformances
+      summary: 'Provides EthernetContainerHistoricalPerformances from cache'
+      tags:
+        - IndividualServices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: 'EthernetContainerHistoricalPerformances provided from cache'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ethernet-container-2-0:ethernet-container-historical-performances
+                properties:
+                  ethernet-container-2-0:ethernet-container-historical-performances:
+                    $ref: '#/components/schemas/ethernet-container-historical-performances'
+                example:
+                  ethernet-container-2-0:ethernet-container-historical-performances:
+                    number-of-historical-performance-sets: 0
+                    time-of-latest-change: '2010-11-20T14:00:00+01:00'
+                    historical-performance-data-list:
+                      - suspect-interval-flag: true
+                        history-data-id: 'string'
+                        granularity-period: 'ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_UNKNOWN'
+                        period-end-time: '2010-11-20T14:00:00+01:00'
+                        performance-data:
+                          max-bytes-per-second-output: 0
+                          total-bytes-input: 'string'
+                          total-bytes-output: 'string'
+                          queue-utilization-list:
+                            - queue-name: 'ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE'
+                              max-queue-length: 0
+                              avg-queue-length: 0
+                          time-period: 0
+                          total-frames-input: 'string'
+                          total-frames-output: 'string'
+                          forwarded-frames-input: 'string'
+                          forwarded-frames-output: 'string'
+                          unicast-frames-input: 'string'
+                          unicast-frames-output: 'string'
+                          multicast-frames-input: 0
+                          multicast-frames-output: 0
+                          broadcast-frames-input: 0
+                          broadcast-frames-output: 0
+                          fragmented-frames-input: 0
+                          errored-frames-input: 0
+                          errored-frames-output: 0
+                          dropped-frames-input: 0
+                          dropped-frames-output: 0
+                          oversized-frames-ingress: 0
+                          undersized-frames-ingress: 0
+                          jabber-frames-ingress: 0
+                          unknown-protocol-frames-input: 0
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
+            exec-time:
+              $ref: '#/components/headers/exec-time'
+            backend-time:
+              $ref: '#/components/headers/backend-time'
+            life-cycle-state:
+              $ref: '#/components/headers/life-cycle-state'
+        '4XX':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        '500':
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+        default:
+          $ref: '#/components/responses/responseForErroredServiceRequests'
+
+
+########################################################################################################################
+#   Common Components
+########################################################################################################################
+components:
+  parameters:
+    user:
+      name: user
+      in: header
+      required: true
+      schema:
+        type: string
+        example: 'User Name'
+      description: 'User identifier from the system starting the service call'
+    originator:
+      name: originator
+      in: header
+      required: true
+      schema:
+        type: string
+        minLength: 3
+        example: 'Resolver'
+      description: >
+        'Identification for the system consuming the API, as defined in
+         [/core-model-1-4:control-construct/logical-termination-point={uuid}/layer-protocol=0/http-client-interface-1-0:http-client-interface-pac/http-client-interface-configuration/application-name]'
+    x-correlator:
+      name: x-correlator
+      in: header
+      required: true
+      schema:
+        type: string
+        pattern: '^[0-9A-Fa-f]{8}(?:-[0-9A-Fa-f]{4}){3}-[0-9A-Fa-f]{12}$'
+        description: 'Empty string accepted from external applications.'
+        example: '550e8400-e29b-11d4-a716-446655440000'
+      description: 'UUID for the service execution flow that allows to correlate requests and responses'
+    trace-indicator:
+      name: trace-indicator
+      in: header
+      required: true
+      schema:
+        type: string
+        pattern: '^([0-9]+)(\.([0-9]+))*$'
+        description: 'Empty string accepted from external applications.'
+        example: '1.3.1'
+      description: 'Sequence of request numbers along the flow'
+    customer-journey:
+      name: customer-journey
+      in: header
+      required: true
+      schema:
+        type: string
+        example: 'Unknown value'
+      description: 'Holds information supporting customer’s journey to which the execution applies'
+    mountName:
+      name: mountName
+      in: path
+      required: true
+      schema:
+        type: string
+        example: '222250001'
+      description: 'The mountName of the device that is addressed by the request'
+    uuid:
+      name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 'LTP-MWPS-TTP-1-1'
+      description: 'Instance identifier that is unique within the device'
+    uuid1:
+      name: uuid1
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 'LTP-MWPS-TTP-1-1'
+      description: 'Another instance identifier that is unique within the device'
+    localId:
+      name: localId
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 'LP-MWPS-TTP-1-1'
+      description: 'Instance identifier that is unique within its list'
+    fields:
+      name: fields
+      in: query
+      required: false
+      schema:
+        type: string
+        example: 'node(node-id;netconf-node-topology:connection-status)'
+      description: 'Query parameter to filter ressources according to RFC8040 fields filter spec'
+  responses:
+    responseForErroredServiceRequests:
+      description: 'Response in case of errored service requests'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorDescription'
+      headers:
+        x-correlator:
+          schema:
+            type: string
+            pattern: '^[0-9A-Fa-f]{8}(?:-[0-9A-Fa-f]{4}){3}-[0-9A-Fa-f]{12}$'
+            example: '550e8400-e29b-11d4-a716-446655440000'
+          description: 'UUID for the service execution flow that allows to correlate requests and responses. Its value must be identical at the response compared with its corresponding request'
+        exec-time:
+          schema:
+            type: integer
+            example: 1100
+          description: 'Value written by the service provider, reporting the total elapsed time for the execution, including all the additional processing needed to retrieve the data from the backend service. Expressed in milliseconds'
+        backend-time:
+          schema:
+            type: integer
+            example: 850
+          description: 'Value written by the service provider, reporting the elapsed time for data retrieval from the backend (service invocation, database access…). Expressed in milliseconds'
+    responseForErroredOamRequests:
+      description: 'Response in case of errored OaM requests'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorDescription'
+  headers:
+    x-correlator:
+      schema:
+        type: string
+        example: '550e8400-e29b-11d4-a716-446655440000'
+      description: 'UUID for the service execution flow that allows to correlate requests and responses. Its value must be identical at the response compared with its corresponding request'
+    exec-time:
+      schema:
+        type: integer
+        example: 1100
+      description: 'Value written by the service provider, reporting the total elapsed time for the execution, including all the additional processing needed to retrieve the data from the backend service. Expressed in milliseconds'
+    backend-time:
+      schema:
+        type: integer
+        example: 850
+      description: 'Value written by the service provider, reporting the elapsed time for data retrieval from the backend (service invocation, database access…). Expressed in milliseconds'
+    life-cycle-state:
+      schema:
+        type: string
+        enum:
+          - 'EXPERIMENTAL'
+          - 'OPERATIONAL'
+          - 'DEPRECATED'
+          - 'OBSOLETE'
+          - 'UNKNOWN'
+          - 'NOT_YET_DEFINED'
+        example: 'EXPERIMENTAL'
+  schemas:
+    errorDescription:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+
+    ethernet-container-capability:
       type: object
       required:
         - available-queue-list
@@ -262,12 +846,7 @@ ethernet-container-2-0:ethernet-container-capability:
           type: boolean
         performance-monitoring-is-avail:
           type: boolean
-ethernet-container-2-0:ethernet-container-configuration:
-  type: object
-  required:
-    - ethernet-container-2-0:ethernet-container-configuration
-  properties:
-    ethernet-container-2-0:ethernet-container-configuration:
+    ethernet-container-configuration:
       type: object
       required:
         - interface-name
@@ -456,12 +1035,7 @@ ethernet-container-2-0:ethernet-container-configuration:
           type: boolean
         performance-monitoring-is-on:
           type: boolean
-ethernet-container-2-0:ethernet-container-status:
-  type: object
-  required:
-    - ethernet-container-2-0:ethernet-container-status
-  properties:
-    ethernet-container-2-0:ethernet-container-status:
+    ethernet-container-status:
       type: object
       required:
         - interface-status
@@ -586,12 +1160,7 @@ ethernet-container-2-0:ethernet-container-status:
         dropped-frames-output:
           type: integer
           format: int32
-ethernet-container-2-0:ethernet-container-current-performance:
-  type: object
-  required:
-    - ethernet-container-2-0:ethernet-container-current-performance
-  properties:
-    ethernet-container-2-0:ethernet-container-current-performance:
+    ethernet-container-current-performance:
       type: object
       required:
         - current-performance-data-list
@@ -748,12 +1317,7 @@ ethernet-container-2-0:ethernet-container-current-performance:
                   unknown-protocol-frames-input:
                     type: integer
                     format: int32
-ethernet-container-2-0:ethernet-container-historical-performances:
-  type: object
-  required:
-    - ethernet-container-2-0:ethernet-container-historical-performances
-  properties:
-    ethernet-container-2-0:ethernet-container-historical-performances:
+    ethernet-container-historical-performances:
       type: object
       required:
         - number-of-historical-performance-sets
@@ -909,3 +1473,12 @@ ethernet-container-2-0:ethernet-container-historical-performances:
                   unknown-protocol-frames-input:
                     type: integer
                     format: int32
+
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: operation-key
+    basicAuth:
+      type: http
+      scheme: basic

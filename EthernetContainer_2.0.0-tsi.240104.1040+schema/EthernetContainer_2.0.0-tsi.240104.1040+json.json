@@ -1,359 +1,86 @@
 {
     "ethernet-container-2-0:ethernet-container-capability": {
         "type": "object",
-        "properties": {
-            "available-queue-list": {
-                "type": "array",
-                "minItems": 1,
-                "maxItems": 8,
-                "items": {
-                    "type": "object",
-                    "properties": {
-                        "queue-name": {
-                            "enum": [
-                                "ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE",
-                                "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1",
-                                "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2",
-                                "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3",
-                                "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4",
-                                "ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE",
-                                "ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6",
-                                "ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7",
-                                "ethernet-container-2-0:QUEUE_NAME_TYPE_QUEUENAME_NOT_YET_DEFINED"
-                            ]
-                        },
-                        "supported-queue-depth-list": {
-                            "type": "array",
-                            "items": {
-                                "type": "integer"
-                            }
-                        },
-                        "available-dropping-behavior-kind-list": {
-                            "type": "array",
-                            "items": {
-                                "enum": [
-                                    "ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL",
-                                    "ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_RED",
-                                    "ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED",
-                                    "ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_NOT_YET_DEFINED"
-                                ]
-                            }
-                        },
-                        "available-drop-precedence-kind-list": {
-                            "type": "array",
-                            "items": {
-                                "enum": [
-                                    "ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL",
-                                    "ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW",
-                                    "ethernet-container-2-0:DROP_PRECEDENCE_TYPE_MEDIUM",
-                                    "ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH",
-                                    "ethernet-container-2-0:DROP_PRECEDENCE_TYPE_NOT_YET_DEFINED"
-                                ]
-                            }
-                        },
-                        "wred-profile-per-drop-precedence-is-available": {
-                            "type": "boolean"
-                        },
-                        "available-scheduling-kind-list": {
-                            "type": "array",
-                            "items": {
-                                "enum": [
-                                    "ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT",
-                                    "ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ",
-                                    "ethernet-container-2-0:SCHEDULER_KIND_TYPE_WRR",
-                                    "ethernet-container-2-0:SCHEDULER_KIND_TYPE_DWRR",
-                                    "ethernet-container-2-0:SCHEDULER_KIND_TYPE_NOT_YET_DEFINED"
-                                ]
-                            }
-                        }
-                    },
-                    "required": [
-                        "queue-name",
-                        "supported-queue-depth-list",
-                        "available-dropping-behavior-kind-list",
-                        "available-drop-precedence-kind-list",
-                        "wred-profile-per-drop-precedence-is-available",
-                        "available-scheduling-kind-list"
-                    ]
-                }
-            },
-            "dropping-behavior-configuration-is-avail": {
-                "type": "boolean"
-            },
-            "wred-profile-configuration-is-avail": {
-                "type": "boolean"
-            },
-            "scheduler-kind-configuration-is-avail": {
-                "type": "boolean"
-            },
-            "scheduler-profile-configuration-is-avail": {
-                "type": "boolean"
-            },
-            "supported-wred-protocol-list": {
-                "type": "array",
-                "items": {
-                    "enum": [
-                        "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NONE",
-                        "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC",
-                        "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_VLAN",
-                        "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_Q_IN_Q",
-                        "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_MPLS",
-                        "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_IPV4",
-                        "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_IPV6",
-                        "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_TCP",
-                        "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_UDP",
-                        "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_RTP",
-                        "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_GTP_U",
-                        "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_OTHERS",
-                        "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NOT_YET_DEFINED"
-                    ]
-                }
-            },
-            "explicit-congestion-notification-is-avail": {
-                "type": "boolean"
-            },
-            "ingress-policing-is-avail": {
-                "type": "boolean"
-            },
-            "egress-shaping-is-avail": {
-                "type": "boolean"
-            },
-            "supported-maximum-information-rate-list": {
-                "type": "array",
-                "items": {
-                    "type": "integer"
-                }
-            },
-            "supported-maximum-burst-size-list": {
-                "type": "array",
-                "items": {
-                    "type": "integer"
-                }
-            },
-            "bundling-is-avail": {
-                "type": "boolean"
-            },
-            "bundling-group-size-max": {
-                "type": "integer"
-            },
-            "support-of-management-frames-without-preamble-is-avail": {
-                "type": "boolean"
-            },
-            "supported-header-compression-kind-list": {
-                "type": "array",
-                "items": {
-                    "type": "object",
-                    "properties": {
-                        "header-compression-name": {
-                            "type": "string"
-                        },
-                        "header-compression-mode": {
-                            "enum": [
-                                "ethernet-container-2-0:HEADER_COMPRESSION_MODE_TYPE_AUTO",
-                                "ethernet-container-2-0:HEADER_COMPRESSION_MODE_TYPE_PROTOCOL_BASED",
-                                "ethernet-container-2-0:HEADER_COMPRESSION_MODE_TYPE_LENGTH_BASED",
-                                "ethernet-container-2-0:HEADER_COMPRESSION_MODE_TYPE_NO_COMPRESSION",
-                                "ethernet-container-2-0:HEADER_COMPRESSION_MODE_TYPE_NOT_YET_DEFINED"
-                            ]
-                        },
-                        "compressed-protocol-layer-list": {
-                            "type": "array",
-                            "items": {
-                                "enum": [
-                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NONE",
-                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC",
-                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_VLAN",
-                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_Q_IN_Q",
-                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_MPLS",
-                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_IPV4",
-                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_IPV6",
-                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_TCP",
-                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_UDP",
-                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_RTP",
-                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_GTP_U",
-                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_OTHERS",
-                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NOT_YET_DEFINED"
-                                ]
-                            }
-                        },
-                        "mpls-payload-kind-list": {
-                            "type": "array",
-                            "items": {
-                                "enum": [
-                                    "ethernet-container-2-0:MPLS_PAYLOAD_KIND_TYPE_NONE",
-                                    "ethernet-container-2-0:MPLS_PAYLOAD_KIND_TYPE_AUTO",
-                                    "ethernet-container-2-0:MPLS_PAYLOAD_KIND_TYPE_ETH_O_MPLS",
-                                    "ethernet-container-2-0:MPLS_PAYLOAD_KIND_TYPE_IP_O_MPLS",
-                                    "ethernet-container-2-0:MPLS_PAYLOAD_KIND_TYPE_NOT_YET_DEFINED"
-                                ]
-                            }
-                        },
-                        "compressed-header-length": {
-                            "type": "integer"
-                        }
-                    },
-                    "required": [
-                        "header-compression-name",
-                        "header-compression-mode",
-                        "compressed-protocol-layer-list",
-                        "mpls-payload-kind-list",
-                        "compressed-header-length"
-                    ]
-                }
-            },
-            "fec-is-avail": {
-                "type": "boolean"
-            },
-            "fec-word-size-max": {
-                "type": "integer"
-            },
-            "supported-fec-redundancy-size-list": {
-                "type": "array",
-                "items": {
-                    "enum": [
-                        "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_2",
-                        "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_4",
-                        "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_8",
-                        "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_16",
-                        "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_20",
-                        "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_NOT_YET_DEFINED"
-                    ]
-                }
-            },
-            "supported-fec-interleaver-kind-list": {
-                "type": "array",
-                "items": {
-                    "enum": [
-                        "ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_NONE",
-                        "ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_BLOCK",
-                        "ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_CONVOLUTION",
-                        "ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_NOT_YET_DEFINED"
-                    ]
-                }
-            },
-            "supported-fec-interleaver-depth-list": {
-                "type": "array",
-                "items": {
-                    "enum": [
-                        "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_1",
-                        "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_2",
-                        "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_3",
-                        "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_4",
-                        "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_6",
-                        "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_8",
-                        "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_12",
-                        "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_16",
-                        "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_24",
-                        "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_32",
-                        "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_48",
-                        "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_96",
-                        "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_NOT_YET_DEFINED"
-                    ]
-                }
-            },
-            "encryption-is-avail": {
-                "type": "boolean"
-            },
-            "admin-shut-down-is-avail": {
-                "type": "boolean"
-            },
-            "supported-loop-back-kind-list": {
-                "type": "array",
-                "items": {
-                    "enum": [
-                        "ethernet-container-2-0:LOOP_BACK_TYPE_NONE",
-                        "ethernet-container-2-0:LOOP_BACK_TYPE_BACK_TO_LOCAL",
-                        "ethernet-container-2-0:LOOP_BACK_TYPE_BACK_TO_REMOTE",
-                        "ethernet-container-2-0:LOOP_BACK_TYPE_NOT_YET_DEFINED"
-                    ]
-                }
-            },
-            "maintenance-timer-range": {
-                "type": "string",
-                "pattern": "^(Range of the maintenance timer not yet defined\\.)$|^([0-9]{1,}){1,1}([,]{1,1}[ ]{1,1}[1-9]{1,1}[0-9]{0,}){0,}$|^([0-9]{1,}){1,1}(-){1,1}([1-9]{1,1}[0-9]{0,}){1,1}$"
-            },
-            "statistics-is-avail": {
-                "type": "boolean"
-            },
-            "performance-monitoring-is-avail": {
-                "type": "boolean"
-            }
-        },
         "required": [
-            "available-queue-list",
-            "dropping-behavior-configuration-is-avail",
-            "wred-profile-configuration-is-avail",
-            "scheduler-kind-configuration-is-avail",
-            "scheduler-profile-configuration-is-avail",
-            "supported-wred-protocol-list",
-            "explicit-congestion-notification-is-avail",
-            "ingress-policing-is-avail",
-            "egress-shaping-is-avail",
-            "supported-maximum-information-rate-list",
-            "supported-maximum-burst-size-list",
-            "bundling-is-avail",
-            "bundling-group-size-max",
-            "support-of-management-frames-without-preamble-is-avail",
-            "supported-header-compression-kind-list",
-            "fec-is-avail",
-            "fec-word-size-max",
-            "supported-fec-redundancy-size-list",
-            "supported-fec-interleaver-kind-list",
-            "supported-fec-interleaver-depth-list",
-            "encryption-is-avail",
-            "admin-shut-down-is-avail",
-            "supported-loop-back-kind-list",
-            "maintenance-timer-range",
-            "statistics-is-avail",
-            "performance-monitoring-is-avail"
-        ]
-    },
-    "ethernet-container-2-0:ethernet-container-configuration": {
-        "type": "object",
+            "ethernet-container-2-0:ethernet-container-capability"
+        ],
         "properties": {
-            "interface-name": {
-                "type": "string"
-            },
-            "interface-is-on": {
-                "type": "boolean"
-            },
-            "queue-behavior-list": {
-                "type": "array",
-                "minItems": 1,
-                "maxItems": 8,
-                "items": {
-                    "type": "object",
-                    "properties": {
-                        "queue-name": {
-                            "enum": [
-                                "ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE",
-                                "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1",
-                                "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2",
-                                "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3",
-                                "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4",
-                                "ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE",
-                                "ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6",
-                                "ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7",
-                                "ethernet-container-2-0:QUEUE_NAME_TYPE_QUEUENAME_NOT_YET_DEFINED"
-                            ]
-                        },
-                        "queue-depth": {
-                            "type": "integer"
-                        },
-                        "dropping-behavior-kind": {
-                            "enum": [
-                                "ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL",
-                                "ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_RED",
-                                "ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED",
-                                "ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_NOT_YET_DEFINED"
-                            ]
-                        },
-                        "wred-behavior-list": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "affected-drop-precedence": {
+            "ethernet-container-2-0:ethernet-container-capability": {
+                "type": "object",
+                "required": [
+                    "available-queue-list",
+                    "dropping-behavior-configuration-is-avail",
+                    "wred-profile-configuration-is-avail",
+                    "scheduler-kind-configuration-is-avail",
+                    "scheduler-profile-configuration-is-avail",
+                    "explicit-congestion-notification-is-avail",
+                    "ingress-policing-is-avail",
+                    "egress-shaping-is-avail",
+                    "bundling-is-avail",
+                    "bundling-group-size-max",
+                    "support-of-management-frames-without-preamble-is-avail",
+                    "supported-header-compression-kind-list",
+                    "fec-is-avail",
+                    "fec-word-size-max",
+                    "encryption-is-avail",
+                    "admin-shut-down-is-avail",
+                    "maintenance-timer-range",
+                    "statistics-is-avail",
+                    "performance-monitoring-is-avail"
+                ],
+                "properties": {
+                    "available-queue-list": {
+                        "type": "array",
+                        "minItems": 1,
+                        "maxItems": 8,
+                        "x-key": "queue-name",
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "queue-name",
+                                "wred-profile-per-drop-precedence-is-available"
+                            ],
+                            "properties": {
+                                "queue-name": {
+                                    "type": "string",
+                                    "enum": [
+                                        "ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE",
+                                        "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1",
+                                        "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2",
+                                        "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3",
+                                        "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4",
+                                        "ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE",
+                                        "ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6",
+                                        "ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7",
+                                        "ethernet-container-2-0:QUEUE_NAME_TYPE_QUEUENAME_NOT_YET_DEFINED"
+                                    ]
+                                },
+                                "supported-queue-depth-list": {
+                                    "type": "array",
+                                    "minItems": 0,
+                                    "items": {
+                                        "type": "integer",
+                                        "format": "int32"
+                                    }
+                                },
+                                "available-dropping-behavior-kind-list": {
+                                    "type": "array",
+                                    "minItems": 0,
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [
+                                            "ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL",
+                                            "ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_RED",
+                                            "ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED",
+                                            "ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_NOT_YET_DEFINED"
+                                        ]
+                                    }
+                                },
+                                "available-drop-precedence-kind-list": {
+                                    "type": "array",
+                                    "minItems": 0,
+                                    "items": {
+                                        "type": "string",
                                         "enum": [
                                             "ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL",
                                             "ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW",
@@ -361,8 +88,127 @@
                                             "ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH",
                                             "ethernet-container-2-0:DROP_PRECEDENCE_TYPE_NOT_YET_DEFINED"
                                         ]
-                                    },
-                                    "affected-protocol": {
+                                    }
+                                },
+                                "wred-profile-per-drop-precedence-is-available": {
+                                    "type": "boolean"
+                                },
+                                "available-scheduling-kind-list": {
+                                    "type": "array",
+                                    "minItems": 0,
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [
+                                            "ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT",
+                                            "ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ",
+                                            "ethernet-container-2-0:SCHEDULER_KIND_TYPE_WRR",
+                                            "ethernet-container-2-0:SCHEDULER_KIND_TYPE_DWRR",
+                                            "ethernet-container-2-0:SCHEDULER_KIND_TYPE_NOT_YET_DEFINED"
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "dropping-behavior-configuration-is-avail": {
+                        "type": "boolean"
+                    },
+                    "wred-profile-configuration-is-avail": {
+                        "type": "boolean"
+                    },
+                    "scheduler-kind-configuration-is-avail": {
+                        "type": "boolean"
+                    },
+                    "scheduler-profile-configuration-is-avail": {
+                        "type": "boolean"
+                    },
+                    "supported-wred-protocol-list": {
+                        "type": "array",
+                        "minItems": 0,
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NONE",
+                                "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC",
+                                "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_VLAN",
+                                "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_Q_IN_Q",
+                                "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_MPLS",
+                                "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_IPV4",
+                                "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_IPV6",
+                                "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_TCP",
+                                "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_UDP",
+                                "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_RTP",
+                                "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_GTP_U",
+                                "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_OTHERS",
+                                "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NOT_YET_DEFINED"
+                            ]
+                        }
+                    },
+                    "explicit-congestion-notification-is-avail": {
+                        "type": "boolean"
+                    },
+                    "ingress-policing-is-avail": {
+                        "type": "boolean"
+                    },
+                    "egress-shaping-is-avail": {
+                        "type": "boolean"
+                    },
+                    "supported-maximum-information-rate-list": {
+                        "type": "array",
+                        "minItems": 0,
+                        "items": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    "supported-maximum-burst-size-list": {
+                        "type": "array",
+                        "minItems": 0,
+                        "items": {
+                            "type": "integer",
+                            "format": "int16"
+                        }
+                    },
+                    "bundling-is-avail": {
+                        "type": "boolean"
+                    },
+                    "bundling-group-size-max": {
+                        "type": "integer",
+                        "format": "int8"
+                    },
+                    "support-of-management-frames-without-preamble-is-avail": {
+                        "type": "boolean"
+                    },
+                    "supported-header-compression-kind-list": {
+                        "type": "array",
+                        "minItems": 1,
+                        "x-key": "header-compression-name",
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "header-compression-name",
+                                "header-compression-mode",
+                                "compressed-header-length"
+                            ],
+                            "properties": {
+                                "header-compression-name": {
+                                    "type": "string"
+                                },
+                                "header-compression-mode": {
+                                    "type": "string",
+                                    "enum": [
+                                        "ethernet-container-2-0:HEADER_COMPRESSION_MODE_TYPE_AUTO",
+                                        "ethernet-container-2-0:HEADER_COMPRESSION_MODE_TYPE_PROTOCOL_BASED",
+                                        "ethernet-container-2-0:HEADER_COMPRESSION_MODE_TYPE_LENGTH_BASED",
+                                        "ethernet-container-2-0:HEADER_COMPRESSION_MODE_TYPE_NO_COMPRESSION",
+                                        "ethernet-container-2-0:HEADER_COMPRESSION_MODE_TYPE_NOT_YET_DEFINED"
+                                    ]
+                                },
+                                "compressed-protocol-layer-list": {
+                                    "type": "array",
+                                    "minItems": 0,
+                                    "items": {
+                                        "type": "string",
                                         "enum": [
                                             "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NONE",
                                             "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC",
@@ -378,666 +224,960 @@
                                             "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_OTHERS",
                                             "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NOT_YET_DEFINED"
                                         ]
-                                    },
-                                    "wred-profile": {
-                                        "type": "string"
                                     }
                                 },
-                                "required": [
-                                    "affected-drop-precedence",
-                                    "affected-protocol",
-                                    "wred-profile"
-                                ]
+                                "mpls-payload-kind-list": {
+                                    "type": "array",
+                                    "minItems": 0,
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [
+                                            "ethernet-container-2-0:MPLS_PAYLOAD_KIND_TYPE_NONE",
+                                            "ethernet-container-2-0:MPLS_PAYLOAD_KIND_TYPE_AUTO",
+                                            "ethernet-container-2-0:MPLS_PAYLOAD_KIND_TYPE_ETH_O_MPLS",
+                                            "ethernet-container-2-0:MPLS_PAYLOAD_KIND_TYPE_IP_O_MPLS",
+                                            "ethernet-container-2-0:MPLS_PAYLOAD_KIND_TYPE_NOT_YET_DEFINED"
+                                        ]
+                                    }
+                                },
+                                "compressed-header-length": {
+                                    "type": "integer",
+                                    "format": "int16"
+                                }
                             }
-                        },
-                        "scheduler-kind": {
-                            "enum": [
-                                "ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT",
-                                "ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ",
-                                "ethernet-container-2-0:SCHEDULER_KIND_TYPE_WRR",
-                                "ethernet-container-2-0:SCHEDULER_KIND_TYPE_DWRR",
-                                "ethernet-container-2-0:SCHEDULER_KIND_TYPE_NOT_YET_DEFINED"
-                            ]
-                        },
-                        "weighting": {
-                            "type": "integer"
                         }
                     },
-                    "required": [
-                        "queue-name",
-                        "queue-depth",
-                        "dropping-behavior-kind",
-                        "scheduler-kind",
-                        "weighting"
-                    ]
+                    "fec-is-avail": {
+                        "type": "boolean"
+                    },
+                    "fec-word-size-max": {
+                        "type": "integer",
+                        "format": "int16"
+                    },
+                    "supported-fec-redundancy-size-list": {
+                        "type": "array",
+                        "minItems": 0,
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_2",
+                                "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_4",
+                                "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_8",
+                                "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_16",
+                                "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_20",
+                                "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_NOT_YET_DEFINED"
+                            ]
+                        }
+                    },
+                    "supported-fec-interleaver-kind-list": {
+                        "type": "array",
+                        "minItems": 0,
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_NONE",
+                                "ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_BLOCK",
+                                "ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_CONVOLUTION",
+                                "ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_NOT_YET_DEFINED"
+                            ]
+                        }
+                    },
+                    "supported-fec-interleaver-depth-list": {
+                        "type": "array",
+                        "minItems": 0,
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_1",
+                                "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_2",
+                                "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_3",
+                                "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_4",
+                                "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_6",
+                                "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_8",
+                                "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_12",
+                                "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_16",
+                                "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_24",
+                                "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_32",
+                                "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_48",
+                                "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_96",
+                                "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_NOT_YET_DEFINED"
+                            ]
+                        }
+                    },
+                    "encryption-is-avail": {
+                        "type": "boolean"
+                    },
+                    "admin-shut-down-is-avail": {
+                        "type": "boolean"
+                    },
+                    "supported-loop-back-kind-list": {
+                        "type": "array",
+                        "minItems": 0,
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "ethernet-container-2-0:LOOP_BACK_TYPE_NONE",
+                                "ethernet-container-2-0:LOOP_BACK_TYPE_BACK_TO_LOCAL",
+                                "ethernet-container-2-0:LOOP_BACK_TYPE_BACK_TO_REMOTE",
+                                "ethernet-container-2-0:LOOP_BACK_TYPE_NOT_YET_DEFINED"
+                            ]
+                        }
+                    },
+                    "maintenance-timer-range": {
+                        "type": "string",
+                        "pattern": "^(Range of the maintenance timer not yet defined\\.)$|^([0-9]{1,}){1,1}([,]{1,1}[ ]{1,1}[1-9]{1,1}[0-9]{0,}){0,}$|^([0-9]{1,}){1,1}(-){1,1}([1-9]{1,1}[0-9]{0,}){1,1}$"
+                    },
+                    "statistics-is-avail": {
+                        "type": "boolean"
+                    },
+                    "performance-monitoring-is-avail": {
+                        "type": "boolean"
+                    }
                 }
-            },
-            "scheduler-profile": {
-                "type": "string"
-            },
-            "explicit-congestion-notification-is-on": {
-                "type": "boolean"
-            },
-            "ingress-policing-profile": {
-                "type": "string"
-            },
-            "egress-shaping-is-on": {
-                "type": "boolean"
-            },
-            "maximum-information-rate": {
-                "type": "integer"
-            },
-            "maximum-burst-size": {
-                "type": "integer"
-            },
-            "qos-profile": {
-                "type": "string"
-            },
-            "bundling-is-on": {
-                "type": "boolean"
-            },
-            "header-compression-kind": {
-                "type": "string"
-            },
-            "fec-is-on": {
-                "type": "boolean"
-            },
-            "fec-word-size": {
-                "type": "integer"
-            },
-            "fec-redundancy-size": {
-                "enum": [
-                    "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_2",
-                    "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_4",
-                    "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_8",
-                    "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_16",
-                    "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_20",
-                    "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_NOT_YET_DEFINED"
-                ]
-            },
-            "fec-interleaver-kind": {
-                "enum": [
-                    "ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_NONE",
-                    "ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_BLOCK",
-                    "ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_CONVOLUTION",
-                    "ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_NOT_YET_DEFINED"
-                ]
-            },
-            "fec-interleaver-depth": {
-                "enum": [
-                    "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_1",
-                    "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_2",
-                    "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_3",
-                    "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_4",
-                    "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_6",
-                    "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_8",
-                    "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_12",
-                    "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_16",
-                    "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_24",
-                    "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_32",
-                    "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_48",
-                    "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_96",
-                    "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_NOT_YET_DEFINED"
-                ]
-            },
-            "encryption-is-on": {
-                "type": "boolean"
-            },
-            "cryptographic-key": {
-                "type": "string"
-            },
-            "loop-back-kind-on": {
-                "enum": [
-                    "ethernet-container-2-0:LOOP_BACK_TYPE_NONE",
-                    "ethernet-container-2-0:LOOP_BACK_TYPE_BACK_TO_LOCAL",
-                    "ethernet-container-2-0:LOOP_BACK_TYPE_BACK_TO_REMOTE",
-                    "ethernet-container-2-0:LOOP_BACK_TYPE_NOT_YET_DEFINED"
-                ]
-            },
-            "maintenance-timer": {
-                "type": "integer"
-            },
-            "statistics-is-on": {
-                "type": "boolean"
-            },
-            "performance-monitoring-is-on": {
-                "type": "boolean"
             }
-        },
+        }
+    },
+    "ethernet-container-2-0:ethernet-container-configuration": {
+        "type": "object",
         "required": [
-            "interface-name",
-            "interface-is-on",
-            "queue-behavior-list",
-            "explicit-congestion-notification-is-on",
-            "egress-shaping-is-on",
-            "maximum-information-rate",
-            "maximum-burst-size",
-            "bundling-is-on",
-            "header-compression-kind",
-            "fec-is-on",
-            "fec-word-size",
-            "fec-redundancy-size",
-            "fec-interleaver-kind",
-            "fec-interleaver-depth",
-            "encryption-is-on",
-            "cryptographic-key",
-            "loop-back-kind-on",
-            "maintenance-timer",
-            "statistics-is-on",
-            "performance-monitoring-is-on"
-        ]
+            "ethernet-container-2-0:ethernet-container-configuration"
+        ],
+        "properties": {
+            "ethernet-container-2-0:ethernet-container-configuration": {
+                "type": "object",
+                "required": [
+                    "interface-name",
+                    "interface-is-on",
+                    "queue-behavior-list",
+                    "explicit-congestion-notification-is-on",
+                    "egress-shaping-is-on",
+                    "maximum-information-rate",
+                    "maximum-burst-size",
+                    "bundling-is-on",
+                    "header-compression-kind",
+                    "fec-is-on",
+                    "fec-word-size",
+                    "fec-redundancy-size",
+                    "fec-interleaver-kind",
+                    "fec-interleaver-depth",
+                    "encryption-is-on",
+                    "cryptographic-key",
+                    "loop-back-kind-on",
+                    "maintenance-timer",
+                    "statistics-is-on",
+                    "performance-monitoring-is-on"
+                ],
+                "properties": {
+                    "interface-name": {
+                        "type": "string"
+                    },
+                    "interface-is-on": {
+                        "type": "boolean"
+                    },
+                    "queue-behavior-list": {
+                        "type": "array",
+                        "minItems": 1,
+                        "maxItems": 8,
+                        "x-key": "queue-name",
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "queue-name",
+                                "queue-depth",
+                                "dropping-behavior-kind",
+                                "scheduler-kind",
+                                "weighting"
+                            ],
+                            "properties": {
+                                "queue-name": {
+                                    "type": "string",
+                                    "enum": [
+                                        "ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE",
+                                        "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1",
+                                        "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2",
+                                        "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3",
+                                        "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4",
+                                        "ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE",
+                                        "ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6",
+                                        "ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7",
+                                        "ethernet-container-2-0:QUEUE_NAME_TYPE_QUEUENAME_NOT_YET_DEFINED"
+                                    ]
+                                },
+                                "queue-depth": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                },
+                                "dropping-behavior-kind": {
+                                    "type": "string",
+                                    "enum": [
+                                        "ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_DROP_TAIL",
+                                        "ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_RED",
+                                        "ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_WRED",
+                                        "ethernet-container-2-0:DROPPING_BEHAVIOR_KIND_TYPE_NOT_YET_DEFINED"
+                                    ]
+                                },
+                                "wred-behavior-list": {
+                                    "type": "array",
+                                    "minItems": 0,
+                                    "x-key": "affected-drop-precedence affected-protocol",
+                                    "items": {
+                                        "type": "object",
+                                        "required": [
+                                            "affected-drop-precedence",
+                                            "affected-protocol",
+                                            "wred-profile"
+                                        ],
+                                        "properties": {
+                                            "affected-drop-precedence": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "ethernet-container-2-0:DROP_PRECEDENCE_TYPE_ALL",
+                                                    "ethernet-container-2-0:DROP_PRECEDENCE_TYPE_LOW",
+                                                    "ethernet-container-2-0:DROP_PRECEDENCE_TYPE_MEDIUM",
+                                                    "ethernet-container-2-0:DROP_PRECEDENCE_TYPE_HIGH",
+                                                    "ethernet-container-2-0:DROP_PRECEDENCE_TYPE_NOT_YET_DEFINED"
+                                                ]
+                                            },
+                                            "affected-protocol": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NONE",
+                                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_ETHERNET_MAC",
+                                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_VLAN",
+                                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_Q_IN_Q",
+                                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_MPLS",
+                                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_IPV4",
+                                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_IPV6",
+                                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_TCP",
+                                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_UDP",
+                                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_RTP",
+                                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_GTP_U",
+                                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_OTHERS",
+                                                    "ethernet-container-2-0:PROTOCOL_LAYER_TYPE_NOT_YET_DEFINED"
+                                                ]
+                                            },
+                                            "wred-profile": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                },
+                                "scheduler-kind": {
+                                    "type": "string",
+                                    "enum": [
+                                        "ethernet-container-2-0:SCHEDULER_KIND_TYPE_STRICT",
+                                        "ethernet-container-2-0:SCHEDULER_KIND_TYPE_WFQ",
+                                        "ethernet-container-2-0:SCHEDULER_KIND_TYPE_WRR",
+                                        "ethernet-container-2-0:SCHEDULER_KIND_TYPE_DWRR",
+                                        "ethernet-container-2-0:SCHEDULER_KIND_TYPE_NOT_YET_DEFINED"
+                                    ]
+                                },
+                                "weighting": {
+                                    "type": "integer",
+                                    "format": "int8"
+                                },
+                                "wred-template-profile": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "scheduler-profile": {
+                        "type": "string"
+                    },
+                    "explicit-congestion-notification-is-on": {
+                        "type": "boolean"
+                    },
+                    "ingress-policing-profile": {
+                        "type": "string"
+                    },
+                    "egress-shaping-is-on": {
+                        "type": "boolean"
+                    },
+                    "maximum-information-rate": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "maximum-burst-size": {
+                        "type": "integer",
+                        "format": "int16"
+                    },
+                    "qos-profile": {
+                        "type": "string"
+                    },
+                    "bundling-is-on": {
+                        "type": "boolean"
+                    },
+                    "header-compression-kind": {
+                        "type": "string"
+                    },
+                    "fec-is-on": {
+                        "type": "boolean"
+                    },
+                    "fec-word-size": {
+                        "type": "integer",
+                        "format": "int16"
+                    },
+                    "fec-redundancy-size": {
+                        "type": "string",
+                        "enum": [
+                            "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_2",
+                            "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_4",
+                            "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_8",
+                            "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_16",
+                            "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_20",
+                            "ethernet-container-2-0:FEC_REDUNDANCY_SIZE_TYPE_NOT_YET_DEFINED"
+                        ]
+                    },
+                    "fec-interleaver-kind": {
+                        "type": "string",
+                        "enum": [
+                            "ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_NONE",
+                            "ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_BLOCK",
+                            "ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_CONVOLUTION",
+                            "ethernet-container-2-0:FEC_INTERLEAVER_KIND_TYPE_NOT_YET_DEFINED"
+                        ]
+                    },
+                    "fec-interleaver-depth": {
+                        "type": "string",
+                        "enum": [
+                            "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_1",
+                            "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_2",
+                            "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_3",
+                            "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_4",
+                            "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_6",
+                            "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_8",
+                            "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_12",
+                            "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_16",
+                            "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_24",
+                            "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_32",
+                            "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_48",
+                            "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_96",
+                            "ethernet-container-2-0:FEC_INTERLEAVER_DEPTH_TYPE_NOT_YET_DEFINED"
+                        ]
+                    },
+                    "encryption-is-on": {
+                        "type": "boolean"
+                    },
+                    "cryptographic-key": {
+                        "type": "string"
+                    },
+                    "loop-back-kind-on": {
+                        "type": "string",
+                        "enum": [
+                            "ethernet-container-2-0:LOOP_BACK_TYPE_NONE",
+                            "ethernet-container-2-0:LOOP_BACK_TYPE_BACK_TO_LOCAL",
+                            "ethernet-container-2-0:LOOP_BACK_TYPE_BACK_TO_REMOTE",
+                            "ethernet-container-2-0:LOOP_BACK_TYPE_NOT_YET_DEFINED"
+                        ]
+                    },
+                    "maintenance-timer": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "statistics-is-on": {
+                        "type": "boolean"
+                    },
+                    "performance-monitoring-is-on": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        }
     },
     "ethernet-container-2-0:ethernet-container-status": {
         "type": "object",
-        "properties": {
-            "interface-status": {
-                "enum": [
-                    "ethernet-container-2-0:INTERFACE_STATUS_TYPE_UP",
-                    "ethernet-container-2-0:INTERFACE_STATUS_TYPE_DOWN",
-                    "ethernet-container-2-0:INTERFACE_STATUS_TYPE_TESTING",
-                    "ethernet-container-2-0:INTERFACE_STATUS_TYPE_UNKNOWN",
-                    "ethernet-container-2-0:INTERFACE_STATUS_TYPE_DORMANT",
-                    "ethernet-container-2-0:INTERFACE_STATUS_TYPE_NOT_PRESENT",
-                    "ethernet-container-2-0:INTERFACE_STATUS_TYPE_NOT_YET_DEFINED"
-                ]
-            },
-            "bundling-is-up": {
-                "type": "boolean"
-            },
-            "remote-site-is-faulty": {
-                "type": "boolean"
-            },
-            "loop-back-kind-up": {
-                "enum": [
-                    "ethernet-container-2-0:LOOP_BACK_TYPE_NONE",
-                    "ethernet-container-2-0:LOOP_BACK_TYPE_BACK_TO_LOCAL",
-                    "ethernet-container-2-0:LOOP_BACK_TYPE_BACK_TO_REMOTE",
-                    "ethernet-container-2-0:LOOP_BACK_TYPE_NOT_YET_DEFINED"
-                ]
-            },
-            "statistics-is-up": {
-                "type": "boolean"
-            },
-            "performance-monitoring-is-up": {
-                "type": "boolean"
-            },
-            "timestamp": {
-                "type": "string",
-                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$"
-            },
-            "last-10-sec-data-input-rate": {
-                "type": "integer"
-            },
-            "last-10-sec-data-output-rate": {
-                "type": "integer"
-            },
-            "total-bytes-input": {
-                "type": "string"
-            },
-            "total-bytes-output": {
-                "type": "string"
-            },
-            "frames-of-64-byte": {
-                "type": "string"
-            },
-            "frames-of-65-to-127-byte": {
-                "type": "string"
-            },
-            "frames-of-128-to-255-byte": {
-                "type": "string"
-            },
-            "frames-of-256-to-511-byte": {
-                "type": "string"
-            },
-            "frames-of-512-to-1023-byte": {
-                "type": "string"
-            },
-            "frames-of-1024-to-1518-byte": {
-                "type": "string"
-            },
-            "total-frames-input": {
-                "type": "string"
-            },
-            "total-frames-output": {
-                "type": "string"
-            },
-            "forwarded-frames-input": {
-                "type": "string"
-            },
-            "forwarded-frames-output": {
-                "type": "string"
-            },
-            "unicast-frames-input": {
-                "type": "string"
-            },
-            "unicast-frames-output": {
-                "type": "string"
-            },
-            "multicast-frames-input": {
-                "type": "integer"
-            },
-            "multicast-frames-output": {
-                "type": "integer"
-            },
-            "broadcast-frames-input": {
-                "type": "integer"
-            },
-            "broadcast-frames-output": {
-                "type": "integer"
-            },
-            "fragmented-frames-input": {
-                "type": "integer"
-            },
-            "errored-frames-input": {
-                "type": "integer"
-            },
-            "errored-frames-output": {
-                "type": "integer"
-            },
-            "dropped-frames-input": {
-                "type": "integer"
-            },
-            "dropped-frames-output": {
-                "type": "integer"
-            }
-        },
         "required": [
-            "interface-status",
-            "bundling-is-up",
-            "remote-site-is-faulty",
-            "loop-back-kind-up",
-            "statistics-is-up",
-            "performance-monitoring-is-up",
-            "timestamp",
-            "last-10-sec-data-input-rate",
-            "last-10-sec-data-output-rate",
-            "total-bytes-input",
-            "total-bytes-output",
-            "frames-of-64-byte",
-            "frames-of-65-to-127-byte",
-            "frames-of-128-to-255-byte",
-            "frames-of-256-to-511-byte",
-            "frames-of-512-to-1023-byte",
-            "frames-of-1024-to-1518-byte",
-            "total-frames-input",
-            "total-frames-output",
-            "forwarded-frames-input",
-            "forwarded-frames-output",
-            "unicast-frames-input",
-            "unicast-frames-output",
-            "multicast-frames-input",
-            "multicast-frames-output",
-            "broadcast-frames-input",
-            "broadcast-frames-output",
-            "fragmented-frames-input",
-            "errored-frames-input",
-            "errored-frames-output",
-            "dropped-frames-input",
-            "dropped-frames-output"
-        ]
+            "ethernet-container-2-0:ethernet-container-status"
+        ],
+        "properties": {
+            "ethernet-container-2-0:ethernet-container-status": {
+                "type": "object",
+                "required": [
+                    "interface-status",
+                    "bundling-is-up",
+                    "remote-site-is-faulty",
+                    "loop-back-kind-up",
+                    "statistics-is-up",
+                    "performance-monitoring-is-up",
+                    "timestamp",
+                    "last-10-sec-data-input-rate",
+                    "last-10-sec-data-output-rate",
+                    "total-bytes-input",
+                    "total-bytes-output",
+                    "frames-of-64-byte",
+                    "frames-of-65-to-127-byte",
+                    "frames-of-128-to-255-byte",
+                    "frames-of-256-to-511-byte",
+                    "frames-of-512-to-1023-byte",
+                    "frames-of-1024-to-1518-byte",
+                    "total-frames-input",
+                    "total-frames-output",
+                    "forwarded-frames-input",
+                    "forwarded-frames-output",
+                    "unicast-frames-input",
+                    "unicast-frames-output",
+                    "multicast-frames-input",
+                    "multicast-frames-output",
+                    "broadcast-frames-input",
+                    "broadcast-frames-output",
+                    "fragmented-frames-input",
+                    "errored-frames-input",
+                    "errored-frames-output",
+                    "dropped-frames-input",
+                    "dropped-frames-output"
+                ],
+                "properties": {
+                    "interface-status": {
+                        "type": "string",
+                        "enum": [
+                            "ethernet-container-2-0:INTERFACE_STATUS_TYPE_UP",
+                            "ethernet-container-2-0:INTERFACE_STATUS_TYPE_DOWN",
+                            "ethernet-container-2-0:INTERFACE_STATUS_TYPE_TESTING",
+                            "ethernet-container-2-0:INTERFACE_STATUS_TYPE_UNKNOWN",
+                            "ethernet-container-2-0:INTERFACE_STATUS_TYPE_DORMANT",
+                            "ethernet-container-2-0:INTERFACE_STATUS_TYPE_NOT_PRESENT",
+                            "ethernet-container-2-0:INTERFACE_STATUS_TYPE_NOT_YET_DEFINED"
+                        ]
+                    },
+                    "bundling-is-up": {
+                        "type": "boolean"
+                    },
+                    "remote-site-is-faulty": {
+                        "type": "boolean"
+                    },
+                    "loop-back-kind-up": {
+                        "type": "string",
+                        "enum": [
+                            "ethernet-container-2-0:LOOP_BACK_TYPE_NONE",
+                            "ethernet-container-2-0:LOOP_BACK_TYPE_BACK_TO_LOCAL",
+                            "ethernet-container-2-0:LOOP_BACK_TYPE_BACK_TO_REMOTE",
+                            "ethernet-container-2-0:LOOP_BACK_TYPE_NOT_YET_DEFINED"
+                        ]
+                    },
+                    "statistics-is-up": {
+                        "type": "boolean"
+                    },
+                    "performance-monitoring-is-up": {
+                        "type": "boolean"
+                    },
+                    "timestamp": {
+                        "type": "string",
+                        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$"
+                    },
+                    "last-10-sec-data-input-rate": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "last-10-sec-data-output-rate": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "total-bytes-input": {
+                        "type": "string"
+                    },
+                    "total-bytes-output": {
+                        "type": "string"
+                    },
+                    "frames-of-64-byte": {
+                        "type": "string"
+                    },
+                    "frames-of-65-to-127-byte": {
+                        "type": "string"
+                    },
+                    "frames-of-128-to-255-byte": {
+                        "type": "string"
+                    },
+                    "frames-of-256-to-511-byte": {
+                        "type": "string"
+                    },
+                    "frames-of-512-to-1023-byte": {
+                        "type": "string"
+                    },
+                    "frames-of-1024-to-1518-byte": {
+                        "type": "string"
+                    },
+                    "total-frames-input": {
+                        "type": "string"
+                    },
+                    "total-frames-output": {
+                        "type": "string"
+                    },
+                    "forwarded-frames-input": {
+                        "type": "string"
+                    },
+                    "forwarded-frames-output": {
+                        "type": "string"
+                    },
+                    "unicast-frames-input": {
+                        "type": "string"
+                    },
+                    "unicast-frames-output": {
+                        "type": "string"
+                    },
+                    "multicast-frames-input": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "multicast-frames-output": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "broadcast-frames-input": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "broadcast-frames-output": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "fragmented-frames-input": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "errored-frames-input": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "errored-frames-output": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "dropped-frames-input": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "dropped-frames-output": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            }
+        }
     },
     "ethernet-container-2-0:ethernet-container-current-performance": {
         "type": "object",
+        "required": [
+            "ethernet-container-2-0:ethernet-container-current-performance"
+        ],
         "properties": {
-            "number-of-current-performance-sets": {
-                "type": "integer"
-            },
-            "current-performance-data-list": {
-                "type": "array",
-                "minItems": 1,
-                "maxItems": 2,
-                "items": {
-                    "type": "object",
-                    "properties": {
-                        "timestamp": {
-                            "type": "string",
-                            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$"
-                        },
-                        "suspect-interval-flag": {
-                            "type": "boolean"
-                        },
-                        "elapsed-time": {
-                            "type": "string"
-                        },
-                        "scanner-id": {
-                            "type": "string"
-                        },
-                        "granularity-period": {
-                            "enum": [
-                                "ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_UNKNOWN",
-                                "ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-15-MIN",
-                                "ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-24-HOURS",
-                                "ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_NOT_YET_DEFINED"
-                            ]
-                        },
-                        "performance-data": {
+            "ethernet-container-2-0:ethernet-container-current-performance": {
+                "type": "object",
+                "required": [
+                    "current-performance-data-list",
+                    "number-of-current-performance-sets"
+                ],
+                "properties": {
+                    "number-of-current-performance-sets": {
+                        "type": "integer",
+                        "format": "int8"
+                    },
+                    "current-performance-data-list": {
+                        "type": "array",
+                        "minItems": 1,
+                        "maxItems": 2,
+                        "x-key": "granularity-period",
+                        "items": {
                             "type": "object",
+                            "required": [
+                                "timestamp",
+                                "suspect-interval-flag",
+                                "elapsed-time",
+                                "scanner-id",
+                                "granularity-period",
+                                "performance-data"
+                            ],
                             "properties": {
-                                "max-bytes-per-second-output": {
-                                    "type": "integer"
+                                "timestamp": {
+                                    "type": "string",
+                                    "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$"
                                 },
-                                "total-bytes-input": {
+                                "suspect-interval-flag": {
+                                    "type": "boolean"
+                                },
+                                "elapsed-time": {
                                     "type": "string"
                                 },
-                                "total-bytes-output": {
+                                "scanner-id": {
                                     "type": "string"
                                 },
-                                "queue-utilization-list": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "object",
-                                        "properties": {
-                                            "queue-name": {
-                                                "enum": [
-                                                    "ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE",
-                                                    "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1",
-                                                    "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2",
-                                                    "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3",
-                                                    "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4",
-                                                    "ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE",
-                                                    "ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6",
-                                                    "ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7",
-                                                    "ethernet-container-2-0:QUEUE_NAME_TYPE_QUEUENAME_NOT_YET_DEFINED"
-                                                ]
-                                            },
-                                            "max-queue-length": {
-                                                "type": "integer"
-                                            },
-                                            "avg-queue-length": {
-                                                "type": "integer"
+                                "granularity-period": {
+                                    "type": "string",
+                                    "enum": [
+                                        "ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_UNKNOWN",
+                                        "ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-15-MIN",
+                                        "ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-24-HOURS",
+                                        "ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_NOT_YET_DEFINED"
+                                    ]
+                                },
+                                "performance-data": {
+                                    "type": "object",
+                                    "required": [
+                                        "max-bytes-per-second-output",
+                                        "total-bytes-input",
+                                        "total-bytes-output",
+                                        "time-period",
+                                        "total-frames-input",
+                                        "total-frames-output",
+                                        "forwarded-frames-input",
+                                        "forwarded-frames-output",
+                                        "unicast-frames-input",
+                                        "unicast-frames-output",
+                                        "multicast-frames-input",
+                                        "multicast-frames-output",
+                                        "broadcast-frames-input",
+                                        "broadcast-frames-output",
+                                        "fragmented-frames-input",
+                                        "errored-frames-input",
+                                        "errored-frames-output",
+                                        "dropped-frames-input",
+                                        "dropped-frames-output",
+                                        "oversized-frames-ingress",
+                                        "undersized-frames-ingress",
+                                        "jabber-frames-ingress"
+                                    ],
+                                    "properties": {
+                                        "max-bytes-per-second-output": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "total-bytes-input": {
+                                            "type": "string"
+                                        },
+                                        "total-bytes-output": {
+                                            "type": "string"
+                                        },
+                                        "queue-utilization-list": {
+                                            "type": "array",
+                                            "minItems": 0,
+                                            "maxItems": 8,
+                                            "x-key": "queue-name",
+                                            "items": {
+                                                "type": "object",
+                                                "required": [
+                                                    "queue-name",
+                                                    "max-queue-length",
+                                                    "avg-queue-length"
+                                                ],
+                                                "properties": {
+                                                    "queue-name": {
+                                                        "type": "string",
+                                                        "enum": [
+                                                            "ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE",
+                                                            "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1",
+                                                            "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2",
+                                                            "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3",
+                                                            "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4",
+                                                            "ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE",
+                                                            "ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6",
+                                                            "ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7",
+                                                            "ethernet-container-2-0:QUEUE_NAME_TYPE_QUEUENAME_NOT_YET_DEFINED"
+                                                        ]
+                                                    },
+                                                    "max-queue-length": {
+                                                        "type": "integer",
+                                                        "format": "int32"
+                                                    },
+                                                    "avg-queue-length": {
+                                                        "type": "integer",
+                                                        "format": "int32"
+                                                    }
+                                                }
                                             }
                                         },
-                                        "required": [
-                                            "queue-name",
-                                            "max-queue-length",
-                                            "avg-queue-length"
-                                        ]
+                                        "time-period": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "total-frames-input": {
+                                            "type": "string"
+                                        },
+                                        "total-frames-output": {
+                                            "type": "string"
+                                        },
+                                        "forwarded-frames-input": {
+                                            "type": "string"
+                                        },
+                                        "forwarded-frames-output": {
+                                            "type": "string"
+                                        },
+                                        "unicast-frames-input": {
+                                            "type": "string"
+                                        },
+                                        "unicast-frames-output": {
+                                            "type": "string"
+                                        },
+                                        "multicast-frames-input": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "multicast-frames-output": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "broadcast-frames-input": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "broadcast-frames-output": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "fragmented-frames-input": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "errored-frames-input": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "errored-frames-output": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "dropped-frames-input": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "dropped-frames-output": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "oversized-frames-ingress": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "undersized-frames-ingress": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "jabber-frames-ingress": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "unknown-protocol-frames-input": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        }
                                     }
-                                },
-                                "time-period": {
-                                    "type": "integer"
-                                },
-                                "total-frames-input": {
-                                    "type": "string"
-                                },
-                                "total-frames-output": {
-                                    "type": "string"
-                                },
-                                "forwarded-frames-input": {
-                                    "type": "string"
-                                },
-                                "forwarded-frames-output": {
-                                    "type": "string"
-                                },
-                                "unicast-frames-input": {
-                                    "type": "string"
-                                },
-                                "unicast-frames-output": {
-                                    "type": "string"
-                                },
-                                "multicast-frames-input": {
-                                    "type": "integer"
-                                },
-                                "multicast-frames-output": {
-                                    "type": "integer"
-                                },
-                                "broadcast-frames-input": {
-                                    "type": "integer"
-                                },
-                                "broadcast-frames-output": {
-                                    "type": "integer"
-                                },
-                                "fragmented-frames-input": {
-                                    "type": "integer"
-                                },
-                                "errored-frames-input": {
-                                    "type": "integer"
-                                },
-                                "errored-frames-output": {
-                                    "type": "integer"
-                                },
-                                "dropped-frames-input": {
-                                    "type": "integer"
-                                },
-                                "dropped-frames-output": {
-                                    "type": "integer"
-                                },
-                                "oversized-frames-ingress": {
-                                    "type": "integer"
-                                },
-                                "undersized-frames-ingress": {
-                                    "type": "integer"
-                                },
-                                "jabber-frames-ingress": {
-                                    "type": "integer"
-                                },
-                                "unknown-protocol-frames-input": {
-                                    "type": "integer"
                                 }
-                            },
-                            "required": [
-                                "max-bytes-per-second-output",
-                                "total-bytes-input",
-                                "total-bytes-output",
-                                "queue-utilization-list",
-                                "time-period",
-                                "total-frames-input",
-                                "total-frames-output",
-                                "forwarded-frames-input",
-                                "forwarded-frames-output",
-                                "unicast-frames-input",
-                                "unicast-frames-output",
-                                "multicast-frames-input",
-                                "multicast-frames-output",
-                                "broadcast-frames-input",
-                                "broadcast-frames-output",
-                                "fragmented-frames-input",
-                                "errored-frames-input",
-                                "errored-frames-output",
-                                "dropped-frames-input",
-                                "dropped-frames-output",
-                                "oversized-frames-ingress",
-                                "undersized-frames-ingress",
-                                "jabber-frames-ingress",
-                                "unknown-protocol-frames-input"
-                            ]
+                            }
                         }
-                    },
-                    "required": [
-                        "timestamp",
-                        "suspect-interval-flag",
-                        "elapsed-time",
-                        "scanner-id",
-                        "granularity-period",
-                        "performance-data"
-                    ]
+                    }
                 }
             }
-        },
-        "required": [
-            "current-performance-data-list",
-            "number-of-current-performance-sets"
-        ]
+        }
     },
     "ethernet-container-2-0:ethernet-container-historical-performances": {
         "type": "object",
+        "required": [
+            "ethernet-container-2-0:ethernet-container-historical-performances"
+        ],
         "properties": {
-            "number-of-historical-performance-sets": {
-                "type": "integer"
-            },
-            "time-of-latest-change": {
-                "type": "string",
-                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$"
-            },
-            "historical-performance-data-list": {
-                "type": "array",
-                "items": {
-                    "type": "object",
-                    "properties": {
-                        "suspect-interval-flag": {
-                            "type": "boolean"
-                        },
-                        "history-data-id": {
-                            "type": "string"
-                        },
-                        "granularity-period": {
-                            "enum": [
-                                "ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_UNKNOWN",
-                                "ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-15-MIN",
-                                "ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-24-HOURS",
-                                "ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_NOT_YET_DEFINED"
-                            ]
-                        },
-                        "period-end-time": {
-                            "type": "string",
-                            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$"
-                        },
-                        "performance-data": {
+            "ethernet-container-2-0:ethernet-container-historical-performances": {
+                "type": "object",
+                "required": [
+                    "number-of-historical-performance-sets",
+                    "time-of-latest-change"
+                ],
+                "properties": {
+                    "number-of-historical-performance-sets": {
+                        "type": "integer",
+                        "format": "int16"
+                    },
+                    "time-of-latest-change": {
+                        "type": "string",
+                        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$"
+                    },
+                    "historical-performance-data-list": {
+                        "type": "array",
+                        "minItems": 0,
+                        "x-key": "granularity-period period-end-time",
+                        "items": {
                             "type": "object",
+                            "required": [
+                                "performance-data",
+                                "suspect-interval-flag",
+                                "history-data-id",
+                                "granularity-period",
+                                "period-end-time"
+                            ],
                             "properties": {
-                                "max-bytes-per-second-output": {
-                                    "type": "integer"
+                                "suspect-interval-flag": {
+                                    "type": "boolean"
                                 },
-                                "total-bytes-input": {
+                                "history-data-id": {
                                     "type": "string"
                                 },
-                                "total-bytes-output": {
-                                    "type": "string"
+                                "granularity-period": {
+                                    "type": "string",
+                                    "enum": [
+                                        "ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_UNKNOWN",
+                                        "ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-15-MIN",
+                                        "ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_PERIOD-24-HOURS",
+                                        "ethernet-container-2-0:GRANULARITY_PERIOD_TYPE_NOT_YET_DEFINED"
+                                    ]
                                 },
-                                "queue-utilization-list": {
-                                    "type": "array",
-                                    "maxItems": 8,
-                                    "items": {
-                                        "type": "object",
-                                        "properties": {
-                                            "queue-name": {
-                                                "enum": [
-                                                    "ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE",
-                                                    "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1",
-                                                    "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2",
-                                                    "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3",
-                                                    "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4",
-                                                    "ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE",
-                                                    "ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6",
-                                                    "ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7",
-                                                    "ethernet-container-2-0:QUEUE_NAME_TYPE_QUEUENAME_NOT_YET_DEFINED"
-                                                ]
-                                            },
-                                            "max-queue-length": {
-                                                "type": "integer"
-                                            },
-                                            "avg-queue-length": {
-                                                "type": "integer"
+                                "period-end-time": {
+                                    "type": "string",
+                                    "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$"
+                                },
+                                "performance-data": {
+                                    "type": "object",
+                                    "required": [
+                                        "max-bytes-per-second-output",
+                                        "total-bytes-input",
+                                        "total-bytes-output",
+                                        "time-period",
+                                        "total-frames-input",
+                                        "total-frames-output",
+                                        "forwarded-frames-input",
+                                        "forwarded-frames-output",
+                                        "unicast-frames-input",
+                                        "unicast-frames-output",
+                                        "multicast-frames-input",
+                                        "multicast-frames-output",
+                                        "broadcast-frames-input",
+                                        "broadcast-frames-output",
+                                        "fragmented-frames-input",
+                                        "errored-frames-input",
+                                        "errored-frames-output",
+                                        "dropped-frames-input",
+                                        "dropped-frames-output",
+                                        "oversized-frames-ingress",
+                                        "undersized-frames-ingress",
+                                        "jabber-frames-ingress",
+                                        "unknown-protocol-frames-input"
+                                    ],
+                                    "properties": {
+                                        "max-bytes-per-second-output": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "total-bytes-input": {
+                                            "type": "string"
+                                        },
+                                        "total-bytes-output": {
+                                            "type": "string"
+                                        },
+                                        "queue-utilization-list": {
+                                            "type": "array",
+                                            "maxItems": 8,
+                                            "x-key": "queue-name",
+                                            "items": {
+                                                "type": "object",
+                                                "required": [
+                                                    "queue-name",
+                                                    "max-queue-length",
+                                                    "avg-queue-length"
+                                                ],
+                                                "properties": {
+                                                    "queue-name": {
+                                                        "type": "string",
+                                                        "enum": [
+                                                            "ethernet-container-2-0:QUEUE_NAME_TYPE_BEST_EFFORT_QUEUE",
+                                                            "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE1",
+                                                            "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE2",
+                                                            "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE3",
+                                                            "ethernet-container-2-0:QUEUE_NAME_TYPE_ASSURED_FORWARDING_QUEUE4",
+                                                            "ethernet-container-2-0:QUEUE_NAME_TYPE_EXPEDITED_FORWARDING_QUEUE",
+                                                            "ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE6",
+                                                            "ethernet-container-2-0:QUEUE_NAME_TYPE_CLASS_SELECTOR_QUEUE7",
+                                                            "ethernet-container-2-0:QUEUE_NAME_TYPE_QUEUENAME_NOT_YET_DEFINED"
+                                                        ]
+                                                    },
+                                                    "max-queue-length": {
+                                                        "type": "integer",
+                                                        "format": "int32"
+                                                    },
+                                                    "avg-queue-length": {
+                                                        "type": "integer",
+                                                        "format": "int32"
+                                                    }
+                                                }
                                             }
                                         },
-                                        "required": [
-                                            "queue-name",
-                                            "max-queue-length",
-                                            "avg-queue-length"
-                                        ]
+                                        "time-period": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "total-frames-input": {
+                                            "type": "string"
+                                        },
+                                        "total-frames-output": {
+                                            "type": "string"
+                                        },
+                                        "forwarded-frames-input": {
+                                            "type": "string"
+                                        },
+                                        "forwarded-frames-output": {
+                                            "type": "string"
+                                        },
+                                        "unicast-frames-input": {
+                                            "type": "string"
+                                        },
+                                        "unicast-frames-output": {
+                                            "type": "string"
+                                        },
+                                        "multicast-frames-input": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "multicast-frames-output": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "broadcast-frames-input": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "broadcast-frames-output": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "fragmented-frames-input": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "errored-frames-input": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "errored-frames-output": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "dropped-frames-input": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "dropped-frames-output": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "oversized-frames-ingress": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "undersized-frames-ingress": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "jabber-frames-ingress": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "unknown-protocol-frames-input": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        }
                                     }
-                                },
-                                "time-period": {
-                                    "type": "integer"
-                                },
-                                "total-frames-input": {
-                                    "type": "string"
-                                },
-                                "total-frames-output": {
-                                    "type": "string"
-                                },
-                                "forwarded-frames-input": {
-                                    "type": "string"
-                                },
-                                "forwarded-frames-output": {
-                                    "type": "string"
-                                },
-                                "unicast-frames-input": {
-                                    "type": "string"
-                                },
-                                "unicast-frames-output": {
-                                    "type": "string"
-                                },
-                                "multicast-frames-input": {
-                                    "type": "integer"
-                                },
-                                "multicast-frames-output": {
-                                    "type": "integer"
-                                },
-                                "broadcast-frames-input": {
-                                    "type": "integer"
-                                },
-                                "broadcast-frames-output": {
-                                    "type": "integer"
-                                },
-                                "fragmented-frames-input": {
-                                    "type": "integer"
-                                },
-                                "errored-frames-input": {
-                                    "type": "integer"
-                                },
-                                "errored-frames-output": {
-                                    "type": "integer"
-                                },
-                                "dropped-frames-input": {
-                                    "type": "integer"
-                                },
-                                "dropped-frames-output": {
-                                    "type": "integer"
-                                },
-                                "oversized-frames-ingress": {
-                                    "type": "integer"
-                                },
-                                "undersized-frames-ingress": {
-                                    "type": "integer"
-                                },
-                                "jabber-frames-ingress": {
-                                    "type": "integer"
-                                },
-                                "unknown-protocol-frames-input": {
-                                    "type": "integer"
                                 }
-                            },
-                            "required": [
-                                "max-bytes-per-second-output",
-                                "total-bytes-input",
-                                "total-bytes-output",
-                                "time-period",
-                                "total-frames-input",
-                                "total-frames-output",
-                                "forwarded-frames-input",
-                                "forwarded-frames-output",
-                                "unicast-frames-input",
-                                "unicast-frames-output",
-                                "multicast-frames-input",
-                                "multicast-frames-output",
-                                "broadcast-frames-input",
-                                "broadcast-frames-output",
-                                "fragmented-frames-input",
-                                "errored-frames-input",
-                                "errored-frames-output",
-                                "dropped-frames-input",
-                                "dropped-frames-output",
-                                "oversized-frames-ingress",
-                                "undersized-frames-ingress",
-                                "jabber-frames-ingress",
-                                "unknown-protocol-frames-input"
-                            ]
+                            }
                         }
-                    },
-                    "required": [
-                        "performance-data",
-                        "suspect-interval-flag",
-                        "history-data-id",
-                        "granularity-period",
-                        "period-end-time"
-                    ]
+                    }
                 }
             }
-        },
-        "required": [
-            "number-of-historical-performance-sets",
-            "time-of-latest-change"
-        ]
+        }
     }
 }
