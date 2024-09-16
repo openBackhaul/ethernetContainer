@@ -1,0 +1,81 @@
+@startuml EC_2.0.0-tsi.240104.1040+diagram.completeness
+skinparam responseMessageBelowArrow true
+
+title
+EC_2.0.0-tsi.240104.1040+testcase.completeness
+end title
+
+participant "Postman" as Postman
+participant "Data" as Data
+participant "Collection" as Collection
+
+participant "/control-construct?fields=..." as ListOfLTPUuidAndLidPairsAndNames
+
+participant "/ethernet-container-capability" as Capability
+participant "/ethernet-container-configuration" as Configuration
+participant "/ethernet-container-status" as Status
+participant "/ethernet-container-current-performance" as CurrentPerformance
+participant "/ethernet-container-historical-performances" as HistoricalPerformances
+
+group Preparation
+  Data --\\o Postman : {servers,\n   mountName,\n   kindOfReference,\n   suffixUrlEncodingIsRequired}
+  activate Postman
+  Postman --\\o Collection : {servers,\n   mountName,\n   kindOfReference,\n   suffixUrlEncodingIsRequired}
+
+  Collection --\\o Postman : {servers, mountName}
+  Postman -> ListOfLTPUuidAndLidPairsAndNames : {mountName}
+  Postman <-- ListOfLTPUuidAndLidPairsAndNames : {(uuid, localId, layerProtocolName)}
+  note right Postman
+    selection of EthernetContainer
+  end note
+  Postman --\\o Collection : {uuid, localId}
+end
+
+group /ethernet-container-capability
+  Collection --\\o Postman : {mountName, uuid, localId}
+  Postman -> Capability : {mountName, uuid, localId}
+  Postman <-- Capability : {CapabilityClass}
+  note right Postman
+    schema validation
+  end note
+end
+
+group /ethernet-container-configuration
+  Collection --\\o Postman : {mountName, uuid, localId}
+  Postman -> Configuration : {mountName, uuid, localId}
+  Postman <-- Configuration : {ConfigurationClass}
+  note right Postman
+    schema validation
+  end note
+end
+
+group /ethernet-container-status
+  Collection --\\o Postman : {mountName, uuid, localId}
+  Postman -> Status : {mountName, uuid, localId}
+  Postman <-- Status : {StatusClass}
+  note right Postman
+    schema validation
+  end note
+end
+
+group /ethernet-container-current-performance
+  Collection --\\o Postman : {mountName, uuid, localId}
+  Postman -> CurrentPerformance : {mountName, uuid, localId}
+  Postman <-- CurrentPerformance : {CurrentPerformanceClass}
+  note right Postman
+    schema validation
+  end note
+end
+
+group /ethernet-container-historical-performances
+  Collection --\\o Postman : {mountName, uuid, localId}
+  Postman -> HistoricalPerformances : {mountName, uuid, localId}
+  Postman <-- HistoricalPerformances : {HistoricalPerformancesClass}
+  note right Postman
+    schema validation
+  end note
+end
+
+deactivate Postman
+
+@enduml
