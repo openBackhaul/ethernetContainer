@@ -17,6 +17,7 @@ paths:
       - $ref: '#/components/parameters/customer-journey'
       - $ref: '#/components/parameters/mountName'
       - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/localId'
       - $ref: '#/components/parameters/fields'
     get:
       operationId: getCachedEthernetContainerCapability
@@ -113,6 +114,7 @@ paths:
       - $ref: '#/components/parameters/customer-journey'
       - $ref: '#/components/parameters/mountName'
       - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/localId'
       - $ref: '#/components/parameters/fields'
     get:
       operationId: getCachedEthernetContainerConfiguration
@@ -192,6 +194,7 @@ paths:
       - $ref: '#/components/parameters/customer-journey'
       - $ref: '#/components/parameters/mountName'
       - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/localId'
       - $ref: '#/components/parameters/fields'
     get:
       operationId: getCachedEthernetContainerStatus
@@ -270,6 +273,7 @@ paths:
       - $ref: '#/components/parameters/customer-journey'
       - $ref: '#/components/parameters/mountName'
       - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/localId'
       - $ref: '#/components/parameters/fields'
     get:
       operationId: getCachedEthernetContainerCurrentPerformance
@@ -351,6 +355,7 @@ paths:
       - $ref: '#/components/parameters/customer-journey'
       - $ref: '#/components/parameters/mountName'
       - $ref: '#/components/parameters/uuid'
+      - $ref: '#/components/parameters/localId'
       - $ref: '#/components/parameters/fields'
     get:
       operationId: getCachedEthernetContainerHistoricalPerformances
