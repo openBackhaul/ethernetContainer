@@ -29,7 +29,7 @@
 - [EthernetContainer_2.0.0-tsi.240104.1040+validator](./EthernetContainer_2.0.0-tsi.240104.1040+vali/)  
 
 ### Publication  
-- Candidate for ONF TR-532 v2.0  
+- Published as a part of ONF TR-532 v2.0  
 
 ### Aspired Model Classification  
 - Live Network  
