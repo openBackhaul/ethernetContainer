@@ -2,7 +2,7 @@
 - Technology specific interface definition for an Ethernet container  
 
 ### Branch  
-- 2.0.0-tsi.d.t : Model for the Transport SDN Introduction at Telefonica Germany  
+- 2.0.0-tsi.d.t : Model for the Transport SDN at Telefonica Germany  
 
 ### UML  
 - [EthernetContainer_2.0.0-tsi.240104.1040](./EthernetContainer_2.0.0-tsi.240104.1040.zip)  
